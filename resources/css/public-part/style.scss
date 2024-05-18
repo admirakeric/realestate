@@ -1,6 +1,17 @@
 /* Import layout style */
+
+body{
+    font-family: Roboto, sans-serif;
+    padding: 0;
+    margin: 0;
+}
+ @import "core/constants";
+
 @import "layout/menu";
 @import "layout/footer";
+@import "layout/header";
+@import "core/filters";
+
 
 
 /* Import homepage stylesheet */
