@@ -1,0 +1,13 @@
+.breadcrumbs_wrapper{
+    position: relative; position: relative; width: 100%; padding-bottom: 10px; background: #F7F8F9;
+
+    .breadcrumbs_inner{
+        position: relative; left: calc(50% - $container-half); width: $container-width; display: flex; gap: 16px; align-items: center; padding: 8px 0px;
+        a{
+            display: flex; margin: 0px; color: grey; gap: 8px; text-decoration: none; font-weight: lighter; font-size: 15px;
+            .fa-home, .fa-city{
+                margin-top: 1px;
+            }
+        }
+    }
+}
