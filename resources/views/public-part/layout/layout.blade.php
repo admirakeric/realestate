@@ -28,13 +28,8 @@
     </head>
 
     <body>
-
         <!-- Include header -->
         @include('public-part.layout.includes.header')
-        <!-- Include menu -->
-        @include('public-part.layout.includes.menu')
-        <!-- Include filters -->
-        @include('public-part.layout.includes.filters')
 
         @yield('content')
 
