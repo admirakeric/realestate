@@ -2,11 +2,10 @@
     <div class="inner_wrapper_widget">
         <div class="widget_headings">
             <h1>
-                {{ __('Dobrodošli') }}
+                {{ __('Euro-Plac d.o.o - Dobrodošli') }}
             </h1>
             <p>
-                {{ __('Lorem ipsum dolor sit amet, consectetur adipiscing') }}
-
+                {{ __('Lorem ipsum dolor sit amet, consectetur adipiscing Lorem ipsum dolor sit amet, consectetur adipiscing') }}
             </p>
         </div>
         <div class="widget_wrap_info">

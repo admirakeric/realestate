@@ -4,6 +4,13 @@
     //background-color: skyblue;
     height: auto;
     padding: 10px 0px;
+    z-index: 1000;
+    background: #F7F8F9;
+
+    &.sticky {
+        position: sticky;
+        top: 0;
+    }
 
     .search__container, .advanced__filters {
         position: relative; left: calc(50% - $container-half); top: 0px;
@@ -19,7 +26,7 @@
                 width: 40px; height: 40px; display: flex; justify-content: center; align-items: center;
             }
             input{
-                width: calc(100% - 40px); border: none; outline: none;
+                width: calc(100% - 40px); border: none; outline: none; background: #F7F8F9;
             }
         }
 
@@ -34,6 +41,7 @@
                 text-indent: 1px;
                 text-overflow: '';
                 border: none; outline: none;
+                background: #F7F8F9;
             }
             input{
                 width: 100%; padding-left: 16px; border: none; outline: none; background: none;
@@ -64,8 +72,8 @@
                 }
             }
             .advanced_btn:hover{
-                background: #01C0CF; color: #ffffff; cursor: pointer;
-                i{color: #ffffff;}
+                background: #01C0CF; color: #F7F8F9; cursor: pointer;
+                i{color: #F7F8F9;}
             }
 
             .search_btn{
@@ -73,7 +81,7 @@
                 display: flex; justify-content: center; align-items: center;
                 border-bottom-right-radius: 8px; border-top-right-radius: 8px;
                 i{
-                    font-size: 18px; color: #ffffff;
+                    font-size: 18px; color: #F7F8F9;
                 }
             }
         }
@@ -131,10 +139,11 @@
     }
 
     .advanced__filters{
-        border: none; border-radius: 0px; gap: 16px; height: 0px; overflow: hidden;
+        border: none; border-radius: 0px; gap: 16px; height: 0px; overflow: hidden; transition: 0.2s all;
 
         .dropdown_w, .input_w{
             border:1px solid rgba(0,0,0,0.2); border-radius: 8px;
+            select{background: none;}
         }
     }
     .__af_visible{ height: auto; margin-top: 10px; }

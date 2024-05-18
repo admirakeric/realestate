@@ -24,7 +24,7 @@
         <!-- Fontawesome -->
         <script src="https://kit.fontawesome.com/c9eb5cb32a.js" crossorigin="anonymous"></script>
         <!-- Include style.scss -->
-        @vite(['resources/css/public-part/style.scss'])
+        @vite(['resources/css/public-part/style.scss', 'resources/js/app.js'])
     </head>
 
     <body>

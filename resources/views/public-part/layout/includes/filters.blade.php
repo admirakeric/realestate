@@ -1,4 +1,4 @@
-<section class="desktop-content-search">
+<section class="desktop-content-search sticky">
     <div class="search__container">
         <div class="title__w">
             <div class="icon_w">
@@ -73,10 +73,10 @@
             </div>
         </div>
         <div class="input_w">
-            <input type="text" id="area_from" name="area_from" placeholder="{{ __('Površina od') }}">
+            <input type="number" id="area_from" name="area_from" placeholder="{{ __('Površina od') }}" min="0" max="1000000" step="1">
         </div>
         <div class="input_w">
-            <input type="text" id="area_to" name="area_to" placeholder="{{ __('Površina do') }}">
+            <input type="number" id="area_to" name="area_to" placeholder="{{ __('Površina do') }}" min="0" max="1000000" step="1">
         </div>
         <div class="input_w">
             <input type="text" id="id" name="id" placeholder="{{ __('ID nekretnine') }}">

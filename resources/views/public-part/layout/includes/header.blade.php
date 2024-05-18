@@ -2,7 +2,9 @@
     <div class="inner_wrapper">
         <div class="main_header">
             <div class="company-logo">
-                <img src="{{ asset('files/images/default/logo.png') }}" alt="">
+                <a href="{{ route('public-part.home') }}">
+                    <img src="{{ asset('files/images/default/logo.png') }}" alt="">
+                </a>
             </div>
             <div class="main_header_right">
                 <div class="other-header-info">

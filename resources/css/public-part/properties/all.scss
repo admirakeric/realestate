@@ -1,0 +1,117 @@
+.properties__wrapper{
+    position: relative; width: 100%; min-height: 2000px; background: #F7F8F9;
+
+    .properties__inner_w{
+        position: relative; left: calc(50% - $container-half); width: $container-width; min-height: 120px; gap: 32px;
+        display: flex; justify-content: space-between;
+
+        .all_properties{
+            width: calc(100% - 374px); display: flex; flex-wrap: wrap; gap: 32px; justify-content: space-between;
+            .single_estate{
+                width: calc(50% - 16px); min-height: 480px; background: #ffffff; border-radius: 3px; overflow: hidden;
+                .image_wrapper{
+                    position: relative; width: 100%; height: 320px; overflow: hidden;
+                    img{
+                        object-fit: cover; width: 100%;
+                    }
+
+                    .image_cover{
+                        position: absolute; left: 0px; top: 0px; width: 100%; height: 100%;  z-index: 50; transition: 0.5s all;
+                        background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, .75) 100%);
+
+                        .top_buttons{
+                            position: absolute; left: 24px; top: 24px; width: calc(100% - 48px); height: 20px;
+                            display: flex; justify-content: space-between;
+                            .top_buttons_w{
+                                display: flex; gap: 16px;
+                                button{
+                                    border: none; color: #ffffff; font-size: 10px; padding: 5px 10px; border-radius: 3px;
+                                }
+                                .green_btn{ background: #77C720; }
+                                .black_btn{ background: #333333; }
+                                .red_btn{ background: #DD3333; }
+                            }
+                            .top_left_buttons{
+
+                            }
+                            .top_right_buttons{
+
+                            }
+                        }
+                        .bottom_buttons{
+                            position: absolute; left: 24px; bottom: 24px; width: calc(100% - 48px); height: 80px;
+                            display: flex; align-items: flex-end; justify-content: space-between;
+
+                            .bottom_buttons_w{
+                                display: flex; flex-wrap: wrap; width: 50%; align-items: flex-end; justify-content: flex-end;
+                                h4{
+                                    font-size: 22px; margin: 0px; width: 100%; color: #ffffff; margin-bottom: 0px;
+                                }
+                                p{
+                                    color: #ffffff; margin-top: 0px; font-size: 14px;
+                                }
+
+                                .icon_w{
+                                    width: 30px; height: 30px; background: rgba(0,0,0,0.5); border-radius: 3px; display: inline-flex;
+                                    justify-content: center; align-items: center; margin-left: 8px;
+                                    i{
+                                        color: #ffffff; font-size: 12px;
+                                    }
+                                }
+                            }
+                            .bottom_buttons_w_left{
+                                align-items: flex-start; justify-content: flex-start;
+                            }
+                        }
+                    }
+                    .image_cover:hover{
+                        background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, .4) 100%);
+                    }
+                }
+
+                .text_wrapper{
+                    position: relative; display: flex; justify-content: space-between; flex-wrap: wrap;
+                    left: 24px; margin-top: 24px; width: calc(100% - 48px); margin-bottom: 24px;
+                    .main_text_w{
+                        width: 100%;
+                        h4, p{margin: 0px}
+                        h4{
+                            font-size: 24px;
+                        }
+                        p{
+                            font-size: 14px; margin-top: 8px;
+                        }
+                    }
+                    .text_icons{
+                        display: flex; justify-content: flex-start; gap: 8px; height: 50px; margin-top: 24px;
+                        .text_icons_icon{
+                            height: 50px; border-right: 1px solid rgba(0,0,0,0.1); padding-right: 8px; position: relative;
+                            .text_ii_w{
+                                width: 100%; display: flex; justify-content: flex-start; height: 30px; gap: 8px;
+                                p{
+                                    font-size: 20px;
+                                }
+                                img{
+                                    height: 20px;
+                                }
+                            }
+                            .text_it_w{
+                                width: 100%; position: relative; bottom: 0px; height: 20px; display: flex; align-items: flex-end;
+                                p{
+                                    margin: 0px; font-size: 12px; color: grey;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .single_estate:hover{
+                cursor: pointer;
+            }
+        }
+        .right_side{
+            position: relative; width: 350px;
+        }
+    }
+}
+@import "single";
