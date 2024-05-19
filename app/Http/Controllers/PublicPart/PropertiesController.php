@@ -12,4 +12,7 @@ class PropertiesController extends Controller{
     public function index(): View{
         return view($this->_path . 'index');
     }
+    public function preview($slug): View{
+        return view($this->_path . 'preview');
+    }
 }

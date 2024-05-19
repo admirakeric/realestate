@@ -116,10 +116,10 @@ header {
     }
     @media only screen and (max-width: 1000px){
         .inner_wrapper{
-            left: 40px; width: calc(100% - 80px);
+            left: 0px; width: calc(100% - 0px);
 
             .main_header{
-                width: 100%;
+                left: 40px; width: calc(100% - 80px);
                 .company-logo{
                     display: none;
                 }
@@ -190,7 +190,7 @@ header {
                             .li_menu_submenu {
                                 position: absolute;
                                 top: 60px;
-                                background-color: red;
+                                background: rgb(1, 192, 207);
                                 margin-left: -16px;
                                 padding: 0px 16px;
                                 height: 0px;
@@ -199,18 +199,28 @@ header {
 
                                 .li_m_s_w {
                                     padding: 8px 0px;
+                                    a{
+                                        color: #ffffff; text-decoration: none;
+                                    }
+                                }
+                                .li_m_s_w:hover{
+                                    a{
+                                        color: #b9eff6;
+                                    }
                                 }
                             }
                         }
                         .li_menu:last-child {
                             border-right: 1px solid rgba(255, 255, 255, 0.3);
                         }
-                        .li_menu:hover {
+                        .li_menu:hover, .li_menu:active {
                             .menu {
                                 color: #b9eff6;
                             }
                             .li_menu_submenu {
                                 height: auto;
+                                padding: 16px 16px;
+
                             }
                         }
                     }
@@ -297,9 +307,31 @@ header {
                                 border-left: none; border-right: none;
                                 border-bottom: 1px solid #BFC7D5;
                                 padding: 0px;
+                                min-height: 60px; height: auto;
+                                display: flex; flex-wrap: wrap;
+
                                 .menu {
                                     color: #054677;
                                     font-weight: lighter;
+                                    display: flex; width: 100%; justify-content: space-between;
+                                    height: 60px; align-items: center;
+                                }
+
+                                .li_menu_submenu{
+                                    position: relative; width: 100%;
+                                    top: 0px;
+                                    background: rgb(1, 192, 207);
+                                    margin-left: 0px;
+                                    padding: 0px 16px;
+                                    height: 0px;
+                                    overflow: hidden;
+                                    transition: 0.2s all;
+                                }
+                            }
+
+                            .li_menu:hover{
+                                .menu{
+                                    color:#054677;
                                 }
                             }
                         }
@@ -357,6 +389,7 @@ header {
         }
         @media only screen and (max-width: 800px){
             .main_menu_inner{
+                display: none;
                 .mail-menu-nav, .main_menu_nav_two{
                     padding: 0px 20px;
                     background-color: #F4F5F9;
@@ -375,6 +408,11 @@ header {
                         .mm_nt_link_a {
                             color: #054677;
                             font-weight: lighter;
+                        }
+                    }
+                    .mm_nt_link:hover{
+                        .mm_nt_link_a{
+                            color: #054677;
                         }
                     }
                     .mm_nt_button {

@@ -1,5 +1,5 @@
 .properties__wrapper{
-    position: relative; width: 100%; min-height: 2000px; background: #F7F8F9;
+    position: relative; width: 100%; min-height: 2000px; background: #F7F8F9; display: none;
 
     .properties__inner_w{
         position: relative; left: calc(50% - $container-half); width: $container-width; min-height: 120px; gap: 32px;
