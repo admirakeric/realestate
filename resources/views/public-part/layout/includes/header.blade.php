@@ -144,7 +144,7 @@
                     <a class="mm_nt_link_a" href="#">{{ __('Kontaktirajte nas') }}</a>
                 </div>
                 <div class="mm_nt_button">
-                    <a href="#">
+                    <a href="{{ route('public-part.auth') }}">
                         <button>{{ __('Prijavi se') }}</button>
                     </a>
                 </div>
