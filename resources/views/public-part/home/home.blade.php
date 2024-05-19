@@ -10,4 +10,13 @@
 
     <!-- Include widgets -->
     @include('public-part.home.includes.widget')
+
+    <!-- Include featured properties -->
+    @include('public-part.home.includes.featured-properties')
+
+    <!-- Include about team page -->
+{{--    @include('public-part.home.includes.about-team-page')--}}
+
+    <!-- Include store of properties -->
+    @include('public-part.home.includes.store')
 @endsection

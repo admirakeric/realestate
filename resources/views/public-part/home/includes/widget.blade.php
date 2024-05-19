@@ -12,12 +12,12 @@
             <div class="widget_box">
                 <div class="widget_box_img">
                     <div class="widget_box_img_inner_wrapper">
-                        <img class="widget_image" src="{{ asset('files/images/default/hm2.jpg') }}" alt="">
+                        <img class="widget_image" src="{{ asset('files/images/default/home_1.jpg') }}" alt="">
                     </div>
                 </div>
                 <div class="widget_box_text">
                     <h4>
-                        {{ __('Iznajmljivanje') }}
+                        {{ __('Prodaja') }}
                     </h4>
                     <p>
                         {{__('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.')}}                    </p>
@@ -26,7 +26,7 @@
             <div class="widget_box">
                 <div class="widget_box_img">
                     <div class="widget_box_img_inner_wrapper">
-                        <img class="widget_image" src="{{ asset('files/images/default/home_4.jpg') }}" alt="">
+                        <img class="widget_image" src="{{ asset('files/images/default/home_2.jpg') }}" alt="">
                     </div>
                 </div>
                 <div class="widget_box_text">
@@ -40,12 +40,12 @@
             <div class="widget_box">
                 <div class="widget_box_img">
                     <div class="widget_box_img_inner_wrapper">
-                        <img class="widget_image" src="{{ asset('files/images/default/home_03.jpg') }}" alt="">
+                        <img class="widget_image" src="{{ asset('files/images/default/home_3.jpg') }}" alt="">
                     </div>
                 </div>
                 <div class="widget_box_text">
                     <h4>
-                        {{ __('Prodaja') }}
+                        {{ __('Iznajmljivanje') }}
                     </h4>
                     <p>
                         {{__('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.')}}

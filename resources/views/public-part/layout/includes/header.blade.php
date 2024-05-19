@@ -88,10 +88,13 @@
                         </li>
                         <li class="li_menu">
                             <a class="menu" href="#">
-                                {{ __('Prodaja nekretnina') }}
+                                {{ __('Nekretnine') }}
                                 <i class="fas fa-chevron-down"></i>
                             </a>
                             <div class="li_menu_submenu">
+                                <div class="li_m_s_w">
+                                    <a href="{{ route('public-part.properties') }}"> {{__('Sve nekretnine')}}</a>
+                                </div>
                                 <div class="li_m_s_w">
                                     <a href="#"> {{__('Kuće')}}</a>
                                 </div>
@@ -110,9 +113,6 @@
                             </div>
                         </li>
                         <li class="li_menu">
-                            <a class="menu" href="#"> {{ __('Kontaktirajte nas') }} </a>
-                        </li>
-                        <li class="li_menu">
                             <a class="menu" href="#"> {{ __('Novosti') }} </a>
                         </li>
                         <li class="li_menu">
@@ -127,7 +127,7 @@
 
             <div class="main_menu_nav_two">
                 <div class="mm_nt_link">
-                    <a class="mm_nt_link_a" href="#">{{ __('O nama') }}</a>
+                    <a class="mm_nt_link_a" href="#">{{ __('Kontaktirajte nas') }}</a>
                 </div>
                 <div class="mm_nt_button">
                     <a href="#">
