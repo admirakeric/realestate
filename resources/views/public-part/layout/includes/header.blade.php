@@ -93,19 +93,19 @@
                             </a>
                             <div class="li_menu_submenu">
                                 <div class="li_m_s_w">
-                                    <a href="#"> {{__('Kuće')}}</a>
+                                    <a href="{{ route('public-part.properties') }}"> {{__('Kuće')}}</a>
                                 </div>
                                 <div class="li_m_s_w">
-                                    <a href="#"> {{__('Stanovi')}}</a>
+                                    <a href="{{ route('public-part.properties') }}"> {{__('Stanovi')}}</a>
                                 </div>
                                 <div class="li_m_s_w">
-                                    <a href="#"> {{__('Apartmani')}}</a>
+                                    <a href="{{ route('public-part.properties') }}"> {{__('Apartmani')}}</a>
                                 </div>
                                 <div class="li_m_s_w">
-                                    <a href="#"> {{__('Zemljišta')}}</a>
+                                    <a href="{{ route('public-part.properties') }}"> {{__('Zemljišta')}}</a>
                                 </div>
                                 <div class="li_m_s_w">
-                                    <a href="#"> {{__('Ostalo')}}</a>
+                                    <a href="{{ route('public-part.properties') }}"> {{__('Ostalo')}}</a>
                                 </div>
                             </div>
                         </li>
