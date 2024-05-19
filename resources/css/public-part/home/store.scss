@@ -3,6 +3,7 @@
     background: #ECEEF0;
     //padding: 25px;
 
+
     .inner_store_wrapper {
         width: 1200px; left: calc(50% - 600px);
         position: relative;
@@ -104,6 +105,39 @@
                 background-size: cover;
                 text-align: center; align-content: center;
 
+            }
+        }
+    }
+    @media only screen and (max-width: 1400px){
+        .inner_store_wrapper{
+            left: 40px; width: calc(100% - 80px);
+        }
+    }
+    @media only screen and (max-width: 1000px){
+        .inner_store_wrapper{
+            left: 20px; width: calc(100% - 40px);
+        }
+    }
+    @media only screen and (max-width: 800px){
+        .inner_store_wrapper {
+            .store_headings {
+                flex-wrap: wrap;
+
+                h1 {
+                    font-size: 22px;
+                }
+                p{
+                    font-size: 14px;
+                }
+            }
+            .store__elements {
+                .large_box {
+                    width: 100%;
+                    flex-wrap: wrap;
+                    .small_box{
+                        width: 100%;
+                    }
+                }
             }
         }
     }

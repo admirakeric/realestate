@@ -1,12 +1,12 @@
 .featured_properties_wrapper {
     width: 100%;
-    height: 600px;
+    height: auto;
     background: white;
+
 
     .inner_featured_properties_wrapper {
         width: 1200px; left: calc(50% - 600px);
         position: relative;
-        height: 600px;
         background: white;
         .featured_properties_text {
             position: relative;
@@ -18,6 +18,8 @@
 
             h1 {
                 color: #373f47;
+                font-family: 'lora', sans-serif;
+                font-weight: normal; font-size: 40px;
             }
             p{
                 color: #616f7d;
@@ -29,4 +31,33 @@
 
         }
     }
-}
+
+    @media only screen and (max-width: 1400px){
+        .inner_featured_properties_wrapper{
+            left: 40px; width: calc(100% - 80px);
+
+        }
+    }
+    @media only screen and (max-width: 1000px){
+        .inner_featured_properties_wrapper{
+            left: 20px; width: calc(100% - 40px);
+        }
+    }
+    @media only screen and (max-width: 800px){
+        .inner_featured_properties_wrapper {
+            .featured_properties_text {
+                flex-wrap: wrap;
+
+                h1 {
+                    font-size: 22px;
+                }
+                p{
+                    font-size: 14px;
+                }
+            }
+            .featured_properties {
+                width: 100%;
+            }
+            }
+        }
+    }
