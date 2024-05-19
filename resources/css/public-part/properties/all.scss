@@ -110,7 +110,32 @@
             }
         }
         .right_side{
-            position: relative; width: 350px;
+            position: relative; width: 350px; gap: 32px;
+
+            .inner_wrapper{
+                position: relative; width: calc(100% - 64px); padding: 32px; background: #ffffff; border-radius:3px; margin-bottom: 32px;
+                h4{
+                    margin-top: 0px; font-size: 24px;
+                }
+                .first__layer{
+                    width: 100%; gap: 16px; margin-top: 16px;
+                    a{
+                        display: flex; width: calc(100% - 0px); gap: 8px; align-items: center;
+                        color: #01C0CF; text-decoration: none;
+                    }
+
+                    .second__layer{
+                        width: 100%; padding: 0px 32px; display: flex; flex-wrap: wrap; gap: 16px; margin-top: 16px; margin-bottom: 16px;
+                        a{
+                            display: flex; width: calc(100% - 64px); gap: 8px; align-items: center;
+                            color: #01C0CF; text-decoration: none;
+                        }
+                    }
+                }
+                .first__layer__only{
+                    display: flex; flex-wrap: wrap;
+                }
+            }
         }
     }
 }
