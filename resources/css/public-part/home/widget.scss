@@ -1,13 +1,12 @@
 .wrapper_widget {
     width: 100%;
-    height: 750px;
+    height: auto;
     background: #eceef0;
-
+    padding: 64px 0px;
 
     .inner_wrapper_widget {
         width: 1200px; left: calc(50% - 600px);
         position: relative;
-        height: 500px;
 
         .widget_headings {
             position: relative;
@@ -15,14 +14,18 @@
             gap: 0px;
             flex-direction: column;
             align-items: center;
-            padding: 32px 0px;
+
 
             h1 {
                 color: #373f47;
+                font-family: 'lora', sans-serif;
+                font-weight: normal; font-size: 40px;
+                margin:0px;
             }
             p{
                 color: #616f7d;
                 font-size: 16px;
+                margin-top: 16px;
             }
 
         }
@@ -31,7 +34,7 @@
             justify-content: space-between;
             flex-direction: row;
             gap: 32px;
-            height: 500px;
+            //height: 500px;
             //background: #2d3748;
             margin-top: 32px;
 
@@ -72,7 +75,8 @@
                     width: 100%; display: flex; justify-content: center;flex-wrap: wrap;
                     padding: 24px;
                     h4{
-                        font-size: 24px; margin-top: 0px; color: #616f7d; font-weight: bolder;
+                        font-size: 24px; margin-top: 0px; color: #616f7d; font-family: 'lora', sans-serif;
+                        font-weight: normal;
                     }
                     p{
                         text-align: center; color: #616f7d; font-weight: normal;
@@ -83,6 +87,43 @@
                 .widget_box_img{
                     .widget_box_img_inner_wrapper{
                         left: 0px; width: 100%; height: 100%; top: 0px;
+                    }
+                }
+            }
+        }
+    }
+    @media only screen and (max-width: 1400px){
+        .inner_wrapper_widget{
+            left: 40px; width: calc(100% - 80px);
+
+        }
+    }
+    @media only screen and (max-width: 1000px){
+        .inner_wrapper_widget{
+            left: 20px; width: calc(100% - 40px);
+        }
+    }
+    @media only screen and (max-width: 800px){
+        .inner_wrapper_widget {
+            .widget_headings {
+                h1 {
+                    font-size: 22px;
+                }
+                p{
+                    font-size: 14px;
+                }
+            }
+            .widget_wrap_info {
+                flex-wrap: wrap;
+                .widget_box {
+                    width: 100%;
+                    .widget_box_text {
+                        h4 {
+                            font-size: 20px;
+                        }
+                        p{
+                            font-size: 14px;
+                        }
                     }
                 }
             }
