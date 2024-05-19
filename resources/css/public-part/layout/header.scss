@@ -6,7 +6,7 @@ p {
 header {
     position: relative;
     width: 100%;
-    z-index: 100;
+    z-index: 1000;
 
     .inner_wrapper {
         position: relative;
@@ -292,6 +292,7 @@ header {
                 left: 0px; width: 100%;
                 flex-wrap: wrap; background: #01C0CF;
                 position: absolute; margin-top: 60px;
+                display: none;
                 .mail-menu-nav, .main_menu_nav_two{
                     width: 100%;
                     background-color: #F4F5F9;
@@ -389,7 +390,7 @@ header {
         }
         @media only screen and (max-width: 800px){
             .main_menu_inner{
-                display: none;
+
                 .mail-menu-nav, .main_menu_nav_two{
                     padding: 0px 20px;
                     background-color: #F4F5F9;
@@ -442,7 +443,7 @@ header {
 
 @media only screen and (max-width: 1000px){
     header{
-        position: absolute;
+        //position: absolute;
     }
 }
 
