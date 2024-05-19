@@ -1,36 +1,54 @@
 .store_wrapper {
     width: 100%;
     background: #ECEEF0;
-    padding: 25px;
+    //padding: 25px;
 
     .inner_store_wrapper {
         width: 1200px; left: calc(50% - 600px);
         position: relative;
         gap: 32px;
+        padding: 64px 0px;
         .store_headings {
             display: flex;
             flex-direction: column;
-            padding: 25px;
             align-items: center;
             h1 {
                 color: #373f47;
+                font-family: 'lora', sans-serif;
+                font-weight: normal; font-size: 40px; margin: 0px;
             }
             p{
                 color: #616f7d;
                 font-size: 16px;
+                font-family: 'Roboto', sans-serif; margin-top: 16px;
             }
         }
 
         .store__elements{
             position: relative; width: 100%; display: flex; gap: 32px; flex-wrap: wrap;
+            margin-top: 32px;
 
             .large_box{
-                width: calc(50% - 16px); height: 400px; overflow: hidden; display: flex; justify-content: space-between;
+                position: relative; width: calc(50% - 16px); height: 400px; overflow: hidden; display: flex; justify-content: space-between;
                 text-align: center; justify-items: center;
                 .small_box{
-                    width: calc(50% - 16px); height: 400px; overflow: hidden;
+                    position:relative; width: calc(50% - 16px); height: 400px; overflow: hidden;
                     background-size: cover;
                     text-align: center; align-content: center;
+
+                    .text_wrapper{
+                        position: absolute; left: 0px; top: 0px; width: 100%; height: 100%;
+                        display: flex; justify-content: center; align-items: center; flex-wrap: wrap;
+                        background: rgba(0,0,0,0.5); transition: 0.2s all;
+                        h3 {
+                            color: white; width: 100%;
+                            font-family: 'lora', sans-serif;
+                        }
+                        p{
+                            color: white;
+                            font-size: 16px;
+                        }
+                    }
                 }
                 .small_box_1{
                     background: url('../../../../files/images/default/sb1.jpg');
@@ -59,12 +77,21 @@
                     background-position: center center;
                 }
 
-                h3 {
-                    color: white;
+                .text_wrapper{
+                    position: absolute; left: 0px; top: 0px; width: 100%; height: 100%;
+                    display: flex; justify-content: center; align-items: center; flex-wrap: wrap;
+                    background: rgba(0,0,0,0.4); transition: 0.2s all;
+                    h3 {
+                        color: white; width: 100%; font-size: 24px; font-weight: normal;
+                        font-family: 'lora', sans-serif;
+                    }
+                    p{
+                        color: white;
+                        font-size: 14px;
+                    }
                 }
-                p{
-                    color: white;
-                    font-size: 16px;
+                .text_wrapper:hover{
+                    background: none;
                 }
             }
             .large_box_1{
