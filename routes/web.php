@@ -32,5 +32,7 @@ Route::prefix('')->group(function () {
     Route::prefix('/auth')->group(function (){
         Route::get('/',                                [AuthController::class, 'auth'])->name('public-part.auth');
         Route::post('/authenticate',                   [AuthController::class, 'authenticate'])->name('public-part.auth.authenticate');
+
+        Route::get('/logout',                          [AuthController::class, 'logout'])->name('public-part.logout');
     });
 });

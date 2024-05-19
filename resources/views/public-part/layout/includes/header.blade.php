@@ -144,9 +144,15 @@
                     <a class="mm_nt_link_a" href="#">{{ __('Kontaktirajte nas') }}</a>
                 </div>
                 <div class="mm_nt_button">
-                    <a href="{{ route('public-part.auth') }}">
-                        <button>{{ __('Prijavi se') }}</button>
-                    </a>
+                    @if(Auth()->check())
+                        <a href="#">
+                            <button>{{ Auth()->user()->name }}</button>
+                        </a>
+                    @else
+                        <a href="{{ route('public-part.auth') }}">
+                            <button>{{ __('Prijavi se') }}</button>
+                        </a>
+                    @endif
                 </div>
             </div>
         </div>

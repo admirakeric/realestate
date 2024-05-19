@@ -1,0 +1,133 @@
+/* Auth */
+.auth_wrapper{
+    position: relative; width: 100%; height: calc(100% - 160px); overflow: hidden;
+
+    img{
+        object-fit: contain; width: 100%; z-index: -1;
+    }
+
+    .outside_wrapper{
+        position: absolute; left: 0px; top: 0px; width: 100%; height: 100%; display: flex;
+        align-items: center; justify-content: center;
+
+        .large_login_wrapper {
+            margin: 32px;
+            padding: 32px;
+            background: transparent;
+            border: 2px solid rgba(255, 255, 255, .2);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+            border-radius: 10px;
+
+            .inner_login_wrapper {
+                h2 {
+                    color: #373f47;
+                    font-family: 'lora', sans-serif;
+                    font-weight: normal; font-size: 30px;
+                }
+            }
+            .access_login_form {
+                p {
+                    font-size: 15px;
+                    padding-bottom: 10px;
+                }
+                .style_input {
+                    width: 100%;
+                    height: 40px;
+                    //border: solid;
+                    //border-color: lightgray;
+                    //box-shadow: inset 0 0 7px #909091;
+                    outline: none;
+                    padding-left: 10px;
+                    border-radius: 3px;
+                    border: none;
+                    margin-bottom: 20px;
+                }
+                #inputdefault {
+                    margin-bottom: 20px;
+                }
+                .info-text{
+                    color: $primary;
+                }
+                .access_form_1 {
+                    margin-top: 50px;
+                    display: inline-flex;
+                    justify-content: space-between;
+                    width: 100%;
+                    align-items: center; gap: 16px;
+
+                    @media only screen and (max-width: 800px){
+                        flex-wrap: wrap;flex-direction: row-reverse; margin-top: 0px;
+                    }
+
+                    .forgot_pass_question {
+                        font-weight: lighter;
+                        text-decoration: none;
+                        color: white;
+                        font-size: 16px;
+                    }
+
+                    .style_submit {
+                        background-color: #01C0CF;
+                        width: 210px;
+                        height: auto;
+                        padding: 8px 0px;
+                        color: white;
+                        border: none;
+                        border-radius: 5px;
+                        //box-shadow: -16px 37px 5px -32px rgba(255,255,255,0.72) inset;
+                        cursor: pointer;
+                        font-size: 15px;
+                        font-weight: bold;
+                        transition: background-color;
+                    }
+                }
+            }
+        }
+    }
+    @media only screen and (max-width: 1400px){
+        .outside_wrapper{
+            left: 40px; width: calc(100% - 80px);
+        }
+    }
+    @media only screen and (max-width: 1000px){
+        .outside_wrapper{
+            left: 20px; width: calc(100% - 40px);
+        }
+    }
+    @media only screen and (max-width: 800px){
+        img{
+            height: 100%; width: auto; min-height: 100%;
+        }
+
+        .outside_wrapper {
+            .large_login_wrapper {
+                width: 100%;
+                flex-wrap: wrap;
+                margin: 0px;
+
+                .access_login_form {
+                    width: 100%;
+                    flex-wrap: wrap;
+                }
+                .access_form_1{
+
+                    .forgot_pass_question{
+                        width: 100%; color: #333333 !important;
+                    }
+                    .style_submit{
+                        width: 100% !important; margin-top: 10px;
+                    }
+                }
+
+                h2 {
+                    font-size: 22px;
+                }
+                p{
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+
+}

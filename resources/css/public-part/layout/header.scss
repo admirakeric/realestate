@@ -261,7 +261,7 @@ header {
                     a{
                         button{
                             background-color: #0178B3;
-                            width: 100px;
+                            min-width: 100px;
                             height: 36px;
                             color: white;
                             font-size: 14px;
@@ -269,7 +269,7 @@ header {
                             border-radius: 5px;
                             border: none;
                             cursor: pointer;
-
+                            padding: 0px 16px;
                         }
                     }
                     button:hover {
