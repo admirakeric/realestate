@@ -58,7 +58,7 @@
         <div class="estate_inner_wrapper">
             <div class="estate__property">
                 <div class="slider_wrapper">
-                    <div class="swiper">
+                    <div class="swiper gallery__swiper">
                         <div class="swiper-wrapper">
                             @for($i=1; $i<6; $i++)
                                 <div class="swiper-slide">
@@ -150,6 +150,130 @@
                         <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p>
                         <br><br>
                         <p>Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius. Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum.</p>
+                    </div>
+                </div>
+
+                <div class="estate_element dual_elements address">
+                    <div class="ee_header">
+                        <h4>{{ __('Adresa') }}</h4>
+                        <a href="#">
+                            <button class="address-btn">
+                                <i class="fas fa-map"></i>
+                                {{ __('Pregled na Google mapama') }}
+                            </button>
+                        </a>
+                    </div>
+
+                    <div class="ee_body dual_elements_body address_body">
+                        <div class="dual_element">
+                            <p><b>{{ __('Adresa') }}</b></p>
+                            <p>8100 S Ashland Ave</p>
+                        </div>
+                        <div class="dual_element">
+                            <p><b>{{ __('Poštanski broj') }}</b></p>
+                            <p>60620</p>
+                        </div>
+                        <div class="dual_element">
+                            <p><b>{{ __('Grad') }}</b></p>
+                            <p>Chicago</p>
+                        </div>
+                        <div class="dual_element">
+                            <p><b>{{ __('Država') }}</b></p>
+                            <p>Bosna i Hercegovina</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Detail info -->
+                <div class="estate_element dual_elements address">
+                    <div class="ee_header">
+                        <h4>{{ __('Detaljne informacije') }}</h4>
+                        <p>
+                            <i class="fas fa-calendar"></i>
+                            Ažurirano 19. Maj 2024 u 13:23h
+                        </p>
+                    </div>
+
+                    <div class="ee_body dual_elements_body dual_elements_body_colored ">
+                        <div class="dual_element">
+                            <p><b>{{ __('ID Nekretnine') }}</b></p>
+                            <p>HZ28</p>
+                        </div>
+                        <div class="dual_element">
+                            <p><b>{{ __('Vrsta nekretnine') }}</b></p>
+                            <p> Stan </p>
+                        </div>
+                        <div class="dual_element">
+                            <p><b>{{ __('Price') }}</b></p>
+                            <p>KM 122 000.00</p>
+                        </div>
+                        <div class="dual_element">
+                            <p><b>{{ __('Površina') }}</b></p>
+                            <p>100.00 / m <sup>2</sup></p>
+                        </div>
+                        <div class="dual_element">
+                            <p><b>{{ __('Garage') }}</b></p>
+                            <p>1</p>
+                        </div>
+                        <div class="dual_element">
+                            <p><b>{{ __('Spavaćih soba') }}</b></p>
+                            <p> 5 </p>
+                        </div>
+                        <div class="dual_element">
+                            <p><b>{{ __('Kupatila') }}</b></p>
+                            <p> 2 </p>
+                        </div>
+                        <div class="dual_element">
+                            <p><b>{{ __('Status') }}</b></p>
+                            <p> Na prodaju </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Schedule a tour -->
+                <div class="schedule__tour">
+                    <div class="schedule_tour_header">
+                        <h4>{{ __('Zakažite posjetu') }}</h4>
+                    </div>
+                    <div class="dates__wrapper">
+                        <div class="swiper multi-swiper">
+                            <div class="swiper-wrapper">
+                                @foreach($days as $day)
+                                    <div class="swiper-slide">
+                                        <div class="inside-swiper">
+                                            <p> {{ substr($day->format('l'), 0, 3) }} </p>
+                                            <h3>{{ $day->format('d') }}</h3>
+                                            <p> {{ $day->format('M') }} </p>
+                                        </div>
+                                    </div>
+                                @endforeach
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="inputs__wrapper">
+                        <select name="s_time" id="s_time">
+                            <option value="08:00">08:00</option>
+                            <option value="08:00">08:30</option>
+                            <option value="08:00">09:00</option>
+                            <option value="08:00">09:30</option>
+                        </select>
+                        <input type="text" id="s_name" name="s_name" placeholder="{{ __('Vaše ime') }}">
+                        <input type="text" id="s_phone" name="s_phone" placeholder="{{ __('Vaš broj telefona') }}">
+                        <input type="text" id="s_email" name="s_email" placeholder="{{ __('Vaš email') }}">
+                        <textarea name="s_message" id="s_message" rows="6"></textarea>
+                        <button>{{ __('Pošaljite zahtjev') }}</button>
+                    </div>
+                </div>
+
+                <!-- Video -->
+                <div class="estate_element video">
+                    <div class="ee_header">
+                        <h4>{{ __('Video') }}</h4>
+                    </div>
+
+                    <div class="ee_body video_body">
+
                     </div>
                 </div>
             </div>

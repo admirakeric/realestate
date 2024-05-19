@@ -8,7 +8,7 @@ import jQuery from 'jquery';
 window.$ = jQuery;
 
 /**
- *  Swiper - Main slider for app
+ *  Swiper -
  */
 
 import Swiper from 'swiper';
@@ -22,7 +22,7 @@ import 'swiper/css/pagination';
 Swiper.use([Navigation, Pagination]);
 
 // init Swiper:
-const swiper = new Swiper('.swiper', {
+const swiper = new Swiper('.gallery__swiper', {
     pagination: {
         el: ".swiper-pagination",
         // dynamicBullets: true,
@@ -53,3 +53,20 @@ function checkArrow() {
         swiperNext.style.display = 'block';
     }
 }
+
+/**
+ *  Slider with multiple items
+ */
+
+const multiSwiper = new Swiper('.multi-swiper', {
+    slidesPerView: 10,
+    spaceBetween: 16,
+    autoplay: {
+        delay: 2500,
+        disableOnInteraction: false
+    },
+    // navigation: {
+    //     nextEl: ".swiper-button-next",
+    //     prevEl: ".swiper-button-prev",
+    // }
+});
