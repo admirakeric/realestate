@@ -4,8 +4,12 @@
     //background-color: skyblue;
     height: auto;
     padding: 10px 0px;
-    z-index: 1000;
+    z-index: 120;
     background: #F7F8F9;
+
+    @media only screen and (max-width: 1000px){
+        display: none;
+    }
 
     &.sticky {
         position: sticky;
@@ -16,6 +20,10 @@
         position: relative; left: calc(50% - $container-half); top: 0px;
         width: $container-width; height: 40px; display: flex;
         border: 1px solid rgba(0,0,0,0.2); border-radius: 8px; // overflow: hidden;
+
+        @media only screen and (max-width: 1400px){
+            left: 40px; width: calc(100% - 80px);
+        }
 
         /* Input for keywords; 40% width */
         .title__w{

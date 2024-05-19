@@ -5,14 +5,32 @@
         position: relative; left: calc(50% - $container-half); width: $container-width; min-height: 120px; gap: 32px;
         display: flex; justify-content: space-between;
 
+        @media only screen and (max-width: 1400px){
+            left: 40px; width: calc(100% - 80px);
+        }
+        @media only screen and (max-width: 800px){
+            left: 20px; width: calc(100% - 40px);
+            flex-wrap: wrap;
+        }
+
         .all_properties{
             width: calc(100% - 374px); display: flex; flex-wrap: wrap; gap: 32px; justify-content: space-between;
+            @media only screen and (max-width: 1000px){
+                width: calc(100% - 324px);
+            }
+            @media only screen and (max-width: 800px){
+                width: 100%;
+            }
             .single_estate{
                 width: calc(50% - 16px); min-height: 480px; background: #ffffff; border-radius: 3px; overflow: hidden;
                 .image_wrapper{
                     position: relative; width: 100%; height: 320px; overflow: hidden;
                     img{
                         object-fit: cover; width: 100%;
+
+                        @media only screen and (max-width: 1400px){
+                            min-width: 100%; min-height: 100%;
+                        }
                     }
 
                     .image_cover{
@@ -59,6 +77,8 @@
                                     }
                                 }
                             }
+                            .bottom_buttons_w:first-child{width: 70%;}
+                            .bottom_buttons_w:last-child{width: 30%;}
                             .bottom_buttons_w_left{
                                 align-items: flex-start; justify-content: flex-start;
                             }
@@ -104,13 +124,47 @@
                         }
                     }
                 }
+
+                @media only screen and (max-width: 1200px){
+                    width: 100%;
+                }
             }
             .single_estate:hover{
                 cursor: pointer;
             }
         }
         .right_side{
-            position: relative; width: 350px;
+            position: relative; width: 350px; gap: 32px;
+            @media only screen and (max-width: 1000px){
+                width: 300px;
+            }
+            @media only screen and (max-width: 800px){
+                width: 100%; overflow: hidden;
+            }
+            .inner_wrapper{
+                position: relative; width: calc(100% - 64px); padding: 32px; background: #ffffff; border-radius:3px; margin-bottom: 32px;
+                h4{
+                    margin-top: 0px; font-size: 24px;
+                }
+                .first__layer{
+                    width: 100%; gap: 16px; margin-top: 16px;
+                    a{
+                        display: flex; width: calc(100% - 0px); gap: 8px; align-items: center;
+                        color: #01C0CF; text-decoration: none;
+                    }
+
+                    .second__layer{
+                        width: 100%; padding: 0px 32px; display: flex; flex-wrap: wrap; gap: 16px; margin-top: 16px; margin-bottom: 16px;
+                        a{
+                            display: flex; width: calc(100% - 64px); gap: 8px; align-items: center;
+                            color: #01C0CF; text-decoration: none;
+                        }
+                    }
+                }
+                .first__layer__only{
+                    display: flex; flex-wrap: wrap;
+                }
+            }
         }
     }
 }

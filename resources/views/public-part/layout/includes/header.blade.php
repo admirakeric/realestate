@@ -96,19 +96,19 @@
                                     <a href="{{ route('public-part.properties') }}"> {{__('Sve nekretnine')}}</a>
                                 </div>
                                 <div class="li_m_s_w">
-                                    <a href="#"> {{__('Kuće')}}</a>
+                                    <a href="{{ route('public-part.properties') }}"> {{__('Kuće')}}</a>
                                 </div>
                                 <div class="li_m_s_w">
-                                    <a href="#"> {{__('Stanovi')}}</a>
+                                    <a href="{{ route('public-part.properties') }}"> {{__('Stanovi')}}</a>
                                 </div>
                                 <div class="li_m_s_w">
-                                    <a href="#"> {{__('Apartmani')}}</a>
+                                    <a href="{{ route('public-part.properties') }}"> {{__('Apartmani')}}</a>
                                 </div>
                                 <div class="li_m_s_w">
-                                    <a href="#"> {{__('Zemljišta')}}</a>
+                                    <a href="{{ route('public-part.properties') }}"> {{__('Zemljišta')}}</a>
                                 </div>
                                 <div class="li_m_s_w">
-                                    <a href="#"> {{__('Ostalo')}}</a>
+                                    <a href="{{ route('public-part.properties') }}"> {{__('Ostalo')}}</a>
                                 </div>
                             </div>
                         </li>
@@ -120,6 +120,20 @@
                                 {{ __('Ostale informacije') }}
                                 <i class="fas fa-chevron-down"></i>
                             </a>
+                            <div class="li_menu_submenu">
+                                <div class="li_m_s_w">
+                                    <a href="#"> {{__('Kako prodati nekretninu?')}}</a>
+                                </div>
+                                <div class="li_m_s_w">
+                                    <a href="#"> {{__('Novosti iz svijeta nekretnina')}}</a>
+                                </div>
+                                <div class="li_m_s_w">
+                                    <a href="#"> {{__('Objekti u izgradnji')}}</a>
+                                </div>
+                                <div class="li_m_s_w">
+                                    <a href="#"> {{__('Ostale informacije')}}</a>
+                                </div>
+                            </div>
                         </li>
                     </ul>
                 </nav>
@@ -137,7 +151,7 @@
             </div>
         </div>
         <div class="mobile__menu">
-            <div class="menu__bars">
+            <div class="menu__bars show_menu">
                 <i class="fas fa-bars"></i>
             </div>
             <div class="white__logo">
