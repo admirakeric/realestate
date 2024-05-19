@@ -1,0 +1,141 @@
+.single_estate_header{
+    position: relative; width: 100%; background: #F7F8F9; margin-bottom: 32px;
+    .single_estate_header_inner{
+        position: relative; left: calc(50% - $container-half); width: $container-width; display: flex; justify-content: space-between;
+
+        @media only screen and (max-width: 1400px){ left: 40px; width: calc(100% - 80px); }
+        @media only screen and (max-width: 800px){ left: 20px; width: calc(100% - 40px); flex-wrap: wrap; }
+
+        .header_left{
+            width: 50%;
+            h1{
+                font-size: 40px; font-family: 'Lora', sans-serif; font-weight: normal; margin: 0px;
+            }
+            .buttons_wrapper{
+                width: 100%; margin: 8px 0px;
+                button{
+                    border: none; color: #ffffff; font-size: 10px; padding: 5px 10px; border-radius: 3px;
+                }
+                .green_btn{ background: #77C720; }
+                .black_btn{ background: #333333; }
+                .red_btn{ background: #DD3333; }
+            }
+            .address_wrapper{
+                width: 100%; display: flex; justify-content: flex-start; gap: 8px; align-items: center;
+                img{
+                    height: 24px;
+                }
+                p{
+                    font-family: 'Roboto Light', sans-serif; font-weight: 0; margin: 0px; color: grey;
+                }
+            }
+        }
+        .header_right{
+            .price_wrapper{
+                display: flex; justify-content: flex-end;flex-wrap: wrap; gap: 0px; justify-self: start;
+
+                h2{
+                    font-family: "Roboto", sans-serif; font-size: 32px; margin: 0px; width: 100%; text-align: right;
+                }
+                p{
+                    font-family: 'Roboto Light', sans-serif; font-weight: 0; margin: 0px; color: grey;
+                }
+            }
+        }
+    }
+}
+.single__estate{
+    position: relative; width: 100%; min-height: 200px; background: #F7F8F9;
+
+    .estate_inner_wrapper{
+        position: relative; left: calc(50% - $container-half); width: $container-width; min-height: 120px; gap: 32px; display: flex; justify-content: space-between;
+
+
+        @media only screen and (max-width: 1400px){ left: 40px; width: calc(100% - 80px); }
+        @media only screen and (max-width: 800px){ left: 20px; width: calc(100% - 40px); flex-wrap: wrap; }
+
+        .estate__property{
+            position: relative; width: calc(100% - 374px); display: flex; flex-wrap: wrap; gap: 32px;
+            align-items: flex-start; justify-content: flex-start;
+
+            @media only screen and (max-width: 800px){
+                width: 100%;
+            }
+            .slider_wrapper{
+                position: relative; width: 100%; border: 1px solid rgba(0,0,0,0.1); align-self:flex-start; display: flex;
+                img{
+                    //width: 100%; position: absolute; left: 0px; top: 0px;
+                    width: 100%; display: flex;
+                }
+
+                :root {
+                    --swiper-theme-color: #000;
+                }
+
+                .swiper{
+                    //.swiper-button-prev {
+                    //    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M0%2C22L22%2C0l2.1%2C2.1L4.2%2C22l19.9%2C19.9L22%2C44L0%2C22L0%2C22L0%2C22z'%20fill%3D'%2301C0CF'%2F%3E%3C%2Fsvg%3E") !important;
+                    //}
+                    //.swiper-button-next {
+                    //    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M27%2C22L27%2C22L5%2C44l-2.1-2.1L22.8%2C22L2.9%2C2.1L5%2C0L27%2C22L27%2C22z'%20fill%3D'%2301C0CF'%2F%3E%3C%2Fsvg%3E") !important;
+                    //}
+
+                    .swiper-button-prev { color: $secondary; }
+                    .swiper-button-next { color: $secondary; }
+                    .swiper-pagination-progressbar-fill{
+                        background: $secondary;
+                    }
+                }
+            }
+
+            .estate_element{
+                position: relative; width: 100%; padding: 32px; gap: 32px; background: #ffffff; border-radius: 3px;
+
+                .ee_header{
+                    position: relative; width: 100%; display: flex; justify-content: space-between; align-items: center; padding-bottom: 32px;
+                    border-bottom: 1px solid rgba(0,0,0,0.1);
+                    h4, h5{
+                        font-family: 'Lora', sans-serif; font-size: 24px; font-weight: normal; margin: 0px;
+                    }
+                    h5{
+                        font-family: 'Roboto', sans-serif; font-size: 16px;
+                    }
+                }
+                .ee_body{
+                    margin-top: 32px;
+                }
+            }
+            .estate_overview{
+                .estate_overview_body{
+                    width: 100%; min-height: 50px; display: flex; justify-content: flex-start;
+                    gap: 16px;
+
+                    .eob_element{
+                        display: flex; flex-wrap: wrap;
+                        .eob_e_header{
+                            display: flex; align-items: center; width: 100%; gap: 8px; font-family: 'Roboto', sans-serif;
+                            img{
+                                height: 16px;
+                            }
+                        }
+                        .eob_e_body{
+                            height: 24px; display: flex; align-items: flex-end;
+                            p{
+                                font-family: "Inter", sans-serif; font-weight: 300; font-size: 14px; color: grey;
+                            }
+                        }
+                    }
+                }
+            }
+            .detailed_description{
+                .detailed_description_body{
+                    p{
+                        font-family: "Inter", sans-serif; font-weight: 300;
+                    }
+                }
+            }
+        }
+
+        @import "right-side";
+    }
+}

@@ -1,5 +1,5 @@
 .properties__wrapper{
-    position: relative; width: 100%; min-height: 2000px; background: #F7F8F9;
+    position: relative; width: 100%; background: #F7F8F9; margin-bottom: 64px;
 
     .properties__inner_w{
         position: relative; left: calc(50% - $container-half); width: $container-width; min-height: 120px; gap: 32px;
@@ -70,11 +70,30 @@
                                 }
 
                                 .icon_w{
-                                    width: 30px; height: 30px; background: rgba(0,0,0,0.5); border-radius: 3px; display: inline-flex;
-                                    justify-content: center; align-items: center; margin-left: 8px;
+                                    position:relative; width: 30px; height: 30px; background: rgba(0,0,0,0.5); border-radius: 3px; display: inline-flex;
+                                    justify-content: center; align-items: center; margin-left: 8px; transition: 0.2s all;
                                     i{
                                         color: #ffffff; font-size: 12px;
                                     }
+                                    .icon_w_explanation{
+                                        position: absolute; right: 0px; top: -32px; padding: 4px 12px; background: rgba(0,0,0,0.8); white-space: nowrap;
+                                        font-size: 12px; z-index: 50; color:#ffffff; border-radius: 3px; opacity: 0; transition: 0.2s all;
+                                    }
+                                }
+                                .icon_w_first{
+                                    .icon_w_explanation{
+                                        right: -32px;
+                                    }
+                                }
+                                .icon_w_second{
+                                    .icon_w_explanation{
+                                        right: -22px;
+                                    }
+                                }
+
+                                .icon_w:hover{
+                                    background: rgba(0,0,0,0.8);
+                                    .icon_w_explanation{opacity: 1;}
                                 }
                             }
                             .bottom_buttons_w:first-child{width: 70%;}
@@ -84,22 +103,23 @@
                             }
                         }
                     }
-                    .image_cover:hover{
-                        background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, .4) 100%);
-                    }
+
                 }
 
                 .text_wrapper{
                     position: relative; display: flex; justify-content: space-between; flex-wrap: wrap;
                     left: 24px; margin-top: 24px; width: calc(100% - 48px); margin-bottom: 24px;
-                    .main_text_w{
-                        width: 100%;
-                        h4, p{margin: 0px}
-                        h4{
-                            font-size: 24px;
-                        }
-                        p{
-                            font-size: 14px; margin-top: 8px;
+                    a{
+                        display: flex; width: 100%; text-decoration: none; color: #333333;
+                        .main_text_w{
+                            width: 100%;
+                            h4, p{margin: 0px}
+                            h4{
+                                font-size: 24px;
+                            }
+                            p{
+                                font-size: 14px; margin-top: 8px;
+                            }
                         }
                     }
                     .text_icons{
@@ -131,41 +151,14 @@
             }
             .single_estate:hover{
                 cursor: pointer;
-            }
-        }
-        .right_side{
-            position: relative; width: 350px; gap: 32px;
-            @media only screen and (max-width: 1000px){
-                width: 300px;
-            }
-            @media only screen and (max-width: 800px){
-                width: 100%; overflow: hidden;
-            }
-            .inner_wrapper{
-                position: relative; width: calc(100% - 64px); padding: 32px; background: #ffffff; border-radius:3px; margin-bottom: 32px;
-                h4{
-                    margin-top: 0px; font-size: 24px;
-                }
-                .first__layer{
-                    width: 100%; gap: 16px; margin-top: 16px;
-                    a{
-                        display: flex; width: calc(100% - 0px); gap: 8px; align-items: center;
-                        color: #01C0CF; text-decoration: none;
+                .image_wrapper{
+                    .image_cover{
+                        background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, .4) 100%);
                     }
-
-                    .second__layer{
-                        width: 100%; padding: 0px 32px; display: flex; flex-wrap: wrap; gap: 16px; margin-top: 16px; margin-bottom: 16px;
-                        a{
-                            display: flex; width: calc(100% - 64px); gap: 8px; align-items: center;
-                            color: #01C0CF; text-decoration: none;
-                        }
-                    }
-                }
-                .first__layer__only{
-                    display: flex; flex-wrap: wrap;
                 }
             }
         }
+        @import "right-side";
     }
 }
 @import "single";
