@@ -7,15 +7,20 @@
     <!-- Breadcrumbs -->
     <div class="breadcrumbs_wrapper">
         <div class="breadcrumbs_inner">
-            <a href="#">
-                <i class="fas fa-home"></i>
-                {{ __('Naslovna') }}
-            </a>
-            <i class="fas fa-chevron-right"></i>
-            <a href="#">
-                <i class="fas fa-city"></i>
-                {{ __('Nekretnine') }}
-            </a>
+            <div class="bi__links">
+                <a href="#">
+                    <i class="fas fa-home"></i>
+                    {{ __('Naslovna') }}
+                </a>
+                <i class="fas fa-chevron-right"></i>
+                <a href="#">
+                    {{ __('Nekretnine') }}
+                </a>
+                <i class="fas fa-chevron-right"></i>
+                <a href="#">
+                    {{ __('Villa for Sale') }}
+                </a>
+            </div>
         </div>
     </div>
 
@@ -47,10 +52,12 @@
                                         <p> KM 1220.00 / m <sup>2</sup> </p>
                                     </div>
                                     <div class="bottom_buttons_w">
-                                        <div class="icon_w">
+                                        <div class="icon_w icon_w_first">
+                                            <div class="icon_w_explanation">{{ __('Kratki pregled') }}</div>
                                             <i class="fas fa-expand"></i>
                                         </div>
-                                        <div class="icon_w">
+                                        <div class="icon_w icon_w_second">
+                                            <div class="icon_w_explanation">{{ __('Lista želja') }}</div>
                                             <i class="fas fa-heart"></i>
                                         </div>
                                     </div>
@@ -59,10 +66,12 @@
                         </div>
 
                         <div class="text_wrapper">
-                            <div class="main_text_w">
-                                <h4> Villa for Sale </h4>
-                                <p> 278 NW 36th St, Miami, FL 33127, USA </p>
-                            </div>
+                            <a href="{{ route('public-part.properties.preview', ['slug' => 'villa-for-sale']) }}">
+                                <div class="main_text_w">
+                                    <h4> Villa for Sale </h4>
+                                    <p> 278 NW 36th St, Miami, FL 33127, USA </p>
+                                </div>
+                            </a>
 
                             <div class="text_icons">
                                 <div class="text_icons_icon">
@@ -98,73 +107,8 @@
                 @endfor
             </div>
 
-            <div class="right_side">
-                <div class="inner_wrapper">
-                    <h4>{{ __('Vrste nekretnina') }}</h4>
-                    <div class="first__layer">
-                        <a href="#">
-                            <i class="fas fa-chevron-right"></i>
-                            {{ __('Na prodaju') }}
-                        </a>
-                        <div class="second__layer">
-                            <a href="#">
-                                <i class="fas fa-chevron-right"></i>
-                                {{ __('Kancelarija') }}
-                            </a>
-                            <a href="#">
-                                <i class="fas fa-chevron-right"></i>
-                                {{ __('Kuća') }}
-                            </a>
-                            <a href="#">
-                                <i class="fas fa-chevron-right"></i>
-                                {{ __('Stan') }}
-                            </a>
-                        </div>
-                    </div>
-                    <div class="first__layer">
-                        <a href="#">
-                            <i class="fas fa-chevron-right"></i>
-                            {{ __('Iznajmljivanje') }}
-                        </a>
-                        <div class="second__layer">
-                            <a href="#">
-                                <i class="fas fa-chevron-right"></i>
-                                {{ __('Kancelarija') }}
-                            </a>
-                            <a href="#">
-                                <i class="fas fa-chevron-right"></i>
-                                {{ __('Kuća') }}
-                            </a>
-                            <a href="#">
-                                <i class="fas fa-chevron-right"></i>
-                                {{ __('Stan') }}
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="inner_wrapper">
-                    <h4>{{ __('Gradovi') }}</h4>
-                    <div class="first__layer first__layer__only">
-                        <a href="#">
-                            <i class="fas fa-chevron-right"></i>
-                            {{ __('Bihać') }}
-                        </a>
-                        <a href="#">
-                            <i class="fas fa-chevron-right"></i>
-                            {{ __('Bužim') }}
-                        </a>
-                        <a href="#">
-                            <i class="fas fa-chevron-right"></i>
-                            {{ __('Cazin') }}
-                        </a>
-                        <a href="#">
-                            <i class="fas fa-chevron-right"></i>
-                            {{ __('V. Kladuša') }}
-                        </a>
-                    </div>
-                </div>
-            </div>
+            <!-- Include right side -->
+            @include('public-part.properties.includes.right-side')
         </div>
     </div>
 @endsection
