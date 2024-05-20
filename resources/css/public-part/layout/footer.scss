@@ -10,6 +10,10 @@ footer {
     background-color: $dark;
     color: $white;
     margin-top: 64px;
+
+    @media only screen and (max-width: 800px){
+        margin-top: 0px;
+    }
 }
 
 .footer__con-top {
@@ -45,6 +49,7 @@ footer {
     //letter-spacing: $qLetterSpacing;
     line-height: 140%;
     margin-bottom: 0.5rem;
+    font-family: 'Lora', sans-serif;
 }
 
 .footer__contact a {

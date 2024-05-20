@@ -12,6 +12,7 @@
     },
     "dependencies": {
         "bootstrap": "^5.3.3",
+        "google-maps": "^4.3.3",
         "jquery": "^3.7.1",
         "lodash": "^4.17.21",
         "sass": "^1.76.0",

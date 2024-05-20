@@ -65,8 +65,41 @@ const multiSwiper = new Swiper('.multi-swiper', {
         delay: 2500,
         disableOnInteraction: false
     },
+    breakpoints: {
+        320: {
+            slidesPerView: 3,
+            spaceBetweenSlides: 16
+        },
+        480: {
+            slidesPerView: 4,
+            spaceBetweenSlides: 16
+        },
+        800: {
+            slidesPerView: 5,
+            spaceBetweenSlides: 16
+        },
+        1000: {
+            slidesPerView: 6,
+            spaceBetweenSlides: 16
+        },
+        1200: {
+            slidesPerView: 8,
+            spaceBetweenSlides: 16
+        },
+        1400: {
+            slidesPerView: 10,
+            spaceBetweenSlides: 16
+        },
+        // when window width is <= 999px
+        // 999: {
+        //     slidesPerView: 2,
+        //     spaceBetweenSlides: 50
+        // }
+    }
     // navigation: {
     //     nextEl: ".swiper-button-next",
     //     prevEl: ".swiper-button-prev",
     // }
 });
+
+import './core/maps.js'
