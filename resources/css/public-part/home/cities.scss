@@ -7,6 +7,14 @@
     .inner_wrapper_cities {
         width: 1200px; left: calc(50% - 600px);
         position: relative;
+
+        @media only screen and (max-width: 1200px){
+            left: 40px; width: calc(100% - 80px);
+        }
+        @media only screen and (max-width: 1000px){
+            left: 20px; width: calc(100% - 40px);
+        }
+
         .cities_headings {
             position: relative;
             display: flex;
@@ -34,6 +42,10 @@
             margin-top: 32px;
             gap: 10px;
 
+            @media only screen and (max-width: 1000px){
+                flex-wrap: wrap;
+            }
+
             .cities_box {
                 position: relative;
                 width: calc(25% - 24px);
@@ -42,6 +54,10 @@
                 justify-content: space-between;
                 align-items: center;
                 flex-wrap: wrap;
+
+                @media only screen and (max-width: 1000px){
+                    width: calc(50% - 16px); gap: 32px;
+                }
 
                 .cities_box_img {
                     position: relative;
