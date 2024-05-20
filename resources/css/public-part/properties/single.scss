@@ -43,6 +43,9 @@
             }
         }
     }
+    @media only screen and (max-width: 800px){
+        display: none;
+    }
 }
 .single__estate{
     position: relative; width: 100%; min-height: 200px; background: #F7F8F9;
@@ -52,14 +55,14 @@
 
 
         @media only screen and (max-width: 1400px){ left: 40px; width: calc(100% - 80px); }
-        @media only screen and (max-width: 800px){ left: 20px; width: calc(100% - 40px); flex-wrap: wrap; }
+        @media only screen and (max-width: 1000px){ left: 0px; width: calc(100% - 0px); flex-wrap: wrap; gap: 20px; }
 
         .estate__property{
             position: relative; width: calc(100% - 374px); display: flex; flex-wrap: wrap; gap: 32px;
             align-items: flex-start; justify-content: flex-start;
 
-            @media only screen and (max-width: 800px){
-                width: 100%;
+            @media only screen and (max-width: 1000px){
+                width: 100%; gap: 0px;
             }
             .slider_wrapper{
                 position: relative; width: 100%; border: 1px solid rgba(0,0,0,0.1); align-self:flex-start; display: flex;
@@ -86,19 +89,127 @@
                         background: $secondary;
                     }
                 }
+
+                .slider_switcher{
+                    position: absolute; right: 50px; top: 50px; width: 120px; height: 50px; z-index: 110; display: flex; justify-content: flex-end; gap: 16px;
+                    .slider__switch{
+                        width: 50px; height: 50px; border-radius: 3px; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.7);
+
+                        i{
+                            color:#ffffff; font-size: 18px;
+                        }
+
+                        &.active{
+                            background: rgba(1, 192, 207, 0.7);
+                        }
+                        &:hover{cursor: pointer;}
+
+                        @media only screen and (max-width: 800px){
+                            display: none;
+                        }
+                    }
+                }
+                .map__wrapper{
+                    position: absolute; left: 0px; top:0px; width: 100%; height: 100%; z-index: 100; display: none;
+                    &.active{
+                        display: unset;
+                    }
+                }
+
+                @media only screen and (max-width: 800px){
+                    //margin-left: -20px; width: calc(100% + 40px);
+                }
+            }
+
+            .mobile_basic_info{
+                position: relative; width: 100%; min-height: 60px; padding: 20px; display: none;
+
+                @media only screen and (max-width: 800px){
+                    display: unset;
+                }
+                .mobile_icons_wrapper{
+                    position: relative; display: flex; width: 100%; justify-content: space-between;
+
+                    .miw_w{
+                        display: flex; gap: 8px;
+                        .miw_i_w{
+                            width: 50px; height: 50px; border-radius: 3px; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(0,0,0,0.1);
+
+                            i{
+                                color:#333333; font-size: 18px;
+                            }
+
+                            &.active{
+                                background: rgba(1, 192, 207, 0.7);
+                                i{
+                                    color:#ffffff;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .mobile__text{
+                    position: relative; width: 100%; margin-top: 16px;
+
+                    h1{
+                        font-size: 32px; font-family: 'Lora', sans-serif; font-weight: 100; margin: 0px; margin-top: 8px;
+                    }
+                    .buttons_wrapper{
+                        width: 100%; margin: 16px 0px;
+                        button{
+                            border: none; color: #ffffff; font-size: 10px; padding: 5px 10px; border-radius: 3px;
+                        }
+                        .green_btn{ background: #77C720; }
+                        .black_btn{ background: #333333; }
+                        .red_btn{ background: #DD3333; }
+                    }
+
+                    .address_wrapper{
+                        width: 100%; display: flex; justify-content: flex-start; gap: 0px; align-items: center;
+                        img{
+                            height: 24px; margin-left:-3px;
+                        }
+                        p{
+                            font-family: 'Roboto Light', sans-serif; font-weight: 0; margin: 0px; color: grey;
+                        }
+                    }
+
+                    .price_wrapper{
+                        display: flex; flex-wrap: wrap; gap: 0px; justify-self: start; margin-top:16px;
+
+                        h2{
+                            font-family: "Roboto", sans-serif; font-size: 24px; margin: 0px; width: 100%; font-weight: 100;
+                        }
+                        p{
+                            font-family: 'Roboto Light', sans-serif; font-weight: 0; margin: 0px; color: grey;
+                        }
+                    }
+                }
             }
 
             .estate_element{
                 position: relative; width: 100%; padding: 32px; gap: 32px; background: #ffffff; border-radius: 3px;
 
+                @media only screen and (max-width: 800px){
+                    padding: 20px;
+                }
+
                 .ee_header{
                     position: relative; width: 100%; display: flex; justify-content: space-between; align-items: center; padding-bottom: 32px;
                     border-bottom: 1px solid rgba(0,0,0,0.1);
+
+                    @media only screen and (max-width: 800px){
+                        flex-wrap: wrap; padding-bottom: 16px;
+                    }
                     h4, h5{
                         font-family: 'Lora', sans-serif; font-size: 24px; font-weight: normal; margin: 0px;
                     }
                     h5{
                         font-family: 'Roboto', sans-serif; font-size: 16px;
+                        @media only screen and (max-width: 800px){
+                            margin-top: 16px; width: 100%;
+                        }
                     }
                     a{
                         text-decoration: none;
@@ -112,6 +223,10 @@
                         }
                         .contact_us-btn{
                             width: 180px;
+
+                            @media only screen and (max-width: 800px){
+                                display: none;
+                            }
                         }
                         .contact_us-btn:hover{
                             cursor: pointer;
@@ -122,6 +237,10 @@
                     }
                     p{
                         font-family: "Inter", sans-serif; font-weight: 300; font-size: 14px; color: grey; gap: 8px; display: flex; align-items: center;
+
+                        @media only screen and (max-width: 800px){
+                            margin-top: 16px;
+                        }
                     }
                 }
                 .subheader{
@@ -140,8 +259,15 @@
                     width: 100%; min-height: 50px; display: flex; justify-content: flex-start;
                     gap: 16px;
 
+                    @media only screen and (max-width: 1000px){
+                        flex-wrap: wrap;
+                    }
                     .eob_element{
                         display: flex; flex-wrap: wrap;
+                        @media only screen and (max-width: 800px){
+                            width: calc(50% - 8px);
+                        }
+
                         .eob_e_header{
                             display: flex; align-items: center; width: 100%; gap: 8px; font-family: 'Roboto', sans-serif;
                             img{
@@ -170,6 +296,10 @@
                     .dual_element{
                         width: calc(50% - 16px); display: flex; justify-content: space-between; align-items: center;
                         border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 16px;
+
+                        @media only screen and (max-width: 800px){
+                            width: 100%;
+                        }
                     }
                     .single_element{
                         width: 100%;
@@ -182,8 +312,15 @@
 
             .schedule__tour{
                 position: relative; width: 100%; padding: 32px 0px; gap: 32px; background: #ffffff; border-radius: 3px;
+
+                @media only screen and (max-width: 800px){
+                    padding: 16px 0px;
+                }
                 .schedule_tour_header{
                     position: relative; left: 32px; width: calc(100% - 64px);
+                    @media only screen and (max-width: 800px){
+                        left: 20px; width: calc(100% - 40px);
+                    }
                     h4{
                         margin: 0px;
                         font-family: 'Lora', sans-serif; font-size: 24px; font-weight: normal; margin: 0px;
@@ -191,6 +328,9 @@
                 }
                 .dates__wrapper{
                     position: relative; width: calc(100% - 64px); height: 100px; margin-left: 32px; margin-top: 32px;
+                    @media only screen and (max-width: 800px){
+                        margin-left: 20px; width: calc(100% - 40px);
+                    }
                     .swiper{
                         .swiper-wrapper{
                             .swiper-slide{
@@ -229,6 +369,9 @@
                 }
                 .inputs__wrapper{
                     position:relative; left: 32px; width: calc(100% - 64px); display: flex; flex-wrap: wrap; margin-top: 32px;
+                    @media only screen and (max-width: 800px){
+                        left: 20px; width: calc(100% - 40px);
+                    }
                     gap: 8px;
                     input, select, textarea{
                         width: 100%; height: 36px; border: 1px solid rgba(0,0,0,0.1); border-radius: 3px; padding-left: 16px;
@@ -268,27 +411,59 @@
                 .contact_us_body{
                     .agent_info{
                         position: relative; width: 100%; height: 100px; display: flex; gap: 32px;
-
+                        @media only screen and (max-width: 800px){
+                            gap: 16px; height: auto; flex-wrap: wrap;
+                        }
                         .img_wrapper{
                             position: relative; width: 100px; height: 100px; overflow: hidden; border-radius: 3px;
                             img{
                                 position: relative; object-fit: cover; max-width: 100%;
                             }
+
+                            @media only screen and (max-width: 800px){
+                                width: 100%; height: auto;
+                                img{
+                                    width: 100%;
+                                }
+                            }
                         }
                         .text_wrapper{
                             display:  flex; justify-content: flex-start; flex-wrap: wrap;
+
+                            @media only screen and (max-width: 800px){
+                                width: calc(100% - 80px); flex-direction: column;
+                            }
                             h4{
                                 margin: 0px; font-family: "Inter", sans-serif; font-weight: 300; font-size: 24px; width: 100%;
+
+                                @media only screen and (max-width: 800px){
+                                    margin-bottom:8px;
+                                }
                             }
                             p{
                                 width: 100%; font-family: "Inter", sans-serif; font-weight: 300; margin: 0px;
                             }
                             .contact__info{
                                 position: relative; width: 100%; display: flex; gap: 32px;
+                                @media only screen and (max-width: 800px){
+                                    gap: 0px; flex-wrap: wrap; margin-top:16px; display: none;
+                                }
                                 .ci__w{
                                     position: relative; display: flex; gap: 8px; align-items: center;
+                                    @media only screen and (max-width: 800px){
+                                        width: 100%;
+                                    }
                                 }
                             }
+                        }
+                    }
+                    .agent_contact{
+                        position: relative; width: 100%; display: flex; gap: 16px;
+                        @media only screen and (max-width: 800px){
+                            gap: 16px; flex-wrap: wrap; margin-top:0px;
+                        }
+                        .ci__w{
+                            position: relative; display: flex; gap: 8px; align-items: center;
                         }
                     }
 
@@ -296,6 +471,10 @@
                         position: relative; width: 100%; display: flex; flex-wrap: wrap;
                         .input__w{
                             width: calc(50% - 16px); margin-bottom: 16px;
+
+                            @media only screen and (max-width: 800px){
+                                width: 100%;
+                            }
                             label{
                                 width: 100%; font-family: "Inter", sans-serif; font-weight: 500; font-size: 14px;
                             }
@@ -303,7 +482,13 @@
                                 width: 100%; height: 36px; border: 1px solid rgba(0,0,0,0.1); border-radius: 3px; padding-left: 16px; margin-top:8px;
                             }
                         }
-                        .input__w:nth-child(2n){ margin-left: 32px; }
+                        .input__w:nth-child(2n){
+                            margin-left: 32px;
+
+                            @media only screen and (max-width: 800px){
+                                margin-left: 0px;
+                            }
+                        }
                         .input__w_full{
                             width: 100%;
                             textarea{
@@ -313,7 +498,14 @@
 
                         .input__btn_w{
                             position: relative; width: 100%; display: flex; align-items: center; gap: 32px;
+                            @media only screen and (max-width: 800px){
+                                flex-wrap: wrap; gap: 16px;
+                            }
                             p{
+                                @media only screen and (max-width: 800px){
+                                    width: 100%;
+                                }
+
                                 input[type='checkbox'] {
                                     accent-color: $primary; color: #ffffff;
                                 }
@@ -328,6 +520,10 @@
                                 color: #ffffff; transition: 0.2s all;
 
                                 font-family: "Inter", sans-serif; font-weight: 500; font-size: 14px;
+
+                                @media only screen and (max-width: 800px){
+                                    width: 100%;
+                                }
                             }
                         }
                     }

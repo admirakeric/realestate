@@ -8,9 +8,9 @@
     }
 
     @media only screen and (max-width: 1000px){
-        width: 300px;
+        //width: 300px;
     }
-    @media only screen and (max-width: 800px){
+    @media only screen and (max-width: 1000px){
         width: 100%; overflow: hidden;
         &.sticky{
             position: unset;
@@ -21,6 +21,11 @@
 
     .inner_wrapper{
         position: relative; width: calc(100% - 64px); padding: 32px; background: #ffffff; border-radius:3px; margin-bottom: 32px;
+
+        @media only screen and (max-width: 800px){
+            padding: 20px; margin-bottom: 20px; width: calc(100% - 40px);
+        }
+
         h4{
             margin-top: 0px; font-size: 24px;
         }

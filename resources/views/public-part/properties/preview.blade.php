@@ -1,5 +1,5 @@
 @extends('public-part.layout.layout')
-
+@section('other_js') @vite([ 'resources/js/map.js']) @endsection
 @section('content')
     <!-- Include filters -->
     @include('public-part.layout.includes.filters')
@@ -70,6 +70,55 @@
                         <div class="swiper-button-prev"></div>
                         <div class="swiper-pagination"></div>
                     </div>
+
+                    <div class="slider_switcher">
+                        <div class="slider__switch slider__switch_gallery active" title="{{ __('Galerija fotografija') }}">
+                            <i class="fa-regular fa-images"></i>
+                        </div>
+                        <div class="slider__switch slider__switch_map" title="{{ __('Mapa') }}">
+                            <i class="fa-regular fa-map"></i>
+                        </div>
+                    </div>
+
+                    <div class="map__wrapper" id="map__wrapper"> </div>
+                </div>
+
+                <div class="mobile_basic_info">
+                    <div class="mobile_icons_wrapper">
+                        <div class="miw_w miw_left">
+                            <div class="miw_i_w slider__switch_gallery active">
+                                <i class="fa-regular fa-images"></i>
+                            </div>
+                            <div class="miw_i_w slider__switch_map">
+                                <i class="fa-regular fa-map"></i>
+                            </div>
+                        </div>
+                        <div class="miw_w miw_right">
+                            <div class="miw_i_w">
+                                <i class="fa-regular fa-heart"></i>
+                            </div>
+                            <div class="miw_i_w">
+                                <i class="fas fa-share-nodes"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mobile__text">
+                        <div class="buttons_wrapper">
+                            <button class="black_btn">{{ __('IZDAJE SE') }}</button>
+                        </div>
+
+                        <h1> Villa for Sale </h1>
+                        <div class="address_wrapper">
+                            <img src="{{ asset('files/images/default/marker.svg') }}" alt="">
+                            <p>3385 Pan American Dr, Miami, FL 33133, USA</p>
+                        </div>
+
+                        <div class="price_wrapper">
+                            <h2> 122 000.00 KM </h2>
+                            <p> 1220.00  KM / m <sup>2</sup> </p>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="estate_element estate_overview">
@@ -90,7 +139,15 @@
                                 <p>{{ __('Vrsta nekretnine') }}</p>
                             </div>
                         </div>
-
+                        <div class="eob_element">
+                            <div class="eob_e_header">
+                                <img src="{{ asset('files/images/default/triangle.png') }}" alt="">
+                                <b> 122 </b>
+                            </div>
+                            <div class="eob_e_body">
+                                <p>m <sup>2</sup></p>
+                            </div>
+                        </div>
                         <div class="eob_element">
                             <div class="eob_e_header">
                                 <img src="{{ asset('files/images/default/bed.png') }}" alt="">
@@ -110,23 +167,13 @@
                                 <p>{{ __('Kupatila') }}</p>
                             </div>
                         </div>
-
                         <div class="eob_element">
                             <div class="eob_e_header">
-                                <img src="{{ asset('files/images/default/triangle.png') }}" alt="">
-                                <b> 122 </b>
+                                <img src="{{ asset('files/images/default/garage.png') }}" alt="">
+                                <b> 2 </b>
                             </div>
                             <div class="eob_e_body">
-                                <p>m <sup>2</sup></p>
-                            </div>
-                        </div>
-                        <div class="eob_element">
-                            <div class="eob_e_header">
-                                <img src="{{ asset('files/images/default/triangle.png') }}" alt="">
-                                <b> 122 </b>
-                            </div>
-                            <div class="eob_e_body">
-                                <p>m <sup>2</sup></p>
+                                <p>{{ __('Garažnih mjesta') }}</p>
                             </div>
                         </div>
                         <div class="eob_element">
@@ -159,7 +206,7 @@
                         <a href="#">
                             <button class="address-btn">
                                 <i class="fas fa-map"></i>
-                                {{ __('Pregled na Google mapama') }}
+                                {{ __('Google mape') }}
                             </button>
                         </a>
                     </div>
@@ -304,9 +351,20 @@
                                     </div>
                                     <div class="ci__w">
                                         <i class="fas fa-envelope"></i>
-                                        <p> info@europlac.ba </p>
+                                        <p> europlac-nekretnine@hotmail.ba </p>
                                     </div>
                                 </div>
+                            </div>
+                        </div>
+
+                        <div class="agent_contact">
+                            <div class="ci__w">
+                                <i class="fas fa-phone"></i>
+                                <p> +387 61 225 883 </p>
+                            </div>
+                            <div class="ci__w">
+                                <i class="fas fa-envelope"></i>
+                                <p> europlac-nekretnine@hotmail.ba </p>
                             </div>
                         </div>
 
@@ -344,7 +402,7 @@
                             <div class="input__btn_w">
                                 <p>
                                     <input type="checkbox" id="cf_agree" name="cf_agree">
-                                    <label for="cf_agree">{{ __('Slažem se sa ') }} <a href="#">{{ __('uvjetima korištenja.') }}</a></label>
+                                    <label for="cf_agree">{{ __('Slažem se sa ') }} <a href="#">{{ __('uslovima korištenja.') }}</a></label>
                                 </p>
                                 <button>{{ __('Zatražite informacije') }}</button>
                             </div>
