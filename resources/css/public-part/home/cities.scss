@@ -4,6 +4,10 @@
     background: white;
     padding: 64px 0px;
 
+    @media only screen and (max-width: 1000px){
+        padding: 32px 0px;
+    }
+
     .inner_wrapper_cities {
         width: 1200px; left: calc(50% - 600px);
         position: relative;
@@ -18,15 +22,23 @@
         .cities_headings {
             position: relative;
             display: flex;
-            gap: 0px;
-            flex-direction: column;
-            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+
+            @media only screen and (max-width: 1000px){
+                justify-content: flex-start;
+            }
 
             h1 {
                 color: #373f47;
                 font-family: 'lora', sans-serif;
                 font-weight: normal; font-size: 40px;
                 margin:0px;
+                width: 100%; text-align: center;
+
+                @media only screen and (max-width: 1000px){
+                    font-size: 32px; text-align: left;
+                }
             }
             p{
                 color: #616f7d;
@@ -38,68 +50,50 @@
         .cities_wrap_info {
             display: flex;
             justify-content: space-between;
-            flex-direction: row;
+            min-height: 120px;
             margin-top: 32px;
-            gap: 10px;
 
             @media only screen and (max-width: 1000px){
-                flex-wrap: wrap;
+                flex-wrap: wrap; gap: 32px;
+            }
+            @media only screen and (max-width: 1000px){
+                gap: 20px;
             }
 
-            .cities_box {
-                position: relative;
-                width: calc(25% - 24px);
-                height: 274px;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                flex-wrap: wrap;
+            .image__wrapper_1{
+                background: url('../../../../files/images/default/bihac.jpg');
+            }
+            .image__wrapper_2{
+                background: url('../../../../files/images/default/buzim.jpg');
+            }
+            .image__wrapper_3{
+                background: url('../../../../files/images/default/cazin.jpg');
+            }
+            .image__wrapper_4{
+                background: url('../../../../files/images/default/velika_kladusa.jpg');
+            }
+
+            .image__wrapper{
+                position: relative; width: calc(25% - 24px); height: 276px;
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: center center;
 
                 @media only screen and (max-width: 1000px){
-                    width: calc(50% - 16px); gap: 32px;
+                    width: calc(50% - 16px);
                 }
-
-                .cities_box_img {
-                    position: relative;
-                    display: flex;
+                @media only screen and (max-width: 800px){
                     width: 100%;
-                    height: auto;
-                    min-height: 100%;
-                    background-size: cover;
-                    background-repeat: no-repeat;
-                    background-position: center center;
-                }
-                .box1 {
-                    background: url('../../../../files/images/default/bihac.jpg');
-                }
-                .box2 {
-                    background: url('../../../../files/images/default/cazin3 (1).jpg');
-                }
-                .box3 {
-                    background: url('../../../../files/images/default/velika_kladusa1.jpg');
-                }
-                .box4 {
-                    background: url('../../../../files/images/default/buzim3.jpg');
                 }
 
-                .cities_box_text {
-                    height: 160px;
-                    width: 100%;
-                    display: flex;
-                    flex-direction: column;
-                    text-align: center;
-                    justify-content: center;
-                    flex-wrap: wrap;
-                    padding: 24px;
-
-                    .inner_text_wrapper {
-                        position: absolute; left: 0px; top: 0px; width: 100%; height: 100%;
-                        display: flex; justify-content: center; align-items: center; flex-wrap: wrap;
-                        background: rgba(0,0,0,0.3); transition: 0.2s all;
-
+                .text_wrapper{
+                    position: absolute; left: 0px; top: 0px; width: 100%; height: 100%; background: rgba(0,0,0,0.3); transition: 0.2s all;
+                    display: flex; justify-content: center; align-items: center;
+                    .text_center_wrapper{
+                        display: flex; justify-content: center; flex-wrap: wrap;
                         h4 {
                             color: white; width: 100%;
-                            font-family: 'lora', sans-serif; font-size: 24px; margin: 0px;
+                            font-family: 'lora', sans-serif; font-size: 24px; margin: 0px; text-align: center; font-weight: 300;
                         }
                         p {
                             color: white;
@@ -107,20 +101,96 @@
                             font-family: "Inter", sans-serif; font-weight: 200; text-transform: uppercase; margin-top: 8px;
                         }
                     }
-                    .inner_text_wrapper:hover {
-                        //display: none;
-                    }
-                }
-
-            }
-
-            .cities_box:hover{
-                .cities_box_text{
-                    .inner_text_wrapper{
-                        background: rgba(0,0,0,0.05);
-                    }
                 }
             }
+            .image__wrapper:hover{
+                .text_wrapper{
+                    background: rgba(0,0,0,0.05);
+                }
+            }
+
+            //@media only screen and (max-width: 1000px){
+            //    flex-wrap: wrap;
+            //}
+            //.cities_box {
+            //    position: relative;
+            //    width: calc(25% - 24px);
+            //    height: 274px;
+            //    display: flex;
+            //    justify-content: space-between;
+            //    align-items: center;
+            //    flex-wrap: wrap;
+            //
+            //    @media only screen and (max-width: 1000px){
+            //        width: calc(50% - 16px); gap: 32px;
+            //    }
+            //    @media only screen and (max-width: 800px){
+            //        width: 100%; background: red;
+            //    }
+            //
+            //    .cities_box_img {
+            //        position: relative;
+            //        display: flex;
+            //        min-width: 100%;
+            //        height: auto;
+            //        min-height: 100%;
+            //        background-size: cover;
+            //        background-repeat: no-repeat;
+            //        background-position: center center;
+            //        overflow: hidden;
+            //    }
+            //    .box1 {
+            //        // background: url('../../../../files/images/default/bihac.jpg');
+            //    }
+            //    .box2 {
+            //        background: url('../../../../files/images/default/cazin.jpg');
+            //
+            //    }
+            //    .box3 {
+            //        background: url('../../../../files/images/default/velika_kladusa.jpg');
+            //    }
+            //    .box4 {
+            //        background: url('../../../../files/images/default/buzim.jpg');
+            //    }
+            //
+            //    .cities_box_text {
+            //        height: 100%;
+            //        width: 100%;
+            //        display: flex;
+            //        flex-direction: column;
+            //        text-align: center;
+            //        justify-content: center;
+            //        flex-wrap: wrap;
+            //        padding: 24px;
+            //
+            //        .inner_text_wrapper {
+            //            position: absolute; left: 0px; top: 0px; width: 100%; height: 100%;
+            //            display: flex; justify-content: center; align-items: center; flex-wrap: wrap;
+            //            background: rgba(0,0,0,0.3); transition: 0.2s all;
+            //
+            //            h4 {
+            //                color: white; width: 100%;
+            //                font-family: 'lora', sans-serif; font-size: 24px; margin: 0px;
+            //            }
+            //            p {
+            //                color: white;
+            //                font-size: 16px;
+            //                font-family: "Inter", sans-serif; font-weight: 200; text-transform: uppercase; margin-top: 8px;
+            //            }
+            //        }
+            //        .inner_text_wrapper:hover {
+            //            //display: none;
+            //        }
+            //    }
+            //
+            //}
+            //.cities_box:hover{
+            //    .cities_box_text{
+            //        .inner_text_wrapper{
+            //            background: rgba(0,0,0,0.05);
+            //        }
+            //    }
+            //}
         }
     }
 }

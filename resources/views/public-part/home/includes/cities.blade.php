@@ -1,75 +1,39 @@
 <div class="wrapper_cities">
     <div class="inner_wrapper_cities">
         <div class="cities_headings">
-            <h1>
-                {{ __('Istražite po gradovima') }}
-            </h1>
-            <p>
-                {{ __('Lorem ipsum dolor sit amet, consectetur adipiscing Lorem ipsum dolor sit amet, consectetur adipiscing') }}
-            </p>
+            <h1> {{ __('Istražite po gradovima') }} </h1>
+            <p> {{ __('Lorem ipsum dolor sit amet, consectetur adipiscing Lorem ipsum dolor sit amet, consectetur adipiscing') }} </p>
         </div>
         <div class="cities_wrap_info">
-            <div class="cities_box">
-                <div class="cities_box_img box1">
-                    <div class="cities_box_text">
-                        <div class="inner_text_wrapper">
-                            <div class="cities_box_text">
-                                <h4>
-                                    {{ __('Bihać') }}
-                                </h4>
-                                <p>
-                                    {{__('2 nekretnine')}}
-                                </p>
-                            </div>
-                        </div>
+            <div class="image__wrapper image__wrapper_1">
+                <div class="text_wrapper">
+                    <div class="text_center_wrapper">
+                        <h4>Bihać</h4>
+                        <p>10 Nekretnina</p>
                     </div>
                 </div>
             </div>
-            <div class="cities_box">
-                <div class="cities_box_img box2">
-                    <div class="cities_box_text">
-                        <div class="inner_text_wrapper">
-                            <div class="cities_box_text">
-                                <h4>
-                                    {{ __('Cazin') }}
-                                </h4>
-                                <p>
-                                    {{__('2 nekretnine')}}
-                                </p>
-                            </div>
-                        </div>
+            <div class="image__wrapper image__wrapper_2">
+                <div class="text_wrapper">
+                    <div class="text_center_wrapper">
+                        <h4>Bužim</h4>
+                        <p>2 nekretnine</p>
                     </div>
                 </div>
             </div>
-            <div class="cities_box">
-                <div class="cities_box_img box3">
-                    <div class="cities_box_text">
-                        <div class="inner_text_wrapper">
-                            <div class="cities_box_text">
-                                <h4>
-                                    {{ __('Velika Kladuša') }}
-                                </h4>
-                                <p>
-                                    {{__('2 nekretnine')}}
-                                </p>
-                            </div>
-                        </div>
+            <div class="image__wrapper image__wrapper_3">
+                <div class="text_wrapper">
+                    <div class="text_center_wrapper">
+                        <h4>Cazin</h4>
+                        <p>2 nekretnine</p>
                     </div>
                 </div>
             </div>
-            <div class="cities_box">
-                <div class="cities_box_img box4">
-                    <div class="cities_box_text">
-                        <div class="inner_text_wrapper">
-                            <div class="cities_box_text">
-                                <h4>
-                                    {{ __('Bužim') }}
-                                </h4>
-                                <p>
-                                    {{__('2 nekretnine')}}
-                                </p>
-                            </div>
-                        </div>
+            <div class="image__wrapper image__wrapper_4">
+                <div class="text_wrapper">
+                    <div class="text_center_wrapper">
+                        <h4>Velika Kladuša</h4>
+                        <p>2 nekretnine</p>
                     </div>
                 </div>
             </div>

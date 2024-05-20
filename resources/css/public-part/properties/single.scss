@@ -48,8 +48,10 @@
     }
 }
 .single__estate{
-    position: relative; width: 100%; min-height: 200px; background: #F7F8F9;
-
+    position: relative; width: 100%; min-height: 200px; background: #F7F8F9; margin-bottom: 64px;
+    @media only screen and (max-width: 800px){
+        margin-bottom: 0px;
+    }
     .estate_inner_wrapper{
         position: relative; left: calc(50% - $container-half); width: $container-width; min-height: 120px; gap: 32px; display: flex; justify-content: space-between;
 
