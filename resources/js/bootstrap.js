@@ -57,7 +57,6 @@ function checkArrow() {
 /**
  *  Slider with multiple items
  */
-
 const multiSwiper = new Swiper('.multi-swiper', {
     slidesPerView: 10,
     spaceBetween: 16,
@@ -100,6 +99,23 @@ const multiSwiper = new Swiper('.multi-swiper', {
     //     nextEl: ".swiper-button-next",
     //     prevEl: ".swiper-button-prev",
     // }
+});
+
+/**
+ *  Featured items
+ */
+const featuredProperties = new Swiper('.featured_properties', {
+    slidesPerView: 3,
+    spaceBetween: 32,
+    pagination: {
+        el: ".swiper-pagination",
+        // dynamicBullets: true,
+        // type: "progressbar",
+    },
+    autoplay: {
+        delay: 2500,
+        disableOnInteraction: false
+    },
 });
 
 import './core/maps.js'

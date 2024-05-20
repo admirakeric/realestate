@@ -86,7 +86,7 @@
                                 <div class="text_icons_icon">
                                     <div class="text_ii_w">
                                         <p>2</p>
-                                        <img src="{{ asset('files/images/default/shower.png') }}" alt="">
+                                        <img src="{{ asset('files/images/default/shwr.png') }}" alt="">
                                     </div>
                                     <div class="text_it_w">
                                         <p>Kupatila</p>
@@ -95,7 +95,7 @@
                                 <div class="text_icons_icon">
                                     <div class="text_ii_w">
                                         <p>122</p>
-                                        <img src="{{ asset('files/images/default/triangle.png') }}" alt="">
+                                        <img src="{{ asset('files/images/default/triangle_i.png') }}" alt="">
                                     </div>
                                     <div class="text_it_w">
                                         <p>m <sup>2</sup></p>
