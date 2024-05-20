@@ -273,7 +273,82 @@
                     </div>
 
                     <div class="ee_body video_body">
+                        <iframe src="https://www.youtube.com/embed/-NInBEdSvp8?si=ErLQhFJ_eUr-hfiX" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                </div>
 
+                <div class="estate_element dual_elements contact_us">
+                    <div class="ee_header">
+                        <h4>{{ __('Kontakt informacije') }}</h4>
+                        <a href="#">
+                            <button class="contact_us-btn">
+                                <i class="fas fa-phone"></i>
+                                <span class="main_text">{{ __('Pozovite nas') }}</span>
+                                <span class="phone_number"> +387 61 225 883 </span>
+                            </button>
+                        </a>
+                    </div>
+
+                    <div class="ee_body dual_elements_body contact_us_body">
+                        <div class="agent_info">
+                            <div class="img_wrapper">
+                                <img src="{{ asset('files/images/default/agent.jpg') }}" alt="">
+                            </div>
+                            <div class="text_wrapper">
+                                <h4>Sameuel el. Jackson</h4>
+                                <p>Broj licence: 223-A/2023</p>
+                                <div class="contact__info">
+                                    <div class="ci__w">
+                                        <i class="fas fa-phone"></i>
+                                        <p> +387 61 225 883 </p>
+                                    </div>
+                                    <div class="ci__w">
+                                        <i class="fas fa-envelope"></i>
+                                        <p> info@europlac.ba </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="subheader">
+                            <h5>{{ __('Želite više informacija?') }}</h5>
+                        </div>
+
+                        <div class="contact__form">
+                            <div class="input__w">
+                                <label for="cf_name">{{ __('Ime i prezime') }}</label>
+                                <input type="text" id="cf_name" name="cf_name">
+                            </div>
+                            <div class="input__w">
+                                <label for="cf_phone">{{ __('Broj telefona') }}</label>
+                                <input type="text" id="cf_phone" name="cf_phone" value="+387 ">
+                            </div>
+                            <div class="input__w">
+                                <label for="cf_email">{{ __('Email') }}</label>
+                                <input type="text" id="cf_email" name="cf_email">
+                            </div>
+                            <div class="input__w">
+                                <label for="cf_what">{{ __('Email') }}</label>
+                                <select id="cf_what" name="cf_what">
+                                    <option value="{{ __('Ja sam kupac') }}"> {{ __('Ja sam kupac') }} </option>
+                                    <option value="{{ __('Ja sam agent') }}"> {{ __('Ja sam agent') }} </option>
+                                    <option value="{{ __('Drugo') }}"> {{ __('Drugo') }} </option>
+                                </select>
+                            </div>
+
+                            <div class="input__w input__w_full">
+                                <label for="cf_message">{{ __('Vaša poruka') }}</label>
+                                <textarea type="text" id="cf_message" name="cf_message"> </textarea>
+                            </div>
+
+                            <div class="input__btn_w">
+                                <p>
+                                    <input type="checkbox" id="cf_agree" name="cf_agree">
+                                    <label for="cf_agree">{{ __('Slažem se sa ') }} <a href="#">{{ __('uvjetima korištenja.') }}</a></label>
+                                </p>
+                                <button>{{ __('Zatražite informacije') }}</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -282,5 +357,4 @@
         </div>
     </div>
 
-    <br><br><br>    <br><br><br>    <br><br><br>    <br><br><br>    <br><br><br>    <br><br><br>    <br><br><br>    <br><br><br>    <br><br><br>    <br><br><br>
 @endsection

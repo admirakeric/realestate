@@ -1,4 +1,4 @@
-<div class="right_side">
+<div class="right_side sticky">
     <div class="inner_wrapper">
         <h4>{{ __('Vrste nekretnina') }}</h4>
         <div class="first__layer">

@@ -113,7 +113,7 @@
                             </div>
                         </li>
                         <li class="li_menu">
-                            <a class="menu" href="#"> {{ __('Novosti') }} </a>
+                            <a class="menu" href="#"> {{ __('Blog sekcija') }} </a>
                         </li>
                         <li class="li_menu">
                             <a class="menu" href="#">

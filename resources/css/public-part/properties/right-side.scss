@@ -1,16 +1,23 @@
 .right_side{
     position: relative; width: 350px; gap: 32px;
+    &.sticky {
+        position: sticky;
+        align-self: flex-start;
+        top: 0;
+        overflow-y: auto;
+    }
+
     @media only screen and (max-width: 1000px){
         width: 300px;
     }
     @media only screen and (max-width: 800px){
         width: 100%; overflow: hidden;
+        &.sticky{
+            position: unset;
+        }
     }
 
-    &.sticky {
-        position: sticky;
-        top: 0;
-    }
+
 
     .inner_wrapper{
         position: relative; width: calc(100% - 64px); padding: 32px; background: #ffffff; border-radius:3px; margin-bottom: 32px;

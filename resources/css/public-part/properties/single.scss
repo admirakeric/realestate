@@ -102,16 +102,33 @@
                     }
                     a{
                         text-decoration: none;
-                        .address-btn{
+                        .address-btn, .contact_us-btn{
                             display: flex; gap: 8px; align-items: center; border: none; background: $primary;
-                            color:#ffffff; padding: 6px 16px; border-radius: 3px;
+                            color:#ffffff; padding: 6px 16px; border-radius: 3px; transition: 0.2s all; justify-content: center;
                             img{
                                 height: 14px;
                             }
+                            .phone_number{display: none;}
+                        }
+                        .contact_us-btn{
+                            width: 180px;
+                        }
+                        .contact_us-btn:hover{
+                            cursor: pointer;
+                            i{display: none;}
+                            .phone_number{display: flex;}
+                            .main_text{display: none;}
                         }
                     }
                     p{
                         font-family: "Inter", sans-serif; font-weight: 300; font-size: 14px; color: grey; gap: 8px; display: flex; align-items: center;
+                    }
+                }
+                .subheader{
+                    position: relative; width: 100%; display: flex; justify-content: space-between; align-items: center; padding-bottom: 32px;
+                    border-bottom: 1px solid rgba(0,0,0,0.1);
+                    h5{
+                        font-family: 'Lora', sans-serif; font-size: 18px; font-weight: normal; margin: 0px;
                     }
                 }
                 .ee_body{
@@ -232,10 +249,87 @@
                         position: relative; width: 100%; padding-top: 8px; padding-bottom: 8px; background: $primary; border: none; border-radius: 3px;
                         color: #ffffff; margin-top: 24px; transition: 0.2s all;
 
-                        font-family: "Inter", sans-serif; font-weight: 500; font-size: 16px;
+                        font-family: "Inter", sans-serif; font-weight: 500; font-size: 14px;
                     }
                     button:hover{
                         background: $secondary; cursor: pointer;
+                    }
+                }
+            }
+
+            .video{
+                .video_body{
+                    iframe{
+                        width: 100%; height: 420px;
+                    }
+                }
+            }
+            .contact_us{
+                .contact_us_body{
+                    .agent_info{
+                        position: relative; width: 100%; height: 100px; display: flex; gap: 32px;
+
+                        .img_wrapper{
+                            position: relative; width: 100px; height: 100px; overflow: hidden; border-radius: 3px;
+                            img{
+                                position: relative; object-fit: cover; max-width: 100%;
+                            }
+                        }
+                        .text_wrapper{
+                            display:  flex; justify-content: flex-start; flex-wrap: wrap;
+                            h4{
+                                margin: 0px; font-family: "Inter", sans-serif; font-weight: 300; font-size: 24px; width: 100%;
+                            }
+                            p{
+                                width: 100%; font-family: "Inter", sans-serif; font-weight: 300; margin: 0px;
+                            }
+                            .contact__info{
+                                position: relative; width: 100%; display: flex; gap: 32px;
+                                .ci__w{
+                                    position: relative; display: flex; gap: 8px; align-items: center;
+                                }
+                            }
+                        }
+                    }
+
+                    .contact__form{
+                        position: relative; width: 100%; display: flex; flex-wrap: wrap;
+                        .input__w{
+                            width: calc(50% - 16px); margin-bottom: 16px;
+                            label{
+                                width: 100%; font-family: "Inter", sans-serif; font-weight: 500; font-size: 14px;
+                            }
+                            input, select, textarea{
+                                width: 100%; height: 36px; border: 1px solid rgba(0,0,0,0.1); border-radius: 3px; padding-left: 16px; margin-top:8px;
+                            }
+                        }
+                        .input__w:nth-child(2n){ margin-left: 32px; }
+                        .input__w_full{
+                            width: 100%;
+                            textarea{
+                                height: 120px; padding: 16px;
+                            }
+                        }
+
+                        .input__btn_w{
+                            position: relative; width: 100%; display: flex; align-items: center; gap: 32px;
+                            p{
+                                input[type='checkbox'] {
+                                    accent-color: $primary; color: #ffffff;
+                                }
+
+                                display: flex; align-items: center; gap: 8px; font-family: "Inter", sans-serif; font-weight: 300;
+                                a{
+                                    color: $primary;  font-family: "Inter", sans-serif; font-weight: 500;
+                                }
+                            }
+                            button{
+                                position: relative; padding: 8px 16px; background: $primary; border: none; border-radius: 3px;
+                                color: #ffffff; transition: 0.2s all;
+
+                                font-family: "Inter", sans-serif; font-weight: 500; font-size: 14px;
+                            }
+                        }
                     }
                 }
             }
