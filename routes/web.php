@@ -4,6 +4,7 @@ use App\Http\Controllers\PublicPart\HomeController;
 use App\Http\Controllers\PublicPart\PropertiesController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PublicPart\AuthController;
+use App\Http\Controllers\PublicPart\ContactUsController;
 
 // Init route
 //Route::get('/', function () {
@@ -34,5 +35,9 @@ Route::prefix('')->group(function () {
         Route::post('/authenticate',                   [AuthController::class, 'authenticate'])->name('public-part.auth.authenticate');
 
         Route::get('/logout',                          [AuthController::class, 'logout'])->name('public-part.logout');
+    });
+
+    Route::prefix('/contact-us')->group(function (){
+        Route::get('/',                                [ContactUsController::class, 'index'])->name('public.part.contact-us');
     });
 });

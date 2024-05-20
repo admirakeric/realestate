@@ -141,7 +141,7 @@
 
             <div class="main_menu_nav_two">
                 <div class="mm_nt_link">
-                    <a class="mm_nt_link_a" href="#">{{ __('Kontaktirajte nas') }}</a>
+                    <a class="mm_nt_link_a" href="{{ route('public.part.contact-us') }}">{{ __('Kontaktirajte nas') }}</a>
                 </div>
                 <div class="mm_nt_button">
                     @if(Auth()->check())
