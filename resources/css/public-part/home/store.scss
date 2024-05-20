@@ -27,13 +27,13 @@
 
         .store__elements{
             position: relative; width: 100%; display: flex; gap: 32px; flex-wrap: wrap;
-            margin-top: 32px;
+            //margin-top: 32px;
 
             .large_box{
-                position: relative; width: calc(50% - 16px); height: 400px; overflow: hidden; display: flex; justify-content: space-between;
+                position: relative; width: calc(50% - 16px); height: 360px; overflow: hidden; display: flex; justify-content: space-between;
                 text-align: center; justify-items: center;
                 .small_box{
-                    position:relative; width: calc(50% - 16px); height: 400px; overflow: hidden;
+                    position:relative; width: calc(50% - 16px); height: 360px; overflow: hidden;
                     background-size: cover;
                     text-align: center; align-content: center;
 

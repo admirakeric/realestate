@@ -1,13 +1,13 @@
 <div class="store_wrapper">
     <div class="inner_store_wrapper">
-        <div class="store_headings">
-            <h1>
-                {{ __('Potražite savršenu nekretninu') }}
-            </h1>
-            <p>
-                {{ __('Lorem ipsum dolor sit amet, consectetur adipiscing Lorem ipsum dolor sit amet, consectetur adipiscing') }}
-            </p>
-        </div>
+{{--        <div class="store_headings">--}}
+{{--            <h1>--}}
+{{--                {{ __('Potražite savršenu nekretninu') }}--}}
+{{--            </h1>--}}
+{{--            <p>--}}
+{{--                {{ __('Lorem ipsum dolor sit amet, consectetur adipiscing Lorem ipsum dolor sit amet, consectetur adipiscing') }}--}}
+{{--            </p>--}}
+{{--        </div>--}}
         <div class="store__elements">
             <div class="large_box large_box_1">
                 <div class="text_wrapper">
