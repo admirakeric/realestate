@@ -1,0 +1,113 @@
+.wrapper_cities {
+    width: 100%;
+    height: auto;
+    background: white;
+    padding: 64px 0px;
+
+    .inner_wrapper_cities {
+        width: 1200px; left: calc(50% - 600px);
+        position: relative;
+        .cities_headings {
+            position: relative;
+            display: flex;
+            gap: 0px;
+            flex-direction: column;
+            align-items: center;
+
+            h1 {
+                color: #373f47;
+                font-family: 'lora', sans-serif;
+                font-weight: normal; font-size: 40px;
+                margin:0px;
+            }
+            p{
+                color: #616f7d;
+                font-size: 16px;
+                margin-top: 16px;
+            }
+        }
+
+        .cities_wrap_info {
+            display: flex;
+            justify-content: space-between;
+            flex-direction: row;
+            margin-top: 32px;
+            gap: 10px;
+
+            .cities_box {
+                position: relative;
+                width: calc(33.33% - 16px);
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                flex-wrap: wrap;
+
+                .cities_box_img {
+                    position: relative;
+                    display: flex;
+                    width: 100%;
+                    height: auto;
+                }
+                .box1 {
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                    background-position: center center;
+                    background: url('../../../../files/images/default/bihac.jpg');
+                }
+
+                .box2 {
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                    background-position: center center;
+                    background: url('../../../../files/images/default/cazin3 (1).jpg');
+                }
+
+                .box3 {
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                    background-position: center center;
+                    background: url('../../../../files/images/default/velika_kladusa1.jpg');
+                }
+
+                .box4 {
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                    background-position: center center;
+                    background: url('../../../../files/images/default/buzim3.jpg');
+                }
+
+                .cities_box_text {
+                    height: 160px;
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    text-align: center;
+                    justify-content: center;
+                    flex-wrap: wrap;
+                    padding: 24px;
+
+                    .inner_text_wrapper {
+                        position: absolute; left: 0px; top: 0px; width: 100%; height: 100%;
+                        display: flex; justify-content: center; align-items: center; flex-wrap: wrap;
+                        background: rgba(0,0,0,0.5); transition: 0.2s all;
+
+                        h4 {
+                            color: white; width: 100%;
+                            font-family: 'lora', sans-serif; font-size: 20px;
+
+                        }
+                        p {
+                            color: white;
+                            font-size: 16px;
+
+                        }
+                    }
+                    .inner_text_wrapper:hover {
+                        display: none;
+                    }
+                }
+
+            }
+                }
+            }
+        }
