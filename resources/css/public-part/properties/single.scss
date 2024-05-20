@@ -122,7 +122,11 @@
             }
 
             .mobile_basic_info{
-                position: relative; width: 100%; min-height: 60px; padding: 20px;
+                position: relative; width: 100%; min-height: 60px; padding: 20px; display: none;
+
+                @media only screen and (max-width: 800px){
+                    display: unset;
+                }
                 .mobile_icons_wrapper{
                     position: relative; display: flex; width: 100%; justify-content: space-between;
 
@@ -147,6 +151,7 @@
 
                 .mobile__text{
                     position: relative; width: 100%; margin-top: 16px;
+
                     h1{
                         font-size: 32px; font-family: 'Lora', sans-serif; font-weight: 100; margin: 0px; margin-top: 8px;
                     }
