@@ -91,7 +91,7 @@
                 }
 
                 .slider_switcher{
-                    position: absolute; right: 50px; top: 50px; width: 120px; height: 50px; z-index: 500; display: flex; justify-content: flex-end; gap: 16px;
+                    position: absolute; right: 50px; top: 50px; width: 120px; height: 50px; z-index: 110; display: flex; justify-content: flex-end; gap: 16px;
                     .slider__switch{
                         width: 50px; height: 50px; border-radius: 3px; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.7);
 
