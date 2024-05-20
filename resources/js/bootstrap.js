@@ -12,14 +12,14 @@ window.$ = jQuery;
  */
 
 import Swiper from 'swiper';
-import { Navigation, Pagination } from 'swiper/modules';
+import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 // import Swiper and modules styles
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
 
-Swiper.use([Navigation, Pagination]);
+Swiper.use([Navigation, Pagination, Autoplay]);
 
 // init Swiper:
 const swiper = new Swiper('.gallery__swiper', {
@@ -60,10 +60,10 @@ function checkArrow() {
 const multiSwiper = new Swiper('.multi-swiper', {
     slidesPerView: 10,
     spaceBetween: 16,
-    autoplay: {
-        delay: 2500,
-        disableOnInteraction: false
-    },
+    // autoplay: {
+    //     delay: 2500,
+    //     disableOnInteraction: false
+    // },
     breakpoints: {
         320: {
             slidesPerView: 3,
@@ -116,6 +116,8 @@ const featuredProperties = new Swiper('.featured_properties', {
         delay: 2500,
         disableOnInteraction: false
     },
+    speed: 500,
+    loop: true,
 });
 
 import './core/maps.js'

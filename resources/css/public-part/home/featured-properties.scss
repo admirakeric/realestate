@@ -41,6 +41,13 @@
                             border: 1px solid rgba(0,0,0,0.1); margin-right: 0px; width: calc(100% - 2px); gap: 0px; min-height: 360px; height: 100%;
                             .image_wrapper{
                                 height: 260px;
+                                .image_cover{
+                                    .top_buttons{
+                                        .top_buttons_w{
+                                            gap: 8px;
+                                        }
+                                    }
+                                }
                             }
                             .text_wrapper{
                                 a{
