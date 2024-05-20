@@ -1,0 +1,138 @@
+.single_estate{
+    width: calc(50% - 16px); min-height: 480px; background: #ffffff; border-radius: 3px; overflow: hidden;
+    .image_wrapper{
+        position: relative; width: 100%; height: 320px; overflow: hidden;
+        img{
+            object-fit: cover; width: 100%;
+
+            @media only screen and (max-width: 1400px){
+                min-width: 100%; min-height: 100%;
+            }
+        }
+
+        .image_cover{
+            position: absolute; left: 0px; top: 0px; width: 100%; height: 100%;  z-index: 50; transition: 0.5s all;
+            background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, .75) 100%);
+
+            .top_buttons{
+                position: absolute; left: 24px; top: 24px; width: calc(100% - 48px); height: 20px;
+                display: flex; justify-content: space-between;
+                .top_buttons_w{
+                    display: flex; gap: 16px;
+                    button{
+                        border: none; color: #ffffff; font-size: 10px; padding: 5px 10px; border-radius: 3px;
+                    }
+                    .green_btn{ background: #77C720; }
+                    .black_btn{ background: #333333; }
+                    .red_btn{ background: #DD3333; }
+                }
+                .top_left_buttons{
+
+                }
+                .top_right_buttons{
+
+                }
+            }
+            .bottom_buttons{
+                position: absolute; left: 24px; bottom: 24px; width: calc(100% - 48px); height: 80px;
+                display: flex; align-items: flex-end; justify-content: space-between;
+
+                .bottom_buttons_w{
+                    display: flex; flex-wrap: wrap; width: 50%; align-items: flex-end; justify-content: flex-end;
+                    h4{
+                        font-size: 22px; margin: 0px; width: 100%; color: #ffffff; margin-bottom: 0px;
+                    }
+                    p{
+                        color: #ffffff; margin-top: 0px; font-size: 14px;
+                    }
+
+                    .icon_w{
+                        position:relative; width: 30px; height: 30px; background: rgba(0,0,0,0.5); border-radius: 3px; display: inline-flex;
+                        justify-content: center; align-items: center; margin-left: 8px; transition: 0.2s all;
+                        i{
+                            color: #ffffff; font-size: 12px;
+                        }
+                        .icon_w_explanation{
+                            position: absolute; right: 0px; top: -32px; padding: 4px 12px; background: rgba(0,0,0,0.8); white-space: nowrap;
+                            font-size: 12px; z-index: 50; color:#ffffff; border-radius: 3px; opacity: 0; transition: 0.2s all;
+                        }
+                    }
+                    .icon_w_first{
+                        .icon_w_explanation{
+                            right: -32px;
+                        }
+                    }
+                    .icon_w_second{
+                        .icon_w_explanation{
+                            right: -22px;
+                        }
+                    }
+
+                    .icon_w:hover{
+                        background: rgba(0,0,0,0.8);
+                        .icon_w_explanation{opacity: 1;}
+                    }
+                }
+                .bottom_buttons_w:first-child{width: 70%;}
+                .bottom_buttons_w:last-child{width: 30%;}
+                .bottom_buttons_w_left{
+                    align-items: flex-start; justify-content: flex-start;
+                }
+            }
+        }
+
+    }
+
+    .text_wrapper{
+        position: relative; display: flex; justify-content: space-between; flex-wrap: wrap;
+        left: 24px; margin-top: 24px; width: calc(100% - 48px); margin-bottom: 24px;
+        a{
+            display: flex; width: 100%; text-decoration: none; color: #333333;
+            .main_text_w{
+                width: 100%;
+                h4, p{margin: 0px}
+                h4{
+                    font-size: 24px;
+                }
+                p{
+                    font-size: 14px; margin-top: 8px;
+                }
+            }
+        }
+        .text_icons{
+            display: flex; justify-content: flex-start; gap: 8px; height: 50px; margin-top: 24px;
+            .text_icons_icon{
+                height: 50px; border-right: 1px solid rgba(0,0,0,0.1); padding-right: 8px; position: relative;
+                .text_ii_w{
+                    width: 100%; display: flex; justify-content: flex-start; height: 30px; gap: 8px;
+                    p{
+                        font-size: 20px; margin: 0px;
+                    }
+                    img{
+                        margin-top: 4px; height: 16px;
+                    }
+                    .bed, .shower, .triangle{ }
+
+                }
+                .text_it_w{
+                    width: 100%; position: relative; bottom: 0px; height: 20px; display: flex; align-items: flex-end;
+                    p{
+                        margin: 0px; font-size: 12px; color: grey;
+                    }
+                }
+            }
+        }
+    }
+
+    @media only screen and (max-width: 1200px){
+        width: 100%;
+    }
+}
+.single_estate:hover{
+    cursor: pointer;
+    .image_wrapper{
+        .image_cover{
+            background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, .4) 100%);
+        }
+    }
+}
