@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\Users\UsersController;
+use App\Http\Controllers\PublicPart\FaqController;
 use App\Http\Controllers\PublicPart\HomeController;
 use App\Http\Controllers\PublicPart\PropertiesController;
 use Illuminate\Support\Facades\Route;
@@ -41,6 +42,13 @@ Route::prefix('')->group(function () {
 
     Route::prefix('/contact-us')->group(function (){
         Route::get('/',                                [ContactUsController::class, 'index'])->name('public.part.contact-us');
+    });
+
+    /**
+     * FAQ
+     */
+    Route::prefix('/faq')->group(function (){
+        Route::get('/',                                 [FaqController::class, 'index'])->name('public-part.faq');
     });
 });
 

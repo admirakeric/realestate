@@ -108,6 +108,12 @@
                                     <a href="{{ route('public-part.properties') }}"> {{__('Zemljišta')}}</a>
                                 </div>
                                 <div class="li_m_s_w">
+                                    <a href="{{ route('public-part.properties') }}"> {{__('Poslovni prostori')}}</a>
+                                </div>
+                                <div class="li_m_s_w">
+                                    <a href="{{ route('public-part.properties') }}"> {{__('Vikendice')}}</a>
+                                </div>
+                                <div class="li_m_s_w">
                                     <a href="{{ route('public-part.properties') }}"> {{__('Ostalo')}}</a>
                                 </div>
                             </div>
@@ -121,6 +127,9 @@
                                 <i class="fas fa-chevron-down"></i>
                             </a>
                             <div class="li_menu_submenu">
+                                <div class="li_m_s_w">
+                                    <a href="{{ route('public-part.faq') }}"> {{__('Često postavljena pitanja')}}</a>
+                                </div>
                                 <div class="li_m_s_w">
                                     <a href="#"> {{__('Kako prodati nekretninu?')}}</a>
                                 </div>

@@ -15,10 +15,10 @@
                         <div class="text_wrapper">
                             <div class="inner_text_wrapper">
                                 <h3>
-                                    {{ __('Apartmani') }}
+                                    {{ __('Kuće') }}
                                 </h3>
                                 <p>
-                                    {{ __('2 apartmana') }}
+                                    {{ __('2 NEKRETNINE') }}
                                 </p>
                             </div>
                         </div>
@@ -34,7 +34,7 @@
                                 {{ __('Stanovi') }}
                             </h3>
                             <p>
-                            {{ __('2') }}
+                            {{ __('2 NEKRETNINE') }}
                         </div>
                     </div>
 
@@ -44,10 +44,10 @@
                     <div class="text_wrapper">
                         <div class="inner_text_wrapper">
                             <h3>
-                                {{ __('Uredi') }}
+                                {{ __('Apartmani') }}
                             </h3>
                             <p>
-                                {{ __('2') }}
+                                {{ __('2 NEKRETNINE') }}
                             </p>
                         </div>
                     </div>
@@ -59,10 +59,10 @@
                     <div class="text_wrapper">
                         <div class="inner_text_wrapper">
                             <h3>
-                                {{ __('Kuće') }}
+                                {{ __('Zemljišta') }}
                             </h3>
                             <p>
-                                {{ __('2') }}
+                                {{ __('2 NEKRETNINE') }}
                             </p>
                         </div>
                     </div>
@@ -72,10 +72,10 @@
                     <div class="text_wrapper">
                         <div class="inner_text_wrapper">
                             <h3>
-                                {{ __('Zemljišta') }}
+                                {{ __('Poslovni prostori') }}
                             </h3>
                             <p>
-                                {{ __('2') }}
+                                {{ __('2 NEKRETNINE') }}
                             </p>
                         </div>
                     </div>
@@ -85,10 +85,10 @@
                 <div class="text_wrapper">
                     <div class="inner_text_wrapper">
                         <h3>
-                            {{ __('Ostalo') }}
+                            {{ __('Vikendice') }}
                         </h3>
                         <p>
-                            {{ __('2') }}
+                            {{ __('2 NEKRETNINE') }}
                         </p>
                     </div>
                 </div>
