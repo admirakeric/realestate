@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\Users\UsersController;
 use App\Http\Controllers\PublicPart\HomeController;
 use App\Http\Controllers\PublicPart\PropertiesController;
 use Illuminate\Support\Facades\Route;
@@ -39,5 +41,24 @@ Route::prefix('')->group(function () {
 
     Route::prefix('/contact-us')->group(function (){
         Route::get('/',                                [ContactUsController::class, 'index'])->name('public.part.contact-us');
+    });
+});
+
+/**
+ *  Admin routes
+ */
+
+Route::prefix('system')->group(function () {
+    Route::get('/dashboard',                                   [DashboardController::class, 'dashboard'])->name('system.dashboard');
+
+    /* Users routes */
+    Route::prefix('users')->group(function () {
+        Route::get('/',                          [UsersController::class, 'index'])->name('system.users.index');
+        Route::get ('/create',                   [UsersController::class, 'create'])->name('system.users.create');
+        Route::post('/save',                     [UsersController::class, 'save'])->name('system.users.save');
+        Route::get ('/preview/{username}',       [UsersController::class, 'preview'])->name('system.users.preview');
+        Route::get ('/edit/{username}',          [UsersController::class, 'edit'])->name('system.users.edit');
+        Route::post('/update',                   [UsersController::class, 'update'])->name('system.users.update');
+        Route::get ('/delete/{username}',        [UsersController::class, 'delete'])->name('system.users.delete');
     });
 });

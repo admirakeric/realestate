@@ -113,8 +113,8 @@ const featuredProperties = new Swiper('.featured_properties', {
         // type: "progressbar",
     },
     autoplay: {
-        delay: 2500,
-        disableOnInteraction: false
+        delay: 3000,
+        disableOnInteraction: true
     },
     speed: 500,
     loop: true,
