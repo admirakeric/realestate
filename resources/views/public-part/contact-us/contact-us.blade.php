@@ -75,17 +75,17 @@
                     <div class="cu_i_w_right_three">
                         <div class="cu_i_w_right_three_inner">
                             <div class="cu_i_w_right_three_fb">
-                                <a>
+                                <a href="#">
                                     <img src="{{ asset('files/images/default/ig.svg') }}" alt="">
                                 </a>
                             </div>
                             <div class="cu_i_w_right_three_yt">
-                                <a>
+                                <a href="#">
                                     <img src="{{ asset('files/images/default/ig.svg') }}" alt="">
                                 </a>
                             </div>
                             <div class="cu_i_w_right_three_in">
-                                <a>
+                                <a href="#">
                                     <img src="{{ asset('files/images/default/ig.svg') }}" alt="">
                                 </a>
                             </div>

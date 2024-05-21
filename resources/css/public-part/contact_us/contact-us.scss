@@ -139,11 +139,14 @@
                         flex-wrap: wrap;
                         justify-content: space-between;
                         align-items: center;
-                        img {
-                            height: 45px;
-                            padding: 15px;
-
+                        a {
+                            cursor: pointer;
+                            img {
+                                height: 45px;
+                                padding: 15px;
+                            }
                         }
+
                     }
                 }
             }
