@@ -1,0 +1,101 @@
+.faq_wrapper {
+    position: relative;
+    width: 100%;
+    height: auto;
+    background: #F7F8F9;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    .faq_wrapper_sub {
+        position: relative;
+        width: 1400px;
+        background: #F7F8F9;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding-bottom: 45px;
+
+        @media only screen and (max-width: 1400px){
+            width: calc(100% - 80px);
+        }
+        @media only screen and (max-width: 1000px){
+            width: calc(100% - 40px);
+        }
+
+        .header_faq {
+            width: 100%;
+            position: relative;
+            align-items: center;
+            padding-top: 50px;
+            padding-bottom: 50px;
+
+            h1 {
+                width: 100%;
+                position: relative;
+                margin: 0px;
+                font-family: 'Lora', sans-serif;
+                font-weight: normal;
+            }
+        }
+
+        .inner_faq_wrapper {
+            position: relative;
+            flex-wrap: wrap;
+            width: 100%;
+            background: white;
+            height: auto;
+
+
+            .inner_inner_faq_wrapper {
+                width: 100%;
+                position: relative;
+                display: flex;
+                flex-wrap: wrap;
+                border: 1px solid #D5D8DC;
+
+                .inner_inner_faq_wrapper__in {
+                    width: 100%;
+                    display: flex;
+                    justify-content: flex-start;
+                    flex-wrap: wrap;
+                    position: relative;
+
+                    .inner_heading_faq_wrapper {
+                        width: 100%;
+                        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+                        display: flex;
+                        gap: 8px;
+                        align-items: center;
+                        padding: 16px 16px;
+
+                        @media only screen and (max-width: 1000px){
+                            align-items: flex-start;
+                        }
+                        h3 {
+                            margin: 0px;
+                            font-family: 'Inter', sans-serif;
+                            font-size: 15px;
+                        }
+
+                        i {
+                            font-size: 15px;
+                        }
+                    }
+
+                    .inner_description_faq_wrapper {
+                        height: 0px;
+                        overflow: hidden;
+
+                        &.visible {
+                            padding: 16px;
+                            height: auto;
+                            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+

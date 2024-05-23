@@ -3,9 +3,6 @@
     width: 100%;
     background: #F7F8F9;
 
-    @media only screen and (max-width: 800px) {
-        width: 100%; flex-wrap: wrap;
-    }
 
     .contact_us_inner_wrapper {
         position: relative;
@@ -13,28 +10,19 @@
         gap: 32px; display: flex; padding: 32px 0px; flex-wrap: wrap;
         //background: red;
 
-        @media only screen and (max-width: 1000px){
-            width: 100%; display: flex; flex-wrap: wrap;
-        }
-
-        @media only screen and (max-width: 800px){
-            width: 100%; display: flex; flex-wrap: wrap;
-        }
-
         .cu_i_w_form{
             position: relative; width: 100%; display: flex; justify-content: space-between; gap: 32px;
+
+            @media only screen and (max-width: 1400px){
+                width: calc(100% - 80px); flex-wrap: wrap;
+            }
+            @media only screen and (max-width: 1000px){
+                width: calc(100% - 40px); flex-wrap: wrap;
+            }
 
             .cu_i_w_left{
                 width: calc(100% - 354px); min-height: 200px; border: none;
                 background: white; padding: 15px;
-
-                @media only screen and (max-width: 1000px){
-                    width: 100%; flex-direction: row; display: flex; flex-wrap: wrap;
-                }
-
-                @media only screen and (max-width: 800px){
-                    width: 100%; flex-direction: row; display: flex; flex-wrap: wrap;
-                }
 
                 .cu_i_w_left_subheader {
                     position: relative; width: 100%; display: flex; justify-content: space-between; align-items: center; padding-bottom: 32px;
@@ -48,9 +36,6 @@
                     .left_input__w {
                         width: calc(50% - 16px); margin-bottom: 16px;
 
-                        @media only screen and (max-width: 800px){
-                            width: 100%;
-                        }
 
                         label{
                             width: 100%; font-family: "Inter", sans-serif; font-weight: 500; font-size: 14px;
@@ -62,9 +47,6 @@
                     .left_input__w:nth-child(2n) {
                             margin-left: 32px;
 
-                        @media only screen and (max-width: 800px){
-                            margin-left: 0px;
-                        }
                     }
                     .input__w_full{
                         width: 100%;
@@ -78,15 +60,8 @@
                     }
                     .left_input__btn_w {
                         position: relative; width: 100%; display: flex; align-items: center; gap: 32px;
-                        @media only screen and (max-width: 800px){
-                            flex-wrap: wrap; gap: 16px;
-                        }
+
                         .p{
-
-                            @media only screen and (max-width: 800px){
-                                width: 100%;
-                            }
-
                             input[type='checkbox'] {
                                 accent-color: $primary; color: #ffffff;
                             }
@@ -101,9 +76,6 @@
 
                             font-family: "Inter", sans-serif; font-weight: 500; font-size: 14px;
 
-                            @media only screen and (max-width: 800px){
-                                width: 100%;
-                            }
                         }
                     }
                 }
@@ -113,13 +85,6 @@
                 width: 320px; background: #F7F8F9; display: flex; flex-wrap: wrap; flex-direction: column;
                 justify-content: space-between;
 
-                @media only screen and (max-width: 1000px){
-                    width: 100%; flex-wrap: wrap;
-                }
-
-                @media only screen and (max-width: 800px){
-                    width: 100%; flex-wrap: wrap;
-                }
 
                 .cu_i_w_right_one {
                     width: 100%;
@@ -202,13 +167,7 @@
         .cu_i_w_map{
             position: relative; width: 100%; height: 300px; background: green;
 
-            @media only screen and (max-width: 1000px){
-                width: 100%; display: flex; flex-wrap: wrap;
-            }
-
-            @media only screen and (max-width: 800px){
-                width: 100%; display: flex; flex-wrap: wrap;
-            }
         }
     }
+
 }

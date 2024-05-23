@@ -2,6 +2,7 @@
 
 @section('content')
     <div class="cover__image">
+        <img src="{{ asset('files/images/default/cover_photo.jpg') }}" alt="">
         <div class="shadow">
             <div class="inner_wrapper">
                 <h1>{{ __('Kontaktirajte nas') }}</h1>
@@ -14,7 +15,7 @@
             <div class="cu_i_w_form">
                 <div class="cu_i_w_left">
                     <div class="cu_i_w_left_subheader">
-                        <h5>{{ __('Imate pitanje? Ispunite upit i pošaljite nam poruku!') }}</h5>
+                        <h5>{{ __('Imate pitanje? Ispunite formu i pošaljite nam poruku!') }}</h5>
                     </div>
 
                     <div class="cu_i_w_left_contact__form">
