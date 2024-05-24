@@ -1,7 +1,7 @@
 <div class="featured_properties_wrapper">
     <div class="inner_featured_properties_wrapper">
         <div class="featured_properties_text">
-            <h1> {{ __('Izdvojene ponude!') }} </h1>
+            <h1> {{ __('Izdvajamo iz ponude!') }} </h1>
             <p> {{ __('Pogledajte najzanimljivije nekretnine iz naše ponude!') }} </p>
         </div>
 

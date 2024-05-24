@@ -1,8 +1,8 @@
 <div class="wrapper_cities">
     <div class="inner_wrapper_cities">
         <div class="cities_headings">
-            <h1> {{ __('Istražite naše ponude') }} </h1>
-            <p> {{ __('Istražite ponude nekretnina u gradovima: Bihać, Bužim, Cazin i Velika Kladuša') }} </p>
+            <h1> {{ __('Gradovi') }} </h1>
+            <p> {{ __('Istražite ponude nekretnina u gradovima: Bihać, Bužim, Cazin i Velika Kladuša!') }} </p>
         </div>
         <div class="cities_wrap_info">
             <div class="image__wrapper image__wrapper_1">
