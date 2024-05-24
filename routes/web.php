@@ -8,6 +8,7 @@ use App\Http\Controllers\PublicPart\PropertiesController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PublicPart\AuthController;
 use App\Http\Controllers\PublicPart\ContactUsController;
+use App\Http\Controllers\Admin\Faq\FaqController as AdminFaqController;
 
 // Init route
 //Route::get('/', function () {
@@ -68,5 +69,16 @@ Route::prefix('system')->group(function () {
         Route::get ('/edit/{username}',          [UsersController::class, 'edit'])->name('system.users.edit');
         Route::post('/update',                   [UsersController::class, 'update'])->name('system.users.update');
         Route::get ('/delete/{username}',        [UsersController::class, 'delete'])->name('system.users.delete');
+    });
+
+    /* FAQ routes */
+    Route::prefix('faq')->group(function () {
+        Route::get('/',                           [AdminFaqController::class, 'index'])->name('system.faq.index');
+        Route::get('/create',                     [AdminFaqController::class, 'create'])->name('system.faq.create');
+        Route::post('/save',                      [AdminFaqController::class, 'save'])->name('system.faq.save');
+        Route::get ('/preview/{question}',        [AdminFaqController::class, 'preview'])->name('system.faq.preview');
+        Route::get ('/edit/{question}',           [AdminFaqController::class, 'edit'])->name('system.faq.edit');
+        Route::post('/update',                    [AdminFaqController::class, 'update'])->name('system.faq.update');
+        Route::get ('/delete/{question}',         [AdminFaqController::class, 'delete'])->name('system.faq.delete');
     });
 });

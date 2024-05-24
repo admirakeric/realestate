@@ -205,6 +205,35 @@
             <div class="s-lm-wrapper">
                 <div class="s-lm-s-elements">
                     <div class="s-lms-e-img">
+                        <i class="fas fa-question"></i>
+                    </div>
+                    <p>{{__('FAQ')}}</p>
+                    <div class="extra-elements">
+                        <div class="rotate-element"><i class="fas fa-angle-right"></i></div>
+                    </div>
+                </div>
+                <div class="inside-links active-links">
+                    <a href="{{ route('system.faq.index') }}">
+                        <div class="inside-lm-link">
+                            <div class="ilm-l"></div><div class="ilm-c"></div>
+                            <p>{{__('Pregled svih pitanja')}}</p>
+                        </div>
+                    </a>
+
+                    <a href="{{ route ('system.faq.create') }}">
+                        <div class="inside-lm-link">
+                            <div class="ilm-l"></div><div class="ilm-c"></div>
+                            <p> {{__('Unos novih pitanja')}} </p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </a>
+
+        <a href="#" class="menu-a-link">
+            <div class="s-lm-wrapper">
+                <div class="s-lm-s-elements">
+                    <div class="s-lms-e-img">
                         <i class="fas fa-warehouse"></i>
                     </div>
                     <p>{{__('Skladište')}}</p>
