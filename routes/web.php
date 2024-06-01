@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PublicPart\AuthController;
 use App\Http\Controllers\PublicPart\ContactUsController;
 use App\Http\Controllers\Admin\Faq\FaqController as AdminFaqController;
+use App\Http\Controllers\Admin\Keywords\KeywordsController;
 
 // Init route
 //Route::get('/', function () {
@@ -51,6 +52,14 @@ Route::prefix('')->group(function () {
     Route::prefix('/faq')->group(function (){
         Route::get('/',                                 [FaqController::class, 'index'])->name('public-part.faq');
     });
+
+    /**
+     * About Us page
+     */
+    Route::prefix('/about_us')->group(function (){
+        Route::get('/',                                 [AboutUsController::class, 'index'])->name('public-part.about-us');
+
+    });
 });
 
 /**
@@ -76,9 +85,23 @@ Route::prefix('system')->group(function () {
         Route::get('/',                           [AdminFaqController::class, 'index'])->name('system.faq.index');
         Route::get('/create',                     [AdminFaqController::class, 'create'])->name('system.faq.create');
         Route::post('/save',                      [AdminFaqController::class, 'save'])->name('system.faq.save');
-        Route::get ('/preview/{question}',        [AdminFaqController::class, 'preview'])->name('system.faq.preview');
-        Route::get ('/edit/{question}',           [AdminFaqController::class, 'edit'])->name('system.faq.edit');
+        Route::get ('/preview/{id}',        [AdminFaqController::class, 'preview'])->name('system.faq.preview');
+        Route::get ('/edit/{id}',           [AdminFaqController::class, 'edit'])->name('system.faq.edit');
         Route::post('/update',                    [AdminFaqController::class, 'update'])->name('system.faq.update');
-        Route::get ('/delete/{question}',         [AdminFaqController::class, 'delete'])->name('system.faq.delete');
+        Route::get ('/delete/{id}',         [AdminFaqController::class, 'delete'])->name('system.faq.delete');
+    });
+
+    /*
+    *  Keywords
+    */
+    Route::group(['prefix' => '/keywords'], function(){
+        Route::get('/',                                    [KeywordsController::class, 'index'])->name('system.settings.keywords');
+
+        Route::get('/preview-instances/{key}',             [KeywordsController::class, 'previewInstances'])->name('system.settings.keywords.preview-instances');
+        Route::get('/new-instance/{key}',                  [KeywordsController::class, 'newInstance'])->name('system.settings.keywords.new-instance');
+        Route::get('/save-instance',                       [KeywordsController::class, 'saveInstance'])->name('system.settings.keywords.save-instance');
+        Route::get('/edit-instance/{id}',                  [KeywordsController::class, 'editInstance'])->name('system.settings.keywords.edit-instance');
+        Route::get('/update-instance',                     [KeywordsController::class, 'updateInstance'])->name('system.settings.keywords.update-instance');
+        Route::get('/delete-instance/{id}',                [KeywordsController::class, 'deleteInstance'])->name('system.settings.keywords.delete-instance');
     });
 });

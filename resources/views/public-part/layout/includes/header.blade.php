@@ -154,7 +154,7 @@
                 </div>
                 <div class="mm_nt_button">
                     @if(Auth()->check())
-                        <a href="#">
+                        <a href="{{ route('system.dashboard') }}">
                             <button>{{ Auth()->user()->name }}</button>
                         </a>
                     @else

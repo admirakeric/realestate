@@ -14,7 +14,7 @@
     <div class="faq_wrapper">
         <div class="faq_wrapper_sub">
             <div class="header_faq">
-                <h1>{{ __('Kategorija 1') }}</h1>
+                <h1>{{ __('Kupovina nekretnina') }}</h1>
             </div>
             <div class="inner_faq_wrapper">
                 <div class="inner_inner_faq_wrapper">
@@ -45,7 +45,7 @@
             </div>
 
             <div class="header_faq">
-                <h1>{{ __('Kategorija 2') }}</h1>
+                <h1>{{ __('Prodaja nekretnina') }}</h1>
             </div>
 
             <div class="inner_faq_wrapper">

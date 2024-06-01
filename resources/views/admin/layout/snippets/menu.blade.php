@@ -300,7 +300,7 @@
                 <i class="fas fa-cogs"></i>
             </div>
         </div>
-        <a href="#" class="menu-a-link">
+        <a href="{{ route('system.settings.keywords') }}" class="menu-a-link">
             <div class="s-lm-wrapper">
                 <div class="s-lm-s-elements">
                     <div class="s-lms-e-img">
