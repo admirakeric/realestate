@@ -17,7 +17,7 @@ class KeywordsController extends Controller{
         ]);
     }
     public function previewInstances($key){
-        $instances = Keyword::where('keyword', $key);
+        $instances = Keyword::where('keyword', $key)->orderBy('value');
         $instances = Filters::filter($instances);
         $filters = [
             'name' => __('Vrijednost'),
@@ -42,8 +42,11 @@ class KeywordsController extends Controller{
     public function saveInstance(Request $request){
         try{
             Keyword::create($request->except(['_token']));
-            return $this->jsonSuccess(__('Uspješno unešena instanca'), route('system.settings.keywords.preview-instances', ['key' => $request->keyword ]));
-        }catch (\Exception $e){ return $this->jsonResponse('14000', __('Greška prilikom procesiranja podataka. Molimo da nas kontaktirate!'));}
+            return redirect()->route('system.settings.keywords.preview-instances', ['key' => $request->keyword ]);
+
+        }catch (\Exception $e){
+            dd($e);
+        }
     }
     public function editInstance($id){
         $instance = Keyword::where('id', $id)->first();
@@ -59,7 +62,7 @@ class KeywordsController extends Controller{
     public function updateInstance(Request $request){
         try{
             Keyword::where('id', $request->id)->update($request->except(['_token', '_method', 'id']));
-            return $this->jsonSuccess(__('Uspješno ažurirana instanca'), route('system.settings.keywords.preview-instances', ['key' => $request->keyword ]));
+            return redirect()->route('system.settings.keywords.preview-instances', ['key' => $request->keyword ]);
         }catch (\Exception $e){ return $this->jsonResponse('14000', __('Greška prilikom procesiranja podataka. Molimo da nas kontaktirate!'));}
     }
     public function deleteInstance($id){

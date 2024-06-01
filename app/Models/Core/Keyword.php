@@ -6,6 +6,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
+/**
+ * @method static where(string $string, string $string1)
+ */
 class Keyword extends Model{
     use HasFactory;
     use SoftDeletes;
@@ -13,9 +16,9 @@ class Keyword extends Model{
     protected static $_keywords = [
         /* Questions keywords */
         'faq' => 'FAQ - Kategorije',
-        'question_weight' => 'Pitanja - Težina',
-        'question_letters' => 'Pitanja - Slova',
-        'online' => 'Online / Offline',
+        'estate__type' => 'Vrsta nekretnina',
+        'estate_purpose' => 'Svrha',
+        'cities' => 'Gradovi',
         'da_ne' => 'Da / Ne'
     ];
 

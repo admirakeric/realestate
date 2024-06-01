@@ -2,12 +2,16 @@
 
 <!----------------------------------------------- Define page header -------------------------------------------------->
 
-@section('ph-icon') <i class="fas fa-key"></i> @endsection
-@section('ph-main') {{ __('Pregled šifarnika') }} @endsection
-@section('ph-short') {{__('Lista svih dostupnih šifarnika na sistemu. Lista nije promjenjiva od strane korisnika!')}} @endsection
-
-@section('ph-navigation') / <a href="{{ route('system.settings.keywords') }}"> {{ __('Sva pitanja') }} </a> @endsection
-
+@section('c-icon') <i class="fas fa-key"></i> @endsection
+@section('c-title') {{ __('Pregled šifarnika') }} @endsection
+@section('c-breadcrumbs')
+    <a href="#"> <i class="fas fa-home"></i> <p>{{ __('Dashboard') }}</p> </a> / <a href="{{ route('system.settings.keywords') }}"> {{ __('Lista šifarnika') }} </a>
+@endsection
+@section('c-buttons')
+    <a href="{{ route('system.settings.keywords') }}">
+        <button class="pm-btn btn btn-dark"> <i class="fas fa-star"></i> </button>
+    </a>
+@endsection
 <!--------------------------------------------------------------------------------------------------------------------->
 
 
