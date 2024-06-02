@@ -5,13 +5,19 @@ namespace App\Http\Controllers\Admin\Estates;
 use App\Http\Controllers\Admin\Core\Filters;
 use App\Http\Controllers\Controller;
 use App\Models\Core\Country;
+use App\Models\Core\File;
 use App\Models\Core\Keyword;
 use App\Models\Estates\Estate;
+use App\Models\Estates\EstateImage;
+use App\Traits\Common\FileTrait;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 
 class EstatesController extends Controller{
+    use FileTrait;
+
     protected string $_path = 'admin.pages.estates.';
 
     public function index(): View{
@@ -107,15 +113,58 @@ class EstatesController extends Controller{
             $estate = Estate::where('id', $request->id)->update($request->except(['_token', 'id']));
 
             return redirect()->route('system.estates.preview', ['slug' => $request->slug]);
-        }catch (\Exception $e){
-            dd($e);
-        }
+        }catch (\Exception $e){}
     }
-    public function delete($slug){
+    public function delete($slug): RedirectResponse{
         try{
             $estate = Estate::where('slug', $slug)->delete();
 
             return redirect()->route('system.estates.index');
         }catch (\Exception $e){}
+    }
+
+    /**
+     *  Work with images
+     */
+    public function insertNewImage($slug): View{
+        $estate = Estate::where('slug', $slug)->first();
+
+        return view($this->_path . 'new-image', [
+            'estate' => $estate
+        ]);
+    }
+    public function saveNewImage(Request $request): RedirectResponse{
+        try{
+            /* Add path to request for trait */
+            $request['path'] = public_path('files/images/estates');
+            /* Upload file */
+            $file = $this->saveFile($request, 'file_uri', 'estate_image');
+
+            $image = EstateImage::create([
+                'estate_id' => $request->id,
+                'image' => $file->id
+            ]);
+
+            return back()->with('success', __('Fotografija uspješno spremljena!'));
+        }catch (\Exception $e){
+            return back()->with('error', __('Desila se greška!'));
+        }
+    }
+    public function deleteNewImage($id){
+        try{
+            $estateImage = EstateImage::where('id', $id)->first();
+
+            /* Delete from files and remove image */
+            $file = File::where('id', $estateImage->image)->first();
+
+            unlink($file->path . '/' . $file->name) ;
+            $file->delete();
+
+            $estateImage->delete();
+
+            return back()->with('success', __('Uspješno izbrisana fotografija!'));
+        }catch (\Exception $e){
+            return back()->with('error', __('Desila se greška!'));
+        }
     }
 }

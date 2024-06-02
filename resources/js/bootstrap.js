@@ -116,6 +116,21 @@ const featuredProperties = new Swiper('.featured_properties', {
         delay: 3000,
         disableOnInteraction: true
     },
+    breakpoints: {
+        320: {
+            slidesPerView: 1,
+            spaceBetweenSlides: 16
+        },
+
+        800: {
+            slidesPerView: 2,
+            spaceBetweenSlides: 16
+        },
+        1200: {
+            slidesPerView: 3,
+            spaceBetweenSlides: 16
+        }
+    },
     speed: 500,
     loop: true,
 });

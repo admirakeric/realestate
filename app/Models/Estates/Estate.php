@@ -5,6 +5,7 @@ namespace App\Models\Estates;
 use App\Models\Core\Keyword;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -23,8 +24,10 @@ class Estate extends Model{
     public function purposeRel(): HasOne{
         return $this->hasOne(Keyword::class, 'id', 'purpose');
     }
-
     public function cityRel(): HasOne{
         return $this->hasOne(Keyword::class, 'id', 'city');
+    }
+    public function imagesRel() : HasMany{
+        return $this->hasMany(EstateImage::class, 'estate_id', 'id');
     }
 }

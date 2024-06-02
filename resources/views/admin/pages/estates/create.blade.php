@@ -34,7 +34,7 @@
 @section('content')
     <div class="content-wrapper content-wrapper-p-15">
         <div class="row">
-            <div class="col-md-12">
+            <div class="@if(isset($previewVar)) col-md-9 @else col-md-12 @endif">
                 @if(isset($createVar))
                     <form action="{{ route('system.estates.save') }}" method="POST">
                 @elseif(isset($editVar))
@@ -195,6 +195,10 @@
                     @endif
                 </form>
             </div>
+
+            @if(isset($previewVar))
+                @include('admin.pages.estates.includes.right-menu')
+            @endif
         </div>
     </div>
 @endsection

@@ -92,6 +92,12 @@ Route::prefix('system')->group(function () {
         Route::get ('/edit/{slug}',              [EstatesController::class, 'edit'])->name('system.estates.edit');
         Route::post('/update',                   [EstatesController::class, 'update'])->name('system.estates.update');
         Route::get ('/delete/{slug}',            [EstatesController::class, 'delete'])->name('system.estates.delete');
+
+        Route::prefix('images')->group(function () {
+            Route::get ('/insert-new-image/{slug}',                      [EstatesController::class, 'insertNewImage'])->name('system.estates.insert-new-image');
+            Route::post('/save-new-image',                               [EstatesController::class, 'saveNewImage'])->name('system.estates.save-new-image');
+            Route::get ('/delete-new-image/{id}',                        [EstatesController::class, 'deleteNewImage'])->name('system.estates.delete-new-image');
+        });
     });
 
     /* FAQ routes */
