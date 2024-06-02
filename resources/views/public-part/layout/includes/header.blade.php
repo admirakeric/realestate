@@ -92,30 +92,11 @@
                                 <i class="fas fa-chevron-down"></i>
                             </a>
                             <div class="li_menu_submenu">
-                                <div class="li_m_s_w">
-                                    <a href="{{ route('public-part.properties') }}"> {{__('Sve nekretnine')}}</a>
-                                </div>
-                                <div class="li_m_s_w">
-                                    <a href="{{ route('public-part.properties') }}"> {{__('Kuće')}}</a>
-                                </div>
-                                <div class="li_m_s_w">
-                                    <a href="{{ route('public-part.properties') }}"> {{__('Stanovi')}}</a>
-                                </div>
-                                <div class="li_m_s_w">
-                                    <a href="{{ route('public-part.properties') }}"> {{__('Apartmani')}}</a>
-                                </div>
-                                <div class="li_m_s_w">
-                                    <a href="{{ route('public-part.properties') }}"> {{__('Zemljišta')}}</a>
-                                </div>
-                                <div class="li_m_s_w">
-                                    <a href="{{ route('public-part.properties') }}"> {{__('Poslovni prostori')}}</a>
-                                </div>
-                                <div class="li_m_s_w">
-                                    <a href="{{ route('public-part.properties') }}"> {{__('Vikendice')}}</a>
-                                </div>
-                                <div class="li_m_s_w">
-                                    <a href="{{ route('public-part.properties') }}"> {{__('Ostalo')}}</a>
-                                </div>
+                                @foreach($categories as $key => $category)
+                                    <div class="li_m_s_w">
+                                        <a href="{{ route('public-part.properties') }}"> {{ $category }}</a>
+                                    </div>
+                                @endforeach
                             </div>
                         </li>
                         <li class="li_menu">

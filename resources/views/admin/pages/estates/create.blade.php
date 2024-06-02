@@ -144,29 +144,36 @@
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
+                                <b>{{ html()->label(__('Površina zemljišta'))->for('land_surface') }}</b>
+                                {{ html()->number('land_surface', '', 0, 500000, 1)->class('form-control form-control-sm mt-1')->required()->value(isset($estate) ? $estate->land_surface : '')->disabled(isset($previewVar)) }}
+                                <small id="land_surfaceHelp" class="form-text text-muted">{{ __('Površina okućnice / površina zemljišta') }}</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-md-6">
+                            <div class="form-group">
                                 <b>{{ html()->label(__('Spavaće sobe'))->for('bedrooms') }}</b>
-                                {{ html()->number('bedrooms', '', 0, 20, 1)->class('form-control form-control-sm mt-1')->value(isset($estate) ? $estate->bedrooms : '')->disabled(isset($previewVar)) }}
+                                {{ html()->number('bedrooms', '', 0, 100, 1)->class('form-control form-control-sm mt-1')->value(isset($estate) ? $estate->bedrooms : '')->disabled(isset($previewVar)) }}
                                 <small id="bedroomsHelp" class="form-text text-muted">{{ __('Broj spavaćih soba') }}</small>
                             </div>
                         </div>
-                    </div>
-                    <div class="row mt-2">
                         <div class="col-md-6">
                             <div class="form-group">
                                 <b>{{ html()->label(__('Kupatila'))->for('bathrooms') }}</b>
-                                {{ html()->number('bathrooms', '', 0, 20, 1)->class('form-control form-control-sm mt-1')->value(isset($estate) ? $estate->bathrooms : '')->disabled(isset($previewVar)) }}
+                                {{ html()->number('bathrooms', '', 0, 100, 1)->class('form-control form-control-sm mt-1')->value(isset($estate) ? $estate->bathrooms : '')->disabled(isset($previewVar)) }}
                                 <small id="bathroomsHelp" class="form-text text-muted">{{ __('Broj kupatila') }}</small>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <b>{{ html()->label(__('Garaže'))->for('garages') }}</b>
-                                {{ html()->number('garages', '', 0, 20, 1)->class('form-control form-control-sm mt-1')->value(isset($estate) ? $estate->garages : '')->disabled(isset($previewVar)) }}
-                                <small id="garagesHelp" class="form-text text-muted">{{ __('Broj garažnih mjesta') }}</small>
                             </div>
                         </div>
                     </div>
                     <div class="row mt-2">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <b>{{ html()->label(__('Garaže'))->for('garages') }}</b>
+                                {{ html()->number('garages', '', 0, 1000, 1)->class('form-control form-control-sm mt-1')->value(isset($estate) ? $estate->garages : '')->disabled(isset($previewVar)) }}
+                                <small id="garagesHelp" class="form-text text-muted">{{ __('Broj garažnih mjesta') }}</small>
+                            </div>
+                        </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <b>{{ html()->label(__('Godina izgradnje'))->for('built') }}</b>
@@ -174,7 +181,10 @@
                                 <small id="builtHelp" class="form-text text-muted">{{ __('Godina gradnje objekta') }}</small>
                             </div>
                         </div>
-                        <div class="col-md-6">
+                    </div>
+
+                    <div class="row mt-2">
+                        <div class="col-md-12">
                             <div class="form-group">
                                 <b>{{ html()->label(__('Video'))->for('video') }}</b>
                                 {{ html()->text('video')->class('form-control form-control-sm mt-1')->maxlength(150)->value(isset($estate) ? $estate->video : '')->disabled(isset($previewVar)) }}
@@ -187,7 +197,7 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <b>{{ html()->label(__('Detaljan opis'))->for('description') }}</b>
-                                {{ html()->textarea('description')->class('form-control form-control-sm')->maxlength(2000)->value((isset($estate) ? $estate->description : ''))->style('height:240px')->required()->isReadonly(isset($previewVar)) }}
+                                {{ html()->textarea('description')->class('form-control form-control-sm')->maxlength(5000)->value((isset($estate) ? $estate->description : ''))->style('height:240px')->required()->isReadonly(isset($previewVar)) }}
                                 <small id="descriptionHelp" class="form-text text-muted">{{ __('Detaljan opis nekretnine') }}</small>
                             </div>
                         </div>

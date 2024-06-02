@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\Users\UsersController;
 use App\Http\Controllers\PublicPart\FaqController;
 use App\Http\Controllers\PublicPart\HomeController;
 use App\Http\Controllers\PublicPart\PropertiesController;
+use App\Http\Middleware\PublicMiddleware;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PublicPart\AuthController;
 use App\Http\Controllers\PublicPart\ContactUsController;
@@ -23,7 +24,7 @@ use App\Http\Controllers\Admin\Keywords\KeywordsController;
  *  Public routes; Data visible to all visitors
  */
 
-Route::prefix('')->group(function () {
+Route::prefix('')->middleware('public-middleware')->group(function () {
     Route::get('/',                    [HomeController::class, 'home'])->name('public-part.home');
 
     /**

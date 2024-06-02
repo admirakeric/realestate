@@ -85,13 +85,14 @@
             }
 
             .search_btn{
-                width: 80px; height: 44px; background: #FF0233; margin-top: -2px;
+                width: 80px; height: 44px; background: #FF0233; margin-top: -2px; border: none;
                 display: flex; justify-content: center; align-items: center;
                 border-bottom-right-radius: 8px; border-top-right-radius: 8px;
                 i{
                     font-size: 18px; color: #F7F8F9;
                 }
             }
+            .search_btn:hover{cursor: pointer;}
         }
 
         .search-containter-sb {

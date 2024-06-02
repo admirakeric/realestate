@@ -27,7 +27,8 @@ return new class extends Migration
             $table->string('price')->default('0.00');
             $table->string('sale_price')->nullable();
 
-            $table->string('surface')->default('0.00');
+            $table->string('surface')->default('0');
+            $table->string('land_surface')->default('0');
             $table->string('bedrooms')->default(0);
             $table->string('bathrooms')->default(0);
             $table->string('garages')->default(0);
