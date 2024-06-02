@@ -1,8 +1,8 @@
 <?php
 
-use App\Http\Controllers\Admin\AboutUs\AboutUsController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\Estates\EstatesController;
+use App\Http\Controllers\Admin\SinglePages\SinglePagesController;
 use App\Http\Controllers\Admin\Users\UsersController;
 use App\Http\Controllers\PublicPart\FaqController;
 use App\Http\Controllers\PublicPart\HomeController;
@@ -122,13 +122,13 @@ Route::prefix('system')->group(function () {
     /*
     *  About us page
     */
-    Route::group(['prefix' => '/about-us'], function (){
-       Route::get('/',                                      [AboutUsController::class, 'index'])->name('system.about-us.index');
-       Route::get('/create',                                [AboutUsController::class, 'create'])->name('system.about-us.create');
-       Route::post('/save',                                 [AboutUsController::class, 'save'])->name('system.about-us.save');
-       Route::get ('/preview/{id}',                         [AboutUsController::class, 'preview'])->name('system.about-us.preview');
-       Route::get ('/edit/{id}',                            [AboutUsController::class, 'edit'])->name('system.about-us.edit');
-       Route::post('/update',                               [AboutUsController::class, 'update'])->name('system.about-us.update');
-       Route::get ('/delete/{id}',                          [AboutUsController::class, 'delete'])->name('system.about-us.delete');
+    Route::group(['prefix' => '/single-pages'], function (){
+       Route::get('/',                                      [SinglePagesController::class, 'index'])->name('system.single-pages.index');
+       Route::get('/create',                                [SinglePagesController::class, 'create'])->name('system.single-pages.create');
+       Route::post('/save',                                 [SinglePagesController::class, 'save'])->name('system.single-pages.save');
+       Route::get ('/preview/{id}',                         [SinglePagesController::class, 'preview'])->name('system.single-pages.preview');
+       Route::get ('/edit/{id}',                            [SinglePagesController::class, 'edit'])->name('system.single-pages.edit');
+       Route::post('/update',                               [SinglePagesController::class, 'update'])->name('system.single-pages.update');
+       Route::get ('/delete/{id}',                          [SinglePagesController::class, 'delete'])->name('system.single-pages.delete');
     });
 });
