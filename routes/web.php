@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AboutUs\AboutUsController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\Users\UsersController;
 use App\Http\Controllers\PublicPart\FaqController;
@@ -103,5 +104,17 @@ Route::prefix('system')->group(function () {
         Route::get('/edit-instance/{id}',                  [KeywordsController::class, 'editInstance'])->name('system.settings.keywords.edit-instance');
         Route::get('/update-instance',                     [KeywordsController::class, 'updateInstance'])->name('system.settings.keywords.update-instance');
         Route::get('/delete-instance/{id}',                [KeywordsController::class, 'deleteInstance'])->name('system.settings.keywords.delete-instance');
+    });
+    /*
+    *  About us page
+    */
+    Route::group(['prefix' => '/about-us'], function (){
+       Route::get('/',                                      [AboutUsController::class, 'index'])->name('system.about-us.index');
+       Route::get('/create',                                [AboutUsController::class, 'create'])->name('system.about-us.create');
+       Route::post('/save',                                 [AboutUsController::class, 'save'])->name('system.about-us.save');
+       Route::get ('/preview/{id}',                         [AboutUsController::class, 'preview'])->name('system.about-us.preview');
+       Route::get ('/edit/{id}',                            [AboutUsController::class, 'edit'])->name('system.about-us.edit');
+       Route::post('/update',                               [AboutUsController::class, 'update'])->name('system.about-us.update');
+       Route::get ('/delete/{id}',                          [AboutUsController::class, 'delete'])->name('system.about-us.delete');
     });
 });
