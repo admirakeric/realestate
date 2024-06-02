@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\Estates\EstatesController;
+use App\Http\Controllers\Admin\SinglePages\SinglePagesController;
 use App\Http\Controllers\Admin\Users\UsersController;
 use App\Http\Controllers\PublicPart\FaqController;
 use App\Http\Controllers\PublicPart\HomeController;
@@ -123,5 +124,17 @@ Route::prefix('system')->group(function () {
         Route::get ('/edit-instance/{id}',                  [KeywordsController::class, 'editInstance'])->name('system.settings.keywords.edit-instance');
         Route::post('/update-instance',                     [KeywordsController::class, 'updateInstance'])->name('system.settings.keywords.update-instance');
         Route::get ('/delete-instance/{id}',                [KeywordsController::class, 'deleteInstance'])->name('system.settings.keywords.delete-instance');
+    });
+    /*
+    *  About us page
+    */
+    Route::group(['prefix' => '/single-pages'], function (){
+       Route::get('/',                                      [SinglePagesController::class, 'index'])->name('system.single-pages.index');
+       Route::get('/create',                                [SinglePagesController::class, 'create'])->name('system.single-pages.create');
+       Route::post('/save',                                 [SinglePagesController::class, 'save'])->name('system.single-pages.save');
+       Route::get ('/preview/{id}',                         [SinglePagesController::class, 'preview'])->name('system.single-pages.preview');
+       Route::get ('/edit/{id}',                            [SinglePagesController::class, 'edit'])->name('system.single-pages.edit');
+       Route::post('/update',                               [SinglePagesController::class, 'update'])->name('system.single-pages.update');
+       Route::get ('/delete/{id}',                          [SinglePagesController::class, 'delete'])->name('system.single-pages.delete');
     });
 });
