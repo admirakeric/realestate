@@ -2,16 +2,21 @@
 
 <!----------------------------------------------- Define page header -------------------------------------------------->
 
-@section('ph-icon') <i class="fas fa-key"></i> @endsection
-@section('ph-main') {{ __('Instance šifarnika') }} @endsection
-@section('ph-short')
-    {{__('Instance (vrijednosti) šifarnika: ')}} <span class="text-info">{{ $keyword }}</span>
-    | <a href="{{ route('system.settings.keywords.new-instance', ['key' => $key]) }}">{{ __('Unos instance') }}</a>
+@section('c-icon') <i class="fas fa-key"></i> @endsection
+@section('c-title') {{ __('Instance šifarnika') }} @endsection
+@section('c-breadcrumbs')
+    <a href="#"> <i class="fas fa-home"></i> <p>{{ __('Dashboard') }}</p> </a> / <a href="{{ route('system.settings.keywords') }}"> {{ __('Lista šifarnika') }} </a>
 @endsection
-
-@section('ph-navigation')
-    / <a href="{{ route('system.settings.keywords') }}"> {{ __('Pregled šifarnika') }} </a>
-    / <a href="#">{{ __('Instance šifarnika') }}</a>
+@section('c-buttons')
+    <a href="{{ route('system.settings.keywords') }}">
+        <button class="pm-btn btn btn-dark"> <i class="fas fa-star"></i> </button>
+    </a>
+    <a href="{{ route('system.settings.keywords.new-instance', ['key' => $key]) }}">
+        <button class="pm-btn btn pm-btn-success">
+            <i class="fas fa-plus"></i>
+            <span>{{ __('Unos instance') }}</span>
+        </button>
+    </a>
 @endsection
 
 <!--------------------------------------------------------------------------------------------------------------------->

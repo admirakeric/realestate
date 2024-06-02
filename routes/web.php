@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AboutUs\AboutUsController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\Estates\EstatesController;
 use App\Http\Controllers\Admin\Users\UsersController;
 use App\Http\Controllers\PublicPart\FaqController;
 use App\Http\Controllers\PublicPart\HomeController;
@@ -81,6 +82,19 @@ Route::prefix('system')->group(function () {
         Route::get ('/delete/{username}',        [UsersController::class, 'delete'])->name('system.users.delete');
     });
 
+    /**
+     *  Estates routes
+     */
+    Route::prefix('estates')->group(function () {
+        Route::get('/',                          [EstatesController::class, 'index'])->name('system.estates.index');
+        Route::get ('/create',                   [EstatesController::class, 'create'])->name('system.estates.create');
+        Route::post('/save',                     [EstatesController::class, 'save'])->name('system.estates.save');
+        Route::get ('/preview/{slug}',           [EstatesController::class, 'preview'])->name('system.estates.preview');
+        Route::get ('/edit/{slug}',              [EstatesController::class, 'edit'])->name('system.estates.edit');
+        Route::post('/update',                   [EstatesController::class, 'update'])->name('system.estates.update');
+        Route::get ('/delete/{slug}',            [EstatesController::class, 'delete'])->name('system.estates.delete');
+    });
+
     /* FAQ routes */
     Route::prefix('faq')->group(function () {
         Route::get('/',                           [AdminFaqController::class, 'index'])->name('system.faq.index');
@@ -96,14 +110,14 @@ Route::prefix('system')->group(function () {
     *  Keywords
     */
     Route::group(['prefix' => '/keywords'], function(){
-        Route::get('/',                                    [KeywordsController::class, 'index'])->name('system.settings.keywords');
+        Route::get ('/',                                    [KeywordsController::class, 'index'])->name('system.settings.keywords');
 
-        Route::get('/preview-instances/{key}',             [KeywordsController::class, 'previewInstances'])->name('system.settings.keywords.preview-instances');
-        Route::get('/new-instance/{key}',                  [KeywordsController::class, 'newInstance'])->name('system.settings.keywords.new-instance');
-        Route::get('/save-instance',                       [KeywordsController::class, 'saveInstance'])->name('system.settings.keywords.save-instance');
-        Route::get('/edit-instance/{id}',                  [KeywordsController::class, 'editInstance'])->name('system.settings.keywords.edit-instance');
-        Route::get('/update-instance',                     [KeywordsController::class, 'updateInstance'])->name('system.settings.keywords.update-instance');
-        Route::get('/delete-instance/{id}',                [KeywordsController::class, 'deleteInstance'])->name('system.settings.keywords.delete-instance');
+        Route::get ('/preview-instances/{key}',             [KeywordsController::class, 'previewInstances'])->name('system.settings.keywords.preview-instances');
+        Route::get ('/new-instance/{key}',                  [KeywordsController::class, 'newInstance'])->name('system.settings.keywords.new-instance');
+        Route::post('/save-instance',                       [KeywordsController::class, 'saveInstance'])->name('system.settings.keywords.save-instance');
+        Route::get ('/edit-instance/{id}',                  [KeywordsController::class, 'editInstance'])->name('system.settings.keywords.edit-instance');
+        Route::post('/update-instance',                     [KeywordsController::class, 'updateInstance'])->name('system.settings.keywords.update-instance');
+        Route::get ('/delete-instance/{id}',                [KeywordsController::class, 'deleteInstance'])->name('system.settings.keywords.delete-instance');
     });
     /*
     *  About us page

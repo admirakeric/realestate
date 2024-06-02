@@ -61,15 +61,15 @@
 {{--                <div class="number-of"><p>3</p></div>--}}
 {{--            </div>--}}
 
-            <a href="#" target="_blank">
+            <a href="{{ route('public-part.home') }}" target="_blank">
                 <div class="single-li">
-                    <p> {{__('Blog')}} </p>
+                    <p> {{__('Web stranica')}} </p>
                 </div>
             </a>
 
             <a href="#">
                 <div class="single-li">
-                    <p> {{__('WebShop')}} </p>
+                    <p> {{__('Nekretnine')}} </p>
                 </div>
             </a>
         </div>
@@ -201,6 +201,89 @@
             </div>
         </a>
 
+
+
+        <a href="#" class="menu-a-link">
+            <div class="s-lm-wrapper">
+                <div class="s-lm-s-elements">
+                    <div class="s-lms-e-img">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <p>{{__('Nekretnine')}}</p>
+                    <div class="extra-elements">
+                        <div class="rotate-element"><i class="fas fa-angle-right"></i></div>
+                    </div>
+                </div>
+                <div class="inside-links active-links">
+                    <a href="{{ route('system.estates.index') }}">
+                        <div class="inside-lm-link">
+                            <div class="ilm-l"></div><div class="ilm-c"></div>
+                            <p>{{__('Pregled svih nekretnina')}}</p>
+                        </div>
+                    </a>
+                    <a href="{{ route('system.estates.create') }}">
+                        <div class="inside-lm-link">
+                            <div class="ilm-l"></div><div class="ilm-c"></div>
+                            <p> {{__('Unos nekretnine')}} </p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </a>
+
+
+{{--        <div class="subtitle">--}}
+{{--            <h4> {{__('Historija kupovanja')}} </h4>--}}
+{{--            <div class="subtitle-icon">--}}
+{{--                <i class="fas fa-history"></i>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+
+{{--        <a href="#" class="menu-a-link">--}}
+{{--            <div class="s-lm-wrapper">--}}
+{{--                <div class="s-lm-s-elements">--}}
+{{--                    <div class="s-lms-e-img">--}}
+{{--                        <i class="far fa-file-alt"></i>--}}
+{{--                    </div>--}}
+{{--                    <p>{{__('Moje narudžbe')}}</p>--}}
+{{--                    <div class="extra-elements">--}}
+{{--                        <div class="rotate-element"><i class="fas fa-angle-right"></i></div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--                <div class="inside-links active-links">--}}
+{{--                    <a href="#">--}}
+{{--                        <div class="inside-lm-link">--}}
+{{--                            <div class="ilm-l"></div><div class="ilm-c"></div>--}}
+{{--                            <p>{{__('Pregled svih narudžbi')}}</p>--}}
+{{--                        </div>--}}
+{{--                    </a>--}}
+{{--                    <a href="">--}}
+{{--                        <div class="inside-lm-link">--}}
+{{--                            <div class="ilm-l"></div><div class="ilm-c"></div>--}}
+{{--                            <p> {{__('Uputstva za korištenje')}} </p>--}}
+{{--                        </div>--}}
+{{--                    </a>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </a>--}}
+
+        <div class="subtitle">
+            <h4> {{__('Postavke')}} </h4>
+            <div class="subtitle-icon">
+                <i class="fas fa-cogs"></i>
+            </div>
+        </div>
+        <a href="{{ route('system.settings.keywords') }}" class="menu-a-link">
+            <div class="s-lm-wrapper">
+                <div class="s-lm-s-elements">
+                    <div class="s-lms-e-img">
+                        <i class="fas fa-key"></i>
+                    </div>
+                    <p>{{__('Šifarnici')}}</p>
+                </div>
+            </div>
+        </a>
+
         <a href="#" class="menu-a-link">
             <div class="s-lm-wrapper">
                 <div class="s-lm-s-elements">
@@ -226,87 +309,6 @@
                             <p> {{__('Unos novih pitanja')}} </p>
                         </div>
                     </a>
-                </div>
-            </div>
-        </a>
-
-        <a href="#" class="menu-a-link">
-            <div class="s-lm-wrapper">
-                <div class="s-lm-s-elements">
-                    <div class="s-lms-e-img">
-                        <i class="fas fa-warehouse"></i>
-                    </div>
-                    <p>{{__('Skladište')}}</p>
-                    <div class="extra-elements">
-                        <div class="rotate-element"><i class="fas fa-angle-right"></i></div>
-                    </div>
-                </div>
-                <div class="inside-links active-links">
-                    <a href="#">
-                        <div class="inside-lm-link">
-                            <div class="ilm-l"></div><div class="ilm-c"></div>
-                            <p>{{__('KIF')}}</p>
-                        </div>
-                    </a>
-                    <a href="#">
-                        <div class="inside-lm-link">
-                            <div class="ilm-l"></div><div class="ilm-c"></div>
-                            <p> {{__('Dobavljači')}} </p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </a>
-
-
-        <div class="subtitle">
-            <h4> {{__('Historija kupovanja')}} </h4>
-            <div class="subtitle-icon">
-                <i class="fas fa-history"></i>
-            </div>
-        </div>
-
-        <a href="#" class="menu-a-link">
-            <div class="s-lm-wrapper">
-                <div class="s-lm-s-elements">
-                    <div class="s-lms-e-img">
-                        <i class="far fa-file-alt"></i>
-                    </div>
-                    <p>{{__('Moje narudžbe')}}</p>
-                    <div class="extra-elements">
-                        <div class="rotate-element"><i class="fas fa-angle-right"></i></div>
-                    </div>
-                </div>
-                <div class="inside-links active-links">
-                    <a href="#">
-                        <div class="inside-lm-link">
-                            <div class="ilm-l"></div><div class="ilm-c"></div>
-                            <p>{{__('Pregled svih narudžbi')}}</p>
-                        </div>
-                    </a>
-                    <a href="">
-                        <div class="inside-lm-link">
-                            <div class="ilm-l"></div><div class="ilm-c"></div>
-                            <p> {{__('Uputstva za korištenje')}} </p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </a>
-
-        <div class="subtitle">
-            <h4> {{__('Postavke')}} </h4>
-            <div class="subtitle-icon">
-                <i class="fas fa-cogs"></i>
-            </div>
-        </div>
-        <a href="{{ route('system.settings.keywords') }}" class="menu-a-link">
-            <div class="s-lm-wrapper">
-                <div class="s-lm-s-elements">
-                    <div class="s-lms-e-img">
-                        <i class="fas fa-key"></i>
-                    </div>
-                    <p>{{__('Šifarnici')}}</p>
                 </div>
             </div>
         </a>
