@@ -62,13 +62,13 @@
             <p> <a href="https://europlac-nekretnine.com/">© {{ date('Y') }} Euro-Plac d.o.o</a> <span>|</span> <a href="https://cozyfirm.com/">Development: Cozy Firm d.o.o</a></p>
             <ul class="con__bottom-list">
                 <li class="con__bottom-item">
-                    <a href="#" class="con__bottom-link underlined"> {{ __('Pravila privatnosti') }} </a>
+                    <a href="{{ route('public-part.pages.privacy-policy') }}" class="con__bottom-link underlined"> {{ __('Pravila privatnosti') }} </a>
                 </li>
                 <li class="con__bottom-item">
-                    <a href="#" class="con__bottom-link underlined"> {{ __('Uslovi korištenja') }} </a>
+                    <a href="{{ route('public-part.pages.terms-and-conditions') }}" class="con__bottom-link underlined"> {{ __('Uslovi korištenja') }} </a>
                 </li>
                 <li class="con__bottom-item">
-                    <a href="#" class="con__bottom-link underlined">{{ __('Korisnički kolačići') }}</a>
+                    <a href="{{ route('public-part.pages.cookies') }}" class="con__bottom-link underlined">{{ __('Korisnički kolačići') }}</a>
                 </li>
             </ul>
         </div>

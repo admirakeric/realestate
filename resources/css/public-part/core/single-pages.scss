@@ -1,0 +1,24 @@
+.single__page_wrapper{
+    position: relative; width: 100%; background: #F7F8F9; padding: 32px 0px;
+
+    .single__page__inner{
+        position: relative; left: calc(50% - $container-half); width: $container-width; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 32px;
+        @media only screen and (max-width: 1400px){ left: 40px; width: calc(100% - 80px); }
+        @media only screen and (max-width: 800px){ left: 20px; width: calc(100% - 40px); flex-wrap: wrap; gap: 20px; }
+
+        .image__wrapper{
+            position: relative; width: 100%; border: 1px solid $primary;
+            img{
+                width: 100%;
+            }
+        }
+
+        .text__wrapper{
+            width: 100%; display: flex; justify-content: flex-start; gap: 16px; flex-wrap: wrap;
+            h1{margin: 0px;}
+            p{
+                width: 100%;
+            }
+        }
+    }
+}

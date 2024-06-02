@@ -84,7 +84,7 @@
                 <nav class="blue-menu">
                     <ul>
                         <li class="li_menu">
-                            <a class="menu" href="#"> {{ __('O nama') }} </a>
+                            <a class="menu" href="{{ route('public-part.pages.about-us') }}"> {{ __('O nama') }} </a>
                         </li>
                         <li class="li_menu">
                             <a class="menu" href="#">
@@ -111,18 +111,11 @@
                                 <div class="li_m_s_w">
                                     <a href="{{ route('public-part.faq') }}"> {{__('Često postavljena pitanja')}}</a>
                                 </div>
-                                <div class="li_m_s_w">
-                                    <a href="#"> {{__('Kako prodati nekretninu?')}}</a>
-                                </div>
-                                <div class="li_m_s_w">
-                                    <a href="#"> {{__('Novosti iz svijeta nekretnina')}}</a>
-                                </div>
-                                <div class="li_m_s_w">
-                                    <a href="#"> {{__('Objekti u izgradnji')}}</a>
-                                </div>
-                                <div class="li_m_s_w">
-                                    <a href="#"> {{__('Ostale informacije')}}</a>
-                                </div>
+                                @foreach($restOfPages as $page)
+                                    <div class="li_m_s_w">
+                                        <a href="{{ route('public-part.pages.preview', ['id' => $page->id ]) }}"> {{ $page->title }}</a>
+                                    </div>
+                                @endforeach
                             </div>
                         </li>
                     </ul>

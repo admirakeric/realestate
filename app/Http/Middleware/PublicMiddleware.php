@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use App\Models\Core\Keyword;
 use App\Models\Estates\Estate;
+use App\Models\SinglePages\SinglePage;
 use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -33,7 +34,8 @@ class PublicMiddleware
             'purposes' => Keyword::where('keyword', 'estate_purpose')->orderBy('value')->pluck('value', 'id')->prepend('Svrha', ''),
             'cities' => Keyword::where('keyword', 'cities')->orderBy('value')->pluck('value', 'id')->prepend('Odaberite grad', ''),
             'sponsored' => Keyword::where('keyword', 'da_ne')->pluck('value', 'id')->prepend('Izdvojene nekretnine', ''),
-            'searchedEstate' => $searchedEstate
+            'searchedEstate' => $searchedEstate,
+            'restOfPages' => SinglePage::where('category', 24)->get()
         ]);
 
         $request->attributes->add(['searchedEstate' => $searchedEstate]);

@@ -59,8 +59,20 @@ Route::prefix('')->middleware('public-middleware')->group(function () {
     /**
      * About Us page
      */
-    Route::prefix('/about_us')->group(function (){
-        Route::get('/',                                 [AboutUsController::class, 'index'])->name('public-part.about-us');
+    //Route::prefix('/about_us')->group(function (){
+    //    Route::get('/',                                 [AboutUsController::class, 'index'])->name('public-part.about-us');
+    //});
+
+    /**
+     *  Single pages
+     */
+    Route::prefix('/pages')->group(function (){
+        Route::get('/privacy-policy',                            [HomeController::class, 'privacyPolicy'])->name('public-part.pages.privacy-policy');
+        Route::get('/terms-and-conditions',                      [HomeController::class, 'termsAndConditions'])->name('public-part.pages.terms-and-conditions');
+        Route::get('/cookies',                                   [HomeController::class, 'cookies'])->name('public-part.pages.cookies');
+        Route::get('/about-us',                                  [HomeController::class, 'aboutUs'])->name('public-part.pages.about-us');
+
+        Route::get('/preview/{id}',                              [HomeController::class, 'preview'])->name('public-part.pages.preview');
     });
 });
 
