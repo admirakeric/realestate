@@ -69,11 +69,18 @@
                         </div>
                     </div>
                     <div class="row mt-2">
-                        <div class="col-md-12">
+                        <div class="col-md-6">
                             <div class="form-group">
                                 <b>{{ html()->label(__('Izdvojeno'))->for('sponsored') }}</b>
                                 {{ html()->select('sponsored', $sponsored)->class('form-control form-control-sm mt-1')->required()->value(isset($estate) ? $estate->sponsored : '')->disabled(isset($previewVar)) }}
                                 <small id="sponsoredHelp" class="form-text text-muted">{{ __('Da li je nekretnina izdvojena?') }}</small>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <b>{{ html()->label(__('Objavljeno'))->for('published') }}</b>
+                                {{ html()->select('published', [0 => 'Ne', 1 => 'Da'])->class('form-control form-control-sm mt-1')->required()->value(isset($estate) ? $estate->published : '')->disabled(isset($previewVar)) }}
+                                <small id="publishedHelp" class="form-text text-muted">{{ __('Da li je nekretnina objavljena?') }}</small>
                             </div>
                         </div>
                     </div>

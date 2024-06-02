@@ -19,6 +19,7 @@ return new class extends Migration
             $table->integer('category');              // Villa
             $table->integer('purpose');               // For sale
             $table->integer('sponsored');             // Yes | No
+            $table->integer('published')->default(0);             // Yes | No
             $table->string('address')->nullable();
             $table->integer('city');                  // 1.  Sarajevo
             $table->integer('country');               // 21. Bosnia and Herzegovina

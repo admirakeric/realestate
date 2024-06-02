@@ -98,6 +98,13 @@ Route::prefix('system')->group(function () {
             Route::get ('/insert-new-image/{slug}',                      [EstatesController::class, 'insertNewImage'])->name('system.estates.insert-new-image');
             Route::post('/save-new-image',                               [EstatesController::class, 'saveNewImage'])->name('system.estates.save-new-image');
             Route::get ('/delete-new-image/{id}',                        [EstatesController::class, 'deleteNewImage'])->name('system.estates.delete-new-image');
+
+            Route::post('/update-main-image',                            [EstatesController::class, 'updateMainImage'])->name('system.estates.update-main-image');
+        });
+
+        Route::prefix('google-map')->group(function () {
+            Route::get ('/edit-location/{slug}',                         [EstatesController::class, 'editLocation'])->name('system.estates.google-map.edit-location');
+            Route::post('/update-location',                              [EstatesController::class, 'updateLocation'])->name('system.estates.google-map.update-location');
         });
     });
 

@@ -10,13 +10,15 @@ use App\Models\Core\Keyword;
 use App\Models\Estates\Estate;
 use App\Models\Estates\EstateImage;
 use App\Traits\Common\FileTrait;
+use App\Traits\Http\ResponseTrait;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 
 class EstatesController extends Controller{
-    use FileTrait;
+    use FileTrait, ResponseTrait;
 
     protected string $_path = 'admin.pages.estates.';
 
@@ -150,7 +152,7 @@ class EstatesController extends Controller{
             return back()->with('error', __('Desila se greška!'));
         }
     }
-    public function deleteNewImage($id){
+    public function deleteNewImage($id): RedirectResponse{
         try{
             $estateImage = EstateImage::where('id', $id)->first();
 
@@ -165,6 +167,44 @@ class EstatesController extends Controller{
             return back()->with('success', __('Uspješno izbrisana fotografija!'));
         }catch (\Exception $e){
             return back()->with('error', __('Desila se greška!'));
+        }
+    }
+    public function updateMainImage(Request $request) : RedirectResponse{
+        try{
+            /* Add path to request for trait */
+            $request['path'] = public_path('files/images/estates');
+            /* Upload file */
+            $file = $this->saveFile($request, 'photo_uri', 'main_estate_image');
+
+            $estate = Estate::where('id', $request->id)->first();
+            $estate->update(['image' => $file->id]);
+
+            return back()->with('success', __('Fotografija uspješno spremljena!'));
+        }catch (\Exception $e){
+            return back()->with('error', __('Desila se greška!'));
+        }
+    }
+
+    /*
+     *  Google maps
+     */
+    public function editLocation($slug): View{
+        $estate = Estate::where('slug', $slug)->first();
+
+        return view($this->_path . 'location', [
+            'estate' => $estate
+        ]);
+    }
+    public function updateLocation(Request $request): JsonResponse{
+        try{
+            Estate::where('id', $request->id)->update([
+                'latitude' => $request->lat,
+                'longitude' => $request->lon
+            ]);
+
+            return $this->jsonSuccess(__('Uspješno ažurirano!'));
+        }catch (\Exception $e){
+            return $this->jsonResponse('1200', __('Desila se greška!'));
         }
     }
 }

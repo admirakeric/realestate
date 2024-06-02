@@ -192,7 +192,7 @@ loader.load().then(function (google) {
     let marker = new google.maps.Marker({
         position: location,
         map: map,
-        draggable: true
+        // draggable: true
     });
 
     /* Get coordinates while moving */
