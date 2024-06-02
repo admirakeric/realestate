@@ -3,13 +3,16 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Models\Core\File;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
 /**
  * @method static create(array $all)
  * @method static where(string $string, $username)
+ * @method static inRandomOrder()
  */
 class User extends Authenticatable
 {
@@ -52,5 +55,8 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+    public function imageRel() : HasOne{
+        return $this->hasOne(File::class, 'id', 'image');
     }
 }

@@ -16,7 +16,7 @@
         }
 
         .all_properties{
-            width: calc(100% - 374px); display: flex; flex-wrap: wrap; gap: 32px; justify-content: space-between;
+            width: calc(100% - 374px); display: flex; flex-wrap: wrap; gap: 32px; justify-content: space-between;  align-content: flex-start;
             @media only screen and (max-width: 1000px){
                 width: calc(100% - 324px);
             }

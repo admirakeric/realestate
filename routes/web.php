@@ -81,6 +81,8 @@ Route::prefix('system')->group(function () {
         Route::get ('/edit/{username}',          [UsersController::class, 'edit'])->name('system.users.edit');
         Route::post('/update',                   [UsersController::class, 'update'])->name('system.users.update');
         Route::get ('/delete/{username}',        [UsersController::class, 'delete'])->name('system.users.delete');
+
+        Route::post('/update-image',             [UsersController::class, 'updateImage'])->name('system.users.update-image');
     });
 
     /**

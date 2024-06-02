@@ -50,24 +50,11 @@
                     <li class="footer__list1-item">
                         <h4 class="footer__list1-header">{{ __('Nekretnine') }}</h4>
                     </li>
-                    <li class="footer__list2-item">
-                        <a class="footer__list2-link" href="#">{{ __('Kuće') }}</a>
-                    </li>
-                    <li class="footer__list2-item">
-                        <a class="footer__list2-link" href="#">{{ __('Stanovi') }}</a>
-                    </li>
-                    <li class="footer__list2-item">
-                        <a class="footer__list2-link" href="#">{{ __('Apartmani') }}</a>
-                    </li>
-                    <li class="footer__list2-item">
-                        <a class="footer__list2-link" href="#"> {{ __('Zemljišta') }} </a>
-                    </li>
-                    <li class="footer__list2-item">
-                        <a class="footer__list2-link" href="#"> {{ __('Poslovni prostori') }} </a>
-                    </li>
-                    <li class="footer__list2-item">
-                        <a class="footer__list2-link" href="#"> {{ __('Vikendice') }} </a>
-                    </li>
+                    @foreach($categories as $key => $category)
+                        <li class="footer__list2-item">
+                            <a class="footer__list2-link" href="{{ route('public-part.properties') }}?category={{ $key }}">{{ $category }}</a>
+                        </li>
+                    @endforeach
                 </ul>
             </div>
         </div>

@@ -4,6 +4,9 @@
     <!-- Include filters -->
     @include('public-part.layout.includes.filters')
 
+    {{ html()->hidden('latitude')->id('latitude')->class('form-control')->value($estate->latitude) }}
+    {{ html()->hidden('longitude')->id('longitude')->class('form-control')->value($estate->longitude) }}
+
     <!-- Breadcrumbs -->
     <div class="breadcrumbs_wrapper">
         <div class="breadcrumbs_inner">
@@ -13,13 +16,11 @@
                     {{ __('Naslovna') }}
                 </a>
                 <i class="fas fa-chevron-right"></i>
-                <a href="#">
+                <a href="{{ route('public-part.properties') }}">
                     {{ __('Nekretnine') }}
                 </a>
                 <i class="fas fa-chevron-right"></i>
-                <a href="#">
-                    {{ __('Villa for Sale') }}
-                </a>
+                <a href="{{ route('public-part.properties.preview', ['slug' => $estate->slug ]) }}"> {{ $estate->title }} </a>
             </div>
             <div class="bi_icons">
                 <div class="bi_icon_wrapper">
@@ -35,20 +36,20 @@
     <div class="single_estate_header">
         <div class="single_estate_header_inner">
             <div class="header_left">
-                <h1> Villa for Sale </h1>
+                <h1> {{ $estate->title }} </h1>
                 <div class="buttons_wrapper">
-                    <button class="black_btn">{{ __('IZDAJE SE') }}</button>
+                    <button class="black_btn">{{ $estate->purposeRel->value ?? '' }}</button>
                 </div>
                 <div class="address_wrapper">
                     <img src="{{ asset('files/images/default/marker.svg') }}" alt="">
-                    <p>3385 Pan American Dr, Miami, FL 33133, USA</p>
+                    <p> {{ $estate->address }}, {{ $estate->cityRel->description ?? '' }} {{ $estate->cityRel->value ?? '' }}, {{ $estate->countryRel->name_ba ?? '' }} </p>
                 </div>
             </div>
 
             <div class="header_right">
                 <div class="price_wrapper">
-                    <h2> KM 122 000.00 </h2>
-                    <p> KM 1220.00 / m <sup>2</sup> </p>
+                    <h2> KM {{ $estate->getPrice() }} </h2>
+                    <p> KM {{ $estate->pricePerSquareMeter() }} / m <sup>2</sup> </p>
                 </div>
             </div>
         </div>
@@ -60,11 +61,11 @@
                 <div class="slider_wrapper">
                     <div class="swiper gallery__swiper">
                         <div class="swiper-wrapper">
-                            @for($i=1; $i<6; $i++)
+                            @foreach($estate->imagesRel as $imageRel)
                                 <div class="swiper-slide">
-                                    <img src="{{ asset('files/images/estates/e' . $i . '.jpg') }}" alt="">
+                                    <img src="{{ asset('files/images/estates/' . $imageRel->fileRel->name ?? '') }}" alt="">
                                 </div>
-                            @endfor
+                            @endforeach
                         </div>
                         <div class="swiper-button-next"></div>
                         <div class="swiper-button-prev"></div>
@@ -105,18 +106,18 @@
 
                     <div class="mobile__text">
                         <div class="buttons_wrapper">
-                            <button class="black_btn">{{ __('IZDAJE SE') }}</button>
+                            <button class="black_btn">{{ $estate->purposeRel->value ?? '' }}</button>
                         </div>
 
-                        <h1> Villa for Sale </h1>
+                        <h1> {{ $estate->title }} </h1>
                         <div class="address_wrapper">
                             <img src="{{ asset('files/images/default/marker.svg') }}" alt="">
-                            <p>3385 Pan American Dr, Miami, FL 33133, USA</p>
+                            <p> {{ $estate->address }}, {{ $estate->cityRel->description ?? '' }} {{ $estate->cityRel->value ?? '' }}, {{ $estate->countryRel->name_ba ?? '' }} </p>
                         </div>
 
                         <div class="price_wrapper">
-                            <h2> 122 000.00 KM </h2>
-                            <p> 1220.00  KM / m <sup>2</sup> </p>
+                            <h2> {{ $estate->getPrice() }} KM </h2>
+                            <p> {{ $estate->pricePerSquareMeter() }}  KM / m <sup>2</sup> </p>
                         </div>
                     </div>
                 </div>
@@ -126,78 +127,94 @@
                         <h4>{{ __('Osnovne informacije') }}</h4>
                         <h5>
                             <b>{{ __('ID Nekretnine') }}:</b>
-                            EK232
+                            {{ $estate->id }}
                         </h5>
                     </div>
 
                     <div class="ee_body estate_overview_body">
                         <div class="eob_element">
                             <div class="eob_e_header">
-                                <b> Villa </b>
+                                <b> {{ $estate->categoryRel->value ?? '' }} </b>
                             </div>
                             <div class="eob_e_body">
                                 <p>{{ __('Vrsta nekretnine') }}</p>
                             </div>
                         </div>
-                        <div class="eob_element">
-                            <div class="eob_e_header">
-                                <img src="{{ asset('files/images/default/triangle.png') }}" alt="">
-                                <b> 122 </b>
-                            </div>
-                            <div class="eob_e_body">
-                                <p>m <sup>2</sup></p>
-                            </div>
-                        </div>
-                        <div class="eob_element">
-                            <div class="eob_e_header">
-                                <img src="{{ asset('files/images/default/bed.png') }}" alt="">
-                                <b> 4 </b>
-                            </div>
-                            <div class="eob_e_body">
-                                <p>{{ __('Spavaćih soba') }}</p>
-                            </div>
-                        </div>
 
-                        <div class="eob_element">
-                            <div class="eob_e_header">
-                                <img src="{{ asset('files/images/default/shower.png') }}" alt="">
-                                <b> 2 </b>
+                        @if($estate->surface)
+                            <div class="eob_element" title="{{ __('Površina nekretnine') }}">
+                                <div class="eob_e_header">
+                                    <img src="{{ asset('files/images/default/triangle.png') }}" alt="">
+                                    <b> {{ $estate->surface }} </b>
+                                </div>
+                                <div class="eob_e_body">
+                                    <p>m <sup>2</sup></p>
+                                </div>
                             </div>
-                            <div class="eob_e_body">
-                                <p>{{ __('Kupatila') }}</p>
+                        @endif
+                        @if($estate->land_surface)
+                            <div class="eob_element" title="{{ __('Površina okućnice / zemljišta') }}">
+                                <div class="eob_e_header">
+                                    <img src="{{ asset('files/images/default/triangle.png') }}" alt="">
+                                    <b> {{ $estate->land_surface }} </b>
+                                </div>
+                                <div class="eob_e_body">
+                                    <p>m <sup>2</sup></p>
+                                </div>
                             </div>
-                        </div>
-                        <div class="eob_element">
-                            <div class="eob_e_header">
-                                <img src="{{ asset('files/images/default/garage.png') }}" alt="">
-                                <b> 2 </b>
+                        @endif
+                        @if($estate->bedrooms)
+                            <div class="eob_element">
+                                <div class="eob_e_header">
+                                    <img src="{{ asset('files/images/default/bed.png') }}" alt="">
+                                    <b> {{ $estate->bedrooms }} </b>
+                                </div>
+                                <div class="eob_e_body">
+                                    <p>{{ __('Spavaćih soba') }}</p>
+                                </div>
                             </div>
-                            <div class="eob_e_body">
-                                <p>{{ __('Garažnih mjesta') }}</p>
+                        @endif
+                        @if($estate->bathrooms)
+                            <div class="eob_element">
+                                <div class="eob_e_header">
+                                    <img src="{{ asset('files/images/default/shower.png') }}" alt="">
+                                    <b> {{ $estate->bathrooms }} </b>
+                                </div>
+                                <div class="eob_e_body">
+                                    <p>{{ __('Kupatila') }}</p>
+                                </div>
                             </div>
-                        </div>
-                        <div class="eob_element">
-                            <div class="eob_e_header">
-                                <img src="{{ asset('files/images/default/calendar.png') }}" alt="">
-                                <b> 2000+ </b>
+                        @endif
+                        @if($estate->garages)
+                            <div class="eob_element">
+                                <div class="eob_e_header">
+                                    <img src="{{ asset('files/images/default/garage.png') }}" alt="">
+                                    <b> {{ $estate->garages }} </b>
+                                </div>
+                                <div class="eob_e_body">
+                                    <p>{{ __('Garažnih mjesta') }}</p>
+                                </div>
                             </div>
-                            <div class="eob_e_body">
-                                <p>{{ __('Godina izgradnje') }}</p>
+                        @endif
+                        @if($estate->built)
+                            <div class="eob_element">
+                                <div class="eob_e_header">
+                                    <img src="{{ asset('files/images/default/calendar.png') }}" alt="">
+                                    <b> {{ $estate->built }} </b>
+                                </div>
+                                <div class="eob_e_body">
+                                    <p>{{ __('Godina izgradnje') }}</p>
+                                </div>
                             </div>
-                        </div>
+                        @endif
                     </div>
                 </div>
-
                 <div class="estate_element detailed_description">
                     <div class="ee_header">
                         <h4>{{ __('Detaljan opis nekretnine') }}</h4>
                     </div>
 
-                    <div class="ee_body detailed_description_body">
-                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p>
-                        <br><br>
-                        <p>Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius. Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum.</p>
-                    </div>
+                    <div class="ee_body detailed_description_body"> {!! nl2br($estate->description) !!} </div>
                 </div>
 
                 <div class="estate_element dual_elements address">
@@ -214,19 +231,19 @@
                     <div class="ee_body dual_elements_body address_body">
                         <div class="dual_element">
                             <p><b>{{ __('Adresa') }}</b></p>
-                            <p>8100 S Ashland Ave</p>
+                            <p>{{ $estate->address }}</p>
                         </div>
                         <div class="dual_element">
                             <p><b>{{ __('Poštanski broj') }}</b></p>
-                            <p>60620</p>
+                            <p>{{ $estate->cityRel->description ?? '' }}</p>
                         </div>
                         <div class="dual_element">
                             <p><b>{{ __('Grad') }}</b></p>
-                            <p>Chicago</p>
+                            <p>{{ $estate->cityRel->value ?? '' }}</p>
                         </div>
                         <div class="dual_element">
                             <p><b>{{ __('Država') }}</b></p>
-                            <p>Bosna i Hercegovina</p>
+                            <p>{{ $estate->countryRel->name_ba ?? '' }}</p>
                         </div>
                     </div>
                 </div>
@@ -237,92 +254,94 @@
                         <h4>{{ __('Detaljne informacije') }}</h4>
                         <p>
                             <i class="fas fa-calendar"></i>
-                            Ažurirano 19. Maj 2024 u 13:23h
+                            {{ __('Ažurirano') }} {{ $estate->updatedAt() }}
                         </p>
                     </div>
 
                     <div class="ee_body dual_elements_body dual_elements_body_colored ">
                         <div class="dual_element">
                             <p><b>{{ __('ID Nekretnine') }}</b></p>
-                            <p>HZ28</p>
+                            <p>{{ $estate->id }}</p>
                         </div>
                         <div class="dual_element">
                             <p><b>{{ __('Vrsta nekretnine') }}</b></p>
-                            <p> Stan </p>
+                            <p> {{ $estate->categoryRel->value ?? '' }} </p>
                         </div>
                         <div class="dual_element">
-                            <p><b>{{ __('Price') }}</b></p>
-                            <p>KM 122 000.00</p>
+                            <p><b>{{ __('Cijena') }}</b></p>
+                            <p>KM {{ $estate->getPrice() }}</p>
                         </div>
                         <div class="dual_element">
                             <p><b>{{ __('Površina') }}</b></p>
-                            <p>100.00 / m <sup>2</sup></p>
+                            <p> {{ $estate->surface }} m <sup>2</sup></p>
                         </div>
                         <div class="dual_element">
-                            <p><b>{{ __('Garage') }}</b></p>
-                            <p>1</p>
+                            <p><b>{{ __('Garaže') }}</b></p>
+                            <p>{{ $estate->garages }}</p>
                         </div>
                         <div class="dual_element">
                             <p><b>{{ __('Spavaćih soba') }}</b></p>
-                            <p> 5 </p>
+                            <p> {{ $estate->bedrooms }} </p>
                         </div>
                         <div class="dual_element">
                             <p><b>{{ __('Kupatila') }}</b></p>
-                            <p> 2 </p>
+                            <p> {{ $estate->bathrooms }} </p>
                         </div>
                         <div class="dual_element">
                             <p><b>{{ __('Status') }}</b></p>
-                            <p> Na prodaju </p>
+                            <p> {{ $estate->purposeRel->value ?? '' }} </p>
                         </div>
                     </div>
                 </div>
 
                 <!-- Schedule a tour -->
-                <div class="schedule__tour">
-                    <div class="schedule_tour_header">
-                        <h4>{{ __('Zakažite posjetu') }}</h4>
-                    </div>
-                    <div class="dates__wrapper">
-                        <div class="swiper multi-swiper">
-                            <div class="swiper-wrapper">
-                                @foreach($days as $day)
-                                    <div class="swiper-slide">
-                                        <div class="inside-swiper">
-                                            <p> {{ substr($day->format('l'), 0, 3) }} </p>
-                                            <h3>{{ $day->format('d') }}</h3>
-                                            <p> {{ $day->format('M') }} </p>
-                                        </div>
-                                    </div>
-                                @endforeach
-                            </div>
+{{--                <div class="schedule__tour">--}}
+{{--                    <div class="schedule_tour_header">--}}
+{{--                        <h4>{{ __('Zakažite posjetu') }}</h4>--}}
+{{--                    </div>--}}
+{{--                    <div class="dates__wrapper">--}}
+{{--                        <div class="swiper multi-swiper">--}}
+{{--                            <div class="swiper-wrapper">--}}
+{{--                                @foreach($days as $day)--}}
+{{--                                    <div class="swiper-slide">--}}
+{{--                                        <div class="inside-swiper">--}}
+{{--                                            <p> {{ substr($day->format('l'), 0, 3) }} </p>--}}
+{{--                                            <h3>{{ $day->format('d') }}</h3>--}}
+{{--                                            <p> {{ $day->format('M') }} </p>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                @endforeach--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+
+{{--                    <div class="inputs__wrapper">--}}
+{{--                        <select name="s_time" id="s_time">--}}
+{{--                            <option value="08:00">08:00</option>--}}
+{{--                            <option value="08:00">08:30</option>--}}
+{{--                            <option value="08:00">09:00</option>--}}
+{{--                            <option value="08:00">09:30</option>--}}
+{{--                        </select>--}}
+{{--                        <input type="text" id="s_name" name="s_name" placeholder="{{ __('Vaše ime') }}">--}}
+{{--                        <input type="text" id="s_phone" name="s_phone" placeholder="{{ __('Vaš broj telefona') }}">--}}
+{{--                        <input type="text" id="s_email" name="s_email" placeholder="{{ __('Vaš email') }}">--}}
+{{--                        <textarea name="s_message" id="s_message" rows="6"></textarea>--}}
+{{--                        <button>{{ __('Pošaljite zahtjev') }}</button>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+
+                @if($estate->video)
+                    <!-- Video -->
+                    <div class="estate_element video">
+                        <div class="ee_header">
+                            <h4>{{ __('Video') }}</h4>
+                        </div>
+
+                        <div class="ee_body video_body">
+                            <iframe src="{{ $estate->video }}" title="{{ $estate->title }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                         </div>
                     </div>
-
-                    <div class="inputs__wrapper">
-                        <select name="s_time" id="s_time">
-                            <option value="08:00">08:00</option>
-                            <option value="08:00">08:30</option>
-                            <option value="08:00">09:00</option>
-                            <option value="08:00">09:30</option>
-                        </select>
-                        <input type="text" id="s_name" name="s_name" placeholder="{{ __('Vaše ime') }}">
-                        <input type="text" id="s_phone" name="s_phone" placeholder="{{ __('Vaš broj telefona') }}">
-                        <input type="text" id="s_email" name="s_email" placeholder="{{ __('Vaš email') }}">
-                        <textarea name="s_message" id="s_message" rows="6"></textarea>
-                        <button>{{ __('Pošaljite zahtjev') }}</button>
-                    </div>
-                </div>
-
-                <!-- Video -->
-                <div class="estate_element video">
-                    <div class="ee_header">
-                        <h4>{{ __('Video') }}</h4>
-                    </div>
-
-                    <div class="ee_body video_body">
-                        <iframe src="https://www.youtube.com/embed/-NInBEdSvp8?si=ErLQhFJ_eUr-hfiX" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                    </div>
-                </div>
+                @endif
 
                 <div class="estate_element dual_elements contact_us">
                     <div class="ee_header">
@@ -331,7 +350,7 @@
                             <button class="contact_us-btn">
                                 <i class="fas fa-phone"></i>
                                 <span class="main_text">{{ __('Pozovite nas') }}</span>
-                                <span class="phone_number"> +387 61 225 883 </span>
+                                <span class="phone_number"> {{ $agent->phone }} </span>
                             </button>
                         </a>
                     </div>
@@ -339,19 +358,19 @@
                     <div class="ee_body dual_elements_body contact_us_body">
                         <div class="agent_info">
                             <div class="img_wrapper">
-                                <img src="{{ asset('files/images/default/agent.jpg') }}" alt="">
+                                <img src="{{ isset($agent->imageRel) ? asset( 'files/images/users/' . $agent->imageRel->name ?? '') : '' }}" alt="">
                             </div>
                             <div class="text_wrapper">
-                                <h4>Sameuel el. Jackson</h4>
-                                <p>Broj licence: 223-A/2023</p>
+                                <h4> {{ $agent->name }} </h4>
+                                <p> {{ __('Broj licence:') }} {{ $agent->licence }} </p>
                                 <div class="contact__info">
                                     <div class="ci__w">
                                         <i class="fas fa-phone"></i>
-                                        <p> +387 61 225 883 </p>
+                                        <p> {{ $agent->phone }} </p>
                                     </div>
                                     <div class="ci__w">
                                         <i class="fas fa-envelope"></i>
-                                        <p> europlac-nekretnine@hotmail.ba </p>
+                                        <p> {{ $agent->email }} </p>
                                     </div>
                                 </div>
                             </div>
@@ -360,11 +379,11 @@
                         <div class="agent_contact">
                             <div class="ci__w">
                                 <i class="fas fa-phone"></i>
-                                <p> +387 61 225 883 </p>
+                                <p> {{ $agent->phone }} </p>
                             </div>
                             <div class="ci__w">
                                 <i class="fas fa-envelope"></i>
-                                <p> europlac-nekretnine@hotmail.ba </p>
+                                <p> {{ $agent->email }} </p>
                             </div>
                         </div>
 
@@ -386,7 +405,7 @@
                                 <input type="text" id="cf_email" name="cf_email">
                             </div>
                             <div class="input__w">
-                                <label for="cf_what">{{ __('Email') }}</label>
+                                <label for="cf_what">{{ __('Razlog') }}</label>
                                 <select id="cf_what" name="cf_what">
                                     <option value="{{ __('Ja sam kupac') }}"> {{ __('Ja sam kupac') }} </option>
                                     <option value="{{ __('Ja sam agent') }}"> {{ __('Ja sam agent') }} </option>

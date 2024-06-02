@@ -31,10 +31,12 @@ class PublicMiddleware
         view()->share([
             'categories' => Keyword::where('keyword', 'estate__type')->orderBy('value')->pluck('value', 'id')->prepend('Sve nekretnine', ''),
             'purposes' => Keyword::where('keyword', 'estate_purpose')->orderBy('value')->pluck('value', 'id')->prepend('Svrha', ''),
-            'cities' => Keyword::where('keyword', 'cities')->orderBy('value')->pluck('value', 'id')->prepend('Odaberite grad'),
+            'cities' => Keyword::where('keyword', 'cities')->orderBy('value')->pluck('value', 'id')->prepend('Odaberite grad', ''),
             'sponsored' => Keyword::where('keyword', 'da_ne')->pluck('value', 'id')->prepend('Izdvojene nekretnine', ''),
             'searchedEstate' => $searchedEstate
         ]);
+
+        $request->attributes->add(['searchedEstate' => $searchedEstate]);
 
         return $next($request);
     }

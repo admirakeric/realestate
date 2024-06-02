@@ -4,13 +4,16 @@ namespace App\Http\Controllers\Admin\Users;
 
 use App\Http\Controllers\Admin\Core\Filters;
 use App\Http\Controllers\Controller;
+use App\Models\Estates\Estate;
 use App\Models\User;
+use App\Traits\Common\FileTrait;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\View\View;
 
 class UsersController extends Controller{
+    use FileTrait;
     protected string $_path = 'admin.pages.users.';
 
     public function index(){
@@ -72,5 +75,20 @@ class UsersController extends Controller{
             $user = User::where('id', $request->id)->first();
             return redirect()->route('system.users.preview', ['username' => $user->username ]);
         }catch (\Exception $e){ dd($e); }
+    }
+    public function updateImage(Request $request) : RedirectResponse{
+        try{
+            /* Add path to request for trait */
+            $request['path'] = public_path('files/images/users');
+            /* Upload file */
+            $file = $this->saveFile($request, 'photo_uri', 'main_estate_image');
+
+            $estate = User::where('id', $request->id)->first();
+            $estate->update(['image' => $file->id]);
+
+            return back()->with('success', __('Fotografija uspješno spremljena!'));
+        }catch (\Exception $e){
+            return back()->with('error', __('Desila se greška!'));
+        }
     }
 }

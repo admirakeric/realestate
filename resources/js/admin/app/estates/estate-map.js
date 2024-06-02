@@ -12,8 +12,6 @@ if($("#change-map").length){
     let latitude = parseFloat(($("#latitude").val() !== '') ? $("#latitude").val() : '44.9654152') ;
     let longitude = parseFloat(($("#longitude").val() !== '') ? $("#longitude").val() : '15.9223333' );
 
-    console.log(latitude, longitude);
-
 
     loader.load().then(function (google) {
         let map = new google.maps.Map(document.getElementById('change-map'), {

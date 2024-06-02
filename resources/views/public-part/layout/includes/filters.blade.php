@@ -58,7 +58,7 @@
                 <input type="number" id="surface_to" name="surface_to" placeholder="{{ __('Površina do') }}" min="0" max="1000000" step="1" value="{{ isset($searchedEstate) ? $searchedEstate->surface_to : '' }}">
             </div>
             <div class="input_w">
-                <input type="text" id="id" name="id" placeholder="{{ __('ID nekretnine') }}" value="{{ isset($searchedEstate) ? $searchedEstate->id : '' }}">
+                <input type="text" id="id" name="id" placeholder="{{ __('ID nekretnine') }}" value="{{ (isset($searchedEstate) and $searchedEstate->id ) ? $searchedEstate->id : '' }}">
             </div>
         </div>
     </section>

@@ -25,4 +25,11 @@ $(document).ready(function (){
         $(".slider__switch_map").removeClass('active');
         $(this).addClass('active');
     });
+
+    /**
+     *  Clickable wrapper
+     */
+    $(".link_element").click(function (){
+        window.location = $(this).attr('uri');
+    });
 });

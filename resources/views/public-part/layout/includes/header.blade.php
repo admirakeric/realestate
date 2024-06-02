@@ -94,7 +94,7 @@
                             <div class="li_menu_submenu">
                                 @foreach($categories as $key => $category)
                                     <div class="li_m_s_w">
-                                        <a href="{{ route('public-part.properties') }}"> {{ $category }}</a>
+                                        <a href="{{ route('public-part.properties') }}?category={{ $key }}"> {{ $category }}</a>
                                     </div>
                                 @endforeach
                             </div>
