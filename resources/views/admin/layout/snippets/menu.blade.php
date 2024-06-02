@@ -319,7 +319,7 @@
                     <div class="s-lms-e-img">
                         <i class="fas fa-address-card"></i>
                     </div>
-                    <p>{{__('O nama')}}</p>
+                    <p>{{__('Stranice')}}</p>
                     <div class="extra-elements">
                         <div class="rotate-element"><i class="fas fa-angle-right"></i></div>
                     </div>
@@ -328,14 +328,14 @@
                     <a href="{{ route('system.single-pages.index') }}">
                         <div class="inside-lm-link">
                             <div class="ilm-l"></div><div class="ilm-c"></div>
-                            <p>{{__('Pregled svih postova')}}</p>
+                            <p>{{__('Pregled svih stranica')}}</p>
                         </div>
                     </a>
 
                     <a href="{{ route('system.single-pages.create') }}">
                         <div class="inside-lm-link">
                             <div class="ilm-l"></div><div class="ilm-c"></div>
-                            <p> {{__('Unesite novi post')}} </p>
+                            <p> {{__('Unos novog sadržaja')}} </p>
                         </div>
                     </a>
                 </div>

@@ -2,10 +2,10 @@
 @section('c-icon') <i class="fas fa-question"></i> @endsection
 @section('c-title') @if(isset ($create)) {{ __('Unos pitanja') }} @elseif(isset ($preview)){{ __('Pregled pitanja') }} @else {{ __('Uređivanje') }} @endif @endsection
 @section('c-breadcrumbs')
-    <a href="#"> <i class="fas fa-home"></i> <p>{{ __('Dashboard') }}</p> </a> / <a href="#">{{ __('Analytics') }}</a>
+    <a href="#"> <i class="fas fa-home"></i> <p>{{ __('Dashboard') }}</p> </a> / <a href="#">{{ __('FAQ') }}</a>
 @endsection
 @section('c-buttons')
-    <a href="#">
+    <a href="{{ route('system.faq.index') }}">
         <button class="pm-btn btn btn-dark"> <i class="fas fa-star"></i> </button>
     </a>
     @if(isset ($preview))
@@ -13,6 +13,11 @@
         <button class="pm-btn btn pm-btn-success">
             <i class="fas fa-edit"></i>
             <span>{{ __('Uredite') }}</span>
+        </button>
+    </a>
+    <a href="{{ route('system.faq.delete', ['id'=>$faq->id]) }}">
+        <button class="pm-btn btn pm-btn-trash">
+            <i class="fas fa-trash"></i>
         </button>
     </a>
     @endif
@@ -26,7 +31,7 @@
                     <form action="{{ route('system.faq.save') }}" method="POST">
                 @elseif(isset($edit))
                     <form action="{{ route('system.faq.update') }}" method="POST">
-                    <input name="id" value="{{$faq->id}}">
+                        {{ html()->hidden('id')->class('form-control')->value($faq->id) }}
                 @endif
                     @csrf
                     <div class="row">

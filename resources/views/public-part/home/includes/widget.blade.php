@@ -12,7 +12,7 @@
             <div class="widget_box">
                 <div class="widget_box_img">
                     <div class="widget_box_img_inner_wrapper">
-                        <img class="widget_image" src="{{ asset('files/images/default/home_1.jpg') }}" alt="">
+                        <img class="widget_image" src="{{ asset('files/images/default/home_1_small.jpg') }}" alt="">
                     </div>
                 </div>
                 <div class="widget_box_text">
@@ -20,13 +20,14 @@
                         {{ __('Prodaja') }}
                     </h4>
                     <p>
-                        {{__('Misija naše kompanije je uspješna i sigurna prodaja Vaše nekretnine, uz zadovoljstvo svih uključenih strana.')}}                    </p>
+                        {{__('Misija naše kompanije je uspješna i sigurna prodaja Vaše nekretnine, uz zadovoljstvo svih uključenih strana.')}}
+                    </p>
                 </div>
             </div>
             <div class="widget_box">
                 <div class="widget_box_img">
                     <div class="widget_box_img_inner_wrapper">
-                        <img class="widget_image" src="{{ asset('files/images/default/home_2.jpg') }}" alt="">
+                        <img class="widget_image" src="{{ asset('files/images/default/home_2_small.jpg') }}" alt="">
                     </div>
                 </div>
                 <div class="widget_box_text">
@@ -34,13 +35,14 @@
                         {{ __('Kupovina') }}
                     </h4>
                     <p>
-                        {{__('Ukoliko razmišljate kako pronaći i kupiti nekretninu, naša agencija je pravo mjesto za Vas. Koristeći dugogodišnje iskustvo, znanje i informacije pružiti ćemo Vam podršku kroz svaku od faza kupovine.')}}                    </p>
+                        {{__('Ukoliko razmišljate kako pronaći i kupiti nekretninu, naša agencija je pravo mjesto za Vas. Koristeći dugogodišnje iskustvo, znanje i informacije pružiti ćemo Vam podršku kroz svaku od faza kupovine.')}}
+                    </p>
                 </div>
             </div>
             <div class="widget_box">
                 <div class="widget_box_img">
                     <div class="widget_box_img_inner_wrapper">
-                        <img class="widget_image" src="{{ asset('files/images/default/home_3.jpg') }}" alt="">
+                        <img class="widget_image" src="{{ asset('files/images/default/home_3_small.jpg') }}" alt="">
                     </div>
                 </div>
                 <div class="widget_box_text">

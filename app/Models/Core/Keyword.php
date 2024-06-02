@@ -2,8 +2,10 @@
 
 namespace App\Models\Core;
 
+use App\Models\Pages\Faq;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
@@ -19,7 +21,9 @@ class Keyword extends Model{
         'estate__type' => 'Vrsta nekretnina',
         'estate_purpose' => 'Svrha',
         'cities' => 'Gradovi',
-        'da_ne' => 'Da / Ne'
+        'da_ne' => 'Da / Ne',
+        // Should not be edited
+        // 'page_type' => 'Vrsta stranice'
     ];
 
     protected $table = 'keywords';
@@ -30,4 +34,11 @@ class Keyword extends Model{
     public static function getKeyword($key){ return self::$_keywords[$key]; }
     public static function getIt($key){ return Keyword::where('type', $key)->pluck('name', 'id'); }
     public static function getItByVal($key){ return Keyword::where('type', $key)->pluck('name', 'value'); }
+
+    /**
+     *  Reverse relationships
+     */
+    public function faqsRel(): HasMany{
+        return $this->hasMany(Faq::class, 'category', 'id');
+    }
 }

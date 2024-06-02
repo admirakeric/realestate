@@ -61,7 +61,6 @@ Route::prefix('')->middleware('public-middleware')->group(function () {
      */
     Route::prefix('/about_us')->group(function (){
         Route::get('/',                                 [AboutUsController::class, 'index'])->name('public-part.about-us');
-
     });
 });
 
@@ -146,5 +145,7 @@ Route::prefix('system')->group(function () {
        Route::get ('/edit/{id}',                            [SinglePagesController::class, 'edit'])->name('system.single-pages.edit');
        Route::post('/update',                               [SinglePagesController::class, 'update'])->name('system.single-pages.update');
        Route::get ('/delete/{id}',                          [SinglePagesController::class, 'delete'])->name('system.single-pages.delete');
+
+        Route::post('/update-image',                        [SinglePagesController::class, 'updateImage'])->name('system.single-pages.update-image');
     });
 });

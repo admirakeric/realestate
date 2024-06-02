@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers\Admin\Faq;
 
+use App\Http\Controllers\Admin\Core\Filters;
 use App\Http\Controllers\Controller;
 use App\Models\Core\Keyword;
 use App\Models\Pages\Faq;
+use App\Models\SinglePages\SinglePage;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
@@ -13,7 +16,16 @@ class FaqController extends Controller
     protected string $_path = 'admin.pages.faq.';
 
     public function index(): View{
-        return view($this->_path . 'faq_admin');
+        $faqs = Faq::where('id', '>', 0);
+        $faqs = Filters::filter($faqs);
+        $filters = [
+            'question' => __('Pitanje')
+        ];
+
+        return view($this->_path . 'faq_admin', [
+            'faqs' => $faqs,
+            'filters' => $filters
+        ]);
     }
 
     public function create(): View{
@@ -79,5 +91,10 @@ class FaqController extends Controller
         }catch (\Exception $e){
             return back()->with('message', __('Desila se greška!'));
         }
+    }
+    public function delete($id): RedirectResponse{
+        Faq::where('id', $id)->delete();
+
+        return redirect()->route('system.faq.index');
     }
 }
