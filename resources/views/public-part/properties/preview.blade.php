@@ -300,6 +300,8 @@
                         <h4>{{ __('Zakažite posjetu') }}</h4>
                     </div>
                     <div class="dates__wrapper">
+                        {{ html()->hidden('estate_id')->class('form-control')->value($estate->id) }}
+
                         <div class="swiper multi-swiper">
                             <div class="swiper-wrapper">
                                 @php $i = 0; @endphp

@@ -23,7 +23,7 @@ class AuthController extends Controller
             if(Auth::attempt(['email' => $request->email, 'password' => $request->password])){
                 // Ovdje ćemo redirect uraditi na admin panel
 
-                return redirect()->route('public-part.home');
+                return redirect()->route('system.dashboard');
             }
 
             return back()->with('message', __('Neispravni korisnički podaci!'));

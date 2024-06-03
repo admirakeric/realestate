@@ -47,7 +47,7 @@ class PropertiesController extends Controller{
         $estates = $estates->paginate($this->_per_page);
 
         return view($this->_path . 'index', [
-            'estates' => $estates,
+            'estates' => $estates->appends(request()->query()),
             'menuCities' => $this->getCities(),
             'menuCategories' => $this->getCategories(),
             'menuPurposes' => $this->getPurposes()
@@ -88,7 +88,8 @@ class PropertiesController extends Controller{
                 'name' => $request->name,
                 'phone' => $request->phone,
                 'email' => $request->email,
-                'message' => $request->message
+                'message' => $request->message,
+                'estate_id' => $request->estate_id,
             ]);
 
 

@@ -86,7 +86,12 @@ Route::prefix('')->middleware('public-middleware')->group(function () {
  */
 
 Route::prefix('system')->middleware('auth-middleware')->group(function () {
-    Route::get('/dashboard',                                   [DashboardController::class, 'dashboard'])->name('system.dashboard');
+    Route::get ('/dashboard',                                   [DashboardController::class, 'dashboard'])->name('system.dashboard');
+
+    /** Calendar routes */
+    Route::get ('/calendar',                                    [DashboardController::class, 'calendar'])->name('system.calendar');
+    Route::post('/calendar-month-content',                      [DashboardController::class, 'monthContent'])->name('system.month-content');
+    Route::post('/calendar-day-content',                        [DashboardController::class, 'dayContent'])->name('system.day-content');
 
     /* Users routes */
     Route::prefix('users')->group(function () {

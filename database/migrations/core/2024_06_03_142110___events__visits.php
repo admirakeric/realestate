@@ -19,6 +19,11 @@ return new class extends Migration
                 ->references('id')
                 ->on('events')
                 ->onDelete('cascade');
+            $table->unsignedBigInteger('estate_id');
+            $table->foreign('estate_id')
+                ->references('id')
+                ->on('estates')
+                ->onDelete('cascade');
 
             $table->string('name');
             $table->string('phone');

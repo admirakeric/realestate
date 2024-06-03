@@ -75,7 +75,8 @@ $(document).ready(function (){
                 email: email.val(),
                 message: message.val(),
                 date : date,
-                time : time.val()
+                time : time.val(),
+                estate_id : $("#estate_id").val()
             },
             success: function success(response) {
                 let code = response['code'];

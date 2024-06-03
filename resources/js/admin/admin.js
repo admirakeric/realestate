@@ -7,3 +7,4 @@ import './layout/photo-upload.js'
 
 import './app/estates/estate.js';
 import './app/estates/estate-map.js';
+import './app/dashboard/calendar.js';

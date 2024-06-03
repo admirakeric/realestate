@@ -42,7 +42,7 @@
 <div class="s-top-menu">
     <div class="app-name">
         <a title="{{__('Naslovna strana')}}">
-            <h1> Alkaris d.o.o </h1>
+            <img src="{{ asset('files/images/default/logo.png') }}" alt="">
         </a>
         <i class="fas fa-bars t-3 system-m-i-t" title="{{__('Otvorite / zatvorite MENU')}}"></i>
     </div>
@@ -87,7 +87,7 @@
 {{--                @include('system.template.menu.menu-includes.notifications')--}}
             </div>
             <div class="single-li main-search-w" title="">
-                <a href="#">
+                <a href="{{ route('public-part.logout') }}">
                     <i class="fas fa-power-off" title="{{__('Odjavite se')}}"></i>
                 </a>
             </div>
@@ -140,6 +140,21 @@
                     <div class="extra-elements">
                         <div class="ee-t ee-t-b"><p>{{__('Graph')}}</p></div>
                     </div>
+                </div>
+                <div class="inside-links active-links">
+                    <a href="{{ route('system.dashboard') }}">
+                        <div class="inside-lm-link">
+                            <div class="ilm-l"></div><div class="ilm-c"></div>
+                            <p>{{__('Dashboard')}}</p>
+                        </div>
+                    </a>
+
+                    <a href="{{ route ('system.calendar') }}">
+                        <div class="inside-lm-link">
+                            <div class="ilm-l"></div><div class="ilm-c"></div>
+                            <p> {{__('Kalendar')}} </p>
+                        </div>
+                    </a>
                 </div>
             </div>
         </a>
