@@ -17,9 +17,14 @@
 @endsection
 
 @section('content')
-    <div class="content-wrapper content-wrapper-bs">
-        @include('admin.layout.snippets.filters.filters', ['var' => $faqs])
+    <div class="content-wrapper content-wrapper-p-15">
+        @if(session()->has('success'))
+            <div class="alert alert-success">
+                {{ session()->get('success') }}
+            </div>
+        @endif
 
+        @include('admin.layout.snippets.filters.filter-header', ['var' => $faqs])
         <table class="table table-bordered" id="filtering">
             <thead>
             <tr>
@@ -29,7 +34,6 @@
             </tr>
             </thead>
             <tbody>
-
             @php $i=1; @endphp
             @foreach($faqs as $faq)
                 <tr>
@@ -45,5 +49,7 @@
             @endforeach
             </tbody>
         </table>
+        @include('admin.layout.snippets.filters.pagination', ['var' => $faqs])
     </div>
+
 @endsection
