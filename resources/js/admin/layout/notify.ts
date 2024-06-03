@@ -29,8 +29,6 @@ export class Notify {
 
         if(options.length >= 1) this.params['message'] = options[0];
 
-        console.log(this.params['message']);
-
         if(options.length >= 2) {
             if(options[1] === 'success'){
                 this.params['class'] = "nt-success";

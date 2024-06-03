@@ -31,8 +31,10 @@ Route::prefix('')->middleware('public-middleware')->group(function () {
      *  Properties controller
      */
     Route::prefix('/properties')->group(function () {
-        Route::get('/',                                [PropertiesController::class, 'index'])->name('public-part.properties');
-        Route::get('/preview/{slug}',                  [PropertiesController::class, 'preview'])->name('public-part.properties.preview');
+        Route::get ('/',                                [PropertiesController::class, 'index'])->name('public-part.properties');
+        Route::get ('/preview/{slug}',                  [PropertiesController::class, 'preview'])->name('public-part.properties.preview');
+
+        Route::post('/schedule-visit',                  [PropertiesController::class, 'scheduleVisit'])->name('public-part.schedule-visit');
     });
 
     /**

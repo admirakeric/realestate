@@ -3,16 +3,23 @@
 namespace App\Http\Controllers\PublicPart;
 
 use App\Http\Controllers\Controller;
+use App\Models\Core\Event;
+use App\Models\Core\EventVisit;
 use App\Models\Core\Keyword;
 use App\Models\Estates\Estate;
 use App\Models\User;
+use App\Traits\Common\CommonTrait;
+use App\Traits\Http\ResponseTrait;
 use Carbon\Carbon;
 use Carbon\CarbonPeriod;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\Paginator;
 use Illuminate\View\View;
 
 class PropertiesController extends Controller{
+    use CommonTrait, ResponseTrait;
+
     protected string $_path = 'public-part.properties.';
 
     protected int $_per_page = 8;
@@ -59,7 +66,35 @@ class PropertiesController extends Controller{
             'agent' => $agent,
             'menuCities' => $this->getCities(),
             'menuCategories' => $this->getCategories(),
-            'menuPurposes' => $this->getPurposes()
+            'menuPurposes' => $this->getPurposes(),
+            'timeArr' => self::formTimeArr(7, 17)
         ]);
+    }
+
+    /* -------------------------------------------------------------------------------------------------------------- */
+    public function scheduleVisit(Request $request): JsonResponse{
+        try{
+            $request['datetime'] = Carbon::parse($request->date . ' ' . $request->time)->format('Y-m-d h:i:s');
+
+            $event = Event::create([
+                'type' => 'visit',
+                'date' => $request->date,
+                'time' => $request->time,
+                'datetime' => $request->datetime
+            ]);
+
+            $visit = EventVisit::create([
+                'event_id' => $event->id,
+                'name' => $request->name,
+                'phone' => $request->phone,
+                'email' => $request->email,
+                'message' => $request->message
+            ]);
+
+
+            return $this->jsonSuccess(__('Zahtjev uspješno kreiran. Naši agenti će Vas uskoro kontaktirati'));
+        }catch (\Exception $e){
+            return $this->jsonError('1000', __('Desila se greška. Molimo pokušajte ponovo.'));
+        }
     }
 }

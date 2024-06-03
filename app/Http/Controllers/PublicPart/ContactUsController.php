@@ -39,7 +39,7 @@ class ContactUsController extends Controller{
 
             return $this->jsonSuccess(__('Vaša poruka je uspješno poslana!'));
         }catch (\Exception $e){
-            dd($e);
+            return $this->jsonError('1000', __('Vaša poruka je uspješno poslana!'));
         }
     }
 }
