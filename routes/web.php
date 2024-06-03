@@ -83,7 +83,7 @@ Route::prefix('')->middleware('public-middleware')->group(function () {
  *  Admin routes
  */
 
-Route::prefix('system')->group(function () {
+Route::prefix('system')->middleware('auth-middleware')->group(function () {
     Route::get('/dashboard',                                   [DashboardController::class, 'dashboard'])->name('system.dashboard');
 
     /* Users routes */
