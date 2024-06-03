@@ -137,15 +137,33 @@ class EstatesController extends Controller{
     }
     public function saveNewImage(Request $request): RedirectResponse{
         try{
-            /* Add path to request for trait */
             $request['path'] = public_path('files/images/estates');
-            /* Upload file */
-            $file = $this->saveFile($request, 'file_uri', 'estate_image');
 
-            $image = EstateImage::create([
-                'estate_id' => $request->id,
-                'image' => $file->id
-            ]);
+            if($request->has('file_uri')){
+                try{
+                    $files = $request->file('file_uri');
+
+                    foreach ($files as $file){
+                        $ext = pathinfo($file->getClientOriginalName(),PATHINFO_EXTENSION);
+                        $name = md5($file->getClientOriginalName().time()).'.'.$ext;
+
+                        $file->move($request->path, $name);
+
+                        $fileObj = File::create([
+                            'file' => $file->getClientOriginalName(),
+                            'name' => $name,
+                            'ext' => $ext,
+                            'type' => 'estate_image',
+                            'path' => $request->path
+                        ]);
+
+                        $image = EstateImage::create([
+                            'estate_id' => $request->id,
+                            'image' => $fileObj->id
+                        ]);
+                    }
+                }catch (\Exception $e){ }
+            }
 
             return back()->with('success', __('Fotografija uspješno spremljena!'));
         }catch (\Exception $e){
@@ -159,10 +177,12 @@ class EstatesController extends Controller{
             /* Delete from files and remove image */
             $file = File::where('id', $estateImage->image)->first();
 
-            unlink($file->path . '/' . $file->name) ;
             $file->delete();
-
             $estateImage->delete();
+
+            try{
+                unlink($file->path . '/' . $file->name) ;
+            }catch (\Exception $e){}
 
             return back()->with('success', __('Uspješno izbrisana fotografija!'));
         }catch (\Exception $e){
