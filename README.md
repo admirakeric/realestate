@@ -1,7 +1,6 @@
 Important hash:
 
-    - FnJDbEav4pdHmmq
-    - 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
+
 
 Mac commands
 
