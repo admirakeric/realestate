@@ -46,7 +46,10 @@ Route::prefix('')->middleware('public-middleware')->group(function () {
     });
 
     Route::prefix('/contact-us')->group(function (){
-        Route::get('/',                                [ContactUsController::class, 'index'])->name('public.part.contact-us');
+        Route::get ('/',                                [ContactUsController::class, 'index'])->name('public.part.contact-us');
+
+        /* Send message*/
+        Route::post('/send-us-message',                 [ContactUsController::class, 'sendUsMessage'])->name('public.part.send-us-message');
     });
 
     /**

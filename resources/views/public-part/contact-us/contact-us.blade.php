@@ -28,7 +28,7 @@
                         </div>
                         <div class="left_input__w">
                             <label for="cf_phone">{{ __('Broj telefona') }}</label>
-                            <input type="text" id="cf_phone" name="cf_phone">
+                            <input type="text" id="cf_phone" name="cf_phone" value="+387 ">
                         </div>
                         <div class="left_input__w input__w_full">
                             <label for="cf_email">{{ __('Email') }}</label>
@@ -37,15 +37,15 @@
 
                         <div class="left_input__w input__w_full">
                             <label for="cf_message">{{ __('Vaša poruka') }}</label>
-                            <textarea type="text" id="cf_message" name="cf_message"> </textarea>
+                            <textarea type="text" id="cf_message" name="cf_message" maxlength="500"> </textarea>
                         </div>
 
                         <div class="left_input__btn_w">
                             <p>
                                 <input type="checkbox" id="cf_agree" name="cf_agree">
-                                <label for="cf_agree">{{ __('Slažem se sa ') }} <a href="#">{{ __('uslovima korištenja.') }}</a></label>
+                                <label for="cf_agree">{{ __('Slažem se sa ') }} <a href="{{ route('public-part.pages.terms-and-conditions') }}" target="_blank">{{ __('uslovima korištenja.') }}</a></label>
                             </p>
-                            <button>{{ __('Pošaljte nam poruku') }}</button>
+                            <button class="send_us_message" attr="contact-form">{{ __('Pošaljte nam poruku') }}</button>
                         </div>
                     </div>
                 </div>

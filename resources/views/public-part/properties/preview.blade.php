@@ -423,7 +423,7 @@
                                     <input type="checkbox" id="cf_agree" name="cf_agree">
                                     <label for="cf_agree">{{ __('Slažem se sa ') }} <a href="#">{{ __('uslovima korištenja.') }}</a></label>
                                 </p>
-                                <button>{{ __('Zatražite informacije') }}</button>
+                                <button class="estate-contact-us-btn">{{ __('Zatražite informacije') }}</button>
                             </div>
                         </div>
                     </div>
