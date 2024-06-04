@@ -16,6 +16,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
+use Intervention\Image\Laravel\Facades\Image;
 
 class EstatesController extends Controller{
     use FileTrait, ResponseTrait;
@@ -147,7 +148,17 @@ class EstatesController extends Controller{
                         $ext = pathinfo($file->getClientOriginalName(),PATHINFO_EXTENSION);
                         $name = md5($file->getClientOriginalName().time()).'.'.$ext;
 
-                        $file->move($request->path, $name);
+                        $image = Image::read($file);
+
+
+                        // $file->move($request->path, $name);
+                        // $image = Image::make(public_path('images/background.jpg'));
+
+                        /* insert watermark at bottom-right corner with 10px offset */
+                        $image->place(public_path('files/images/default/round_logo_small.png'), 'bottom-right', 10, 10);
+                        // $image->encode($ext);
+
+                        $image->save($request->path . '/'. $name);
 
                         $fileObj = File::create([
                             'file' => $file->getClientOriginalName(),
@@ -162,7 +173,9 @@ class EstatesController extends Controller{
                             'image' => $fileObj->id
                         ]);
                     }
-                }catch (\Exception $e){ }
+                }catch (\Exception $e){
+                    dd($e);
+                }
             }
 
             return back()->with('success', __('Fotografija uspješno spremljena!'));
