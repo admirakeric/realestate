@@ -147,7 +147,7 @@ Route::prefix('system')->group(function () {
         Route::get ('/delete-instance/{id}',                [KeywordsController::class, 'deleteInstance'])->name('system.settings.keywords.delete-instance');
     });
     /*
-    *  About us page
+    *  Single pages
     */
     Route::group(['prefix' => '/single-pages'], function (){
        Route::get('/',                                      [SinglePagesController::class, 'index'])->name('system.single-pages.index');

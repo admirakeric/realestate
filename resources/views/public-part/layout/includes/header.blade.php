@@ -14,10 +14,10 @@
                         </div>
                         <div class="other-infos">
                             <p class="p-bold">
-                                +387 63 786 416
+                                {{ __('+387 61 786 860') }} <br> {{ __('+387 63 786 416') }}
                             </p>
                             <p class="p-thin">
-                                europlac-nekretnine@hotmail.com
+                                {{ __('europlac-nekretnine@hotmail.com') }}
                             </p>
                         </div>
                     </div>
@@ -27,10 +27,10 @@
                         </div>
                         <div class="other-infos">
                             <p class="p-bold">
-                                Ćuprija bb <br> Generala Izeta Nanića
+                                {{ __('Ćuprija bb') }} <br> {{ __('Generala Izeta Nanića') }}
                             </p>
                             <p class="p-thin">
-                                Cazin 77220
+                                {{ __('Cazin 77220') }}
                             </p>
                         </div>
                     </div>
@@ -40,10 +40,10 @@
                         </div>
                         <div class="other-infos">
                             <p class="p-bold">
-                                09:00 - 17:00
+                                {{ __('08:00 - 16:30') }}
                             </p>
                             <p class="p-thin">
-                                Ponedjeljak - Petak
+                                {{ __('Ponedjeljak - Subota') }}
                             </p>
                         </div>
                     </div>
@@ -67,7 +67,7 @@
                             </a>
                         </li>
                         <li>
-                            <a target="_blank" class="btn-icon-sm" href="#">
+                            <a target="_blank" class="btn-icon-sm" href="{{ route('public.part.contact-us') }}">
                                 <img src="{{ asset('files/images/default/yelp.png') }}" alt="">
                             </a>
                         </li>
