@@ -20,7 +20,7 @@
                     <a href="https://www.facebook.com/europlac.nekretnine/" target="_blank">
                         <img src="{{ asset('files/images/default/fb_1.png') }}" alt="Facebook icon"/>
                     </a>
-                    <a href="#" target="_blank">
+                    <a href="https://www.instagram.com/europlac_cazin/" target="_blank">
                         <img src="{{ asset('files/images/default/ig_1.png') }}" alt="Instagram icon"/>
                     </a>
                     <a href="https://www.youtube.com/@euro-placcazin" target="_blank">

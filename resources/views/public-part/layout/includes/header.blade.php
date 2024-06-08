@@ -57,7 +57,7 @@
                             </a>
                         </li>
                         <li>
-                            <a target="_blank" class="btn-icon-sm" href="#">
+                            <a target="_blank" class="btn-icon-sm" href="https://www.instagram.com/europlac_cazin/">
                                 <img src="{{ asset('files/images/default/in.png') }}" alt="">
                             </a>
                         </li>
