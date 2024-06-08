@@ -116,6 +116,19 @@
                         </div>
                     </div>
                 @endforeach
+
+                <div class="pagination__wrapper">
+                    {{$estates->links("pagination::bootstrap-4")}}
+                </div>
+
+
+{{--                <div class="pagination__wrapper">--}}
+{{--                    @for($i=1; $i<=$estates->lastPage(); $i++)--}}
+{{--                        <a href="#">--}}
+{{--                            <div class="page-w"> <p>{{ $i }}</p> </div>--}}
+{{--                        </a>--}}
+{{--                    @endfor--}}
+{{--                </div>--}}
             </div>
 
             <!-- Include right side -->

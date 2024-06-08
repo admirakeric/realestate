@@ -1,0 +1,45 @@
+.link_element:hover{cursor: pointer;}
+
+
+.pagination__wrapper{
+    width: 100%; height: 40px; display: flex; justify-content: center;
+    .pagination{
+        display: flex; width: 100%; list-style: none; gap: 2px;
+        li{
+            width: 32px; height: 32px; background: #ffffff; display: flex; justify-content: center; align-items: center; border: 1px solid rgba(0,0,0,0.1);
+            &.active{
+                background: $primary;
+                span{
+                    color: #ffffff !important;
+                }
+            }
+        }
+    }
+
+    .pagination > li > a , .pagination > li > span{
+        color: #333333; text-decoration: none; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center;
+    }
+    .pagination > li > span{
+        padding-top: -2px;
+    }
+}
+
+.pagination > li > a:focus,
+.pagination > li > a:hover,
+.pagination > li > span:focus,
+.pagination > li > span:hover
+{
+    color: #5a5a5a;
+    background-color: #eee;
+    border-color: #ddd;
+}
+
+.pagination > .active > a {
+    color: white !important;
+}
+
+//.pagination > .active > a:hover
+//{
+//    background-color: #5A4181 !Important;
+//    border: solid 1px #5A4181;
+//}

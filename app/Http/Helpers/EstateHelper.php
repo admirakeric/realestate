@@ -5,6 +5,8 @@
 use App\Models\Estates\Estate;
 
 Class EstateHelper{
+    protected static array $_weekDays = ['Ned', 'Pon', 'Uto', 'Sri', 'Čet', 'Pet', 'Sub'];
+    protected static array $_months = ['Jan', 'Feb', 'Mar', 'Apr', 'Maj', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dec'];
     protected static function getName($total): string{
         $name  = "NEKRETNINA";
 
@@ -21,5 +23,12 @@ Class EstateHelper{
     public static function cityCount($city): string{
         $total = Estate::where('city', $city)->count();
         return self::getName($total);
+    }
+
+    public static function weekDay($day){
+        return self::$_weekDays[$day];
+    }
+    public static function month($month){
+        return self::$_months[$month - 1];
     }
 }

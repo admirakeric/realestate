@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Middleware\AuthMiddleware;
 use App\Http\Middleware\PublicMiddleware;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
@@ -13,7 +14,8 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware) {
         $middleware->alias([
-            'public-middleware' => PublicMiddleware::class
+            'public-middleware' => PublicMiddleware::class,
+            'auth-middleware' => AuthMiddleware::class
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {

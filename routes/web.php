@@ -31,8 +31,10 @@ Route::prefix('')->middleware('public-middleware')->group(function () {
      *  Properties controller
      */
     Route::prefix('/properties')->group(function () {
-        Route::get('/',                                [PropertiesController::class, 'index'])->name('public-part.properties');
-        Route::get('/preview/{slug}',                  [PropertiesController::class, 'preview'])->name('public-part.properties.preview');
+        Route::get ('/',                                [PropertiesController::class, 'index'])->name('public-part.properties');
+        Route::get ('/preview/{slug}',                  [PropertiesController::class, 'preview'])->name('public-part.properties.preview');
+
+        Route::post('/schedule-visit',                  [PropertiesController::class, 'scheduleVisit'])->name('public-part.schedule-visit');
     });
 
     /**
@@ -46,7 +48,10 @@ Route::prefix('')->middleware('public-middleware')->group(function () {
     });
 
     Route::prefix('/contact-us')->group(function (){
-        Route::get('/',                                [ContactUsController::class, 'index'])->name('public.part.contact-us');
+        Route::get ('/',                                [ContactUsController::class, 'index'])->name('public.part.contact-us');
+
+        /* Send message*/
+        Route::post('/send-us-message',                 [ContactUsController::class, 'sendUsMessage'])->name('public.part.send-us-message');
     });
 
     /**
@@ -80,8 +85,13 @@ Route::prefix('')->middleware('public-middleware')->group(function () {
  *  Admin routes
  */
 
-Route::prefix('system')->group(function () {
-    Route::get('/dashboard',                                   [DashboardController::class, 'dashboard'])->name('system.dashboard');
+Route::prefix('system')->middleware('auth-middleware')->group(function () {
+    Route::get ('/dashboard',                                   [DashboardController::class, 'dashboard'])->name('system.dashboard');
+
+    /** Calendar routes */
+    Route::get ('/calendar',                                    [DashboardController::class, 'calendar'])->name('system.calendar');
+    Route::post('/calendar-month-content',                      [DashboardController::class, 'monthContent'])->name('system.month-content');
+    Route::post('/calendar-day-content',                        [DashboardController::class, 'dayContent'])->name('system.day-content');
 
     /* Users routes */
     Route::prefix('users')->group(function () {

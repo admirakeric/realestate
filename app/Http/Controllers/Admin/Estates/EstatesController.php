@@ -16,6 +16,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
+use Intervention\Image\Laravel\Facades\Image;
 
 class EstatesController extends Controller{
     use FileTrait, ResponseTrait;
@@ -137,15 +138,45 @@ class EstatesController extends Controller{
     }
     public function saveNewImage(Request $request): RedirectResponse{
         try{
-            /* Add path to request for trait */
             $request['path'] = public_path('files/images/estates');
-            /* Upload file */
-            $file = $this->saveFile($request, 'file_uri', 'estate_image');
 
-            $image = EstateImage::create([
-                'estate_id' => $request->id,
-                'image' => $file->id
-            ]);
+            if($request->has('file_uri')){
+                try{
+                    $files = $request->file('file_uri');
+
+                    foreach ($files as $file){
+                        $ext = pathinfo($file->getClientOriginalName(),PATHINFO_EXTENSION);
+                        $name = md5($file->getClientOriginalName().time()).'.'.$ext;
+
+                        $image = Image::read($file);
+
+
+                        // $file->move($request->path, $name);
+                        // $image = Image::make(public_path('images/background.jpg'));
+
+                        /* insert watermark at bottom-right corner with 10px offset */
+                        $image->place(public_path('files/images/default/round_logo_small.png'), 'bottom-right', 10, 10);
+                        // $image->encode($ext);
+
+                        $image->save($request->path . '/'. $name);
+
+                        $fileObj = File::create([
+                            'file' => $file->getClientOriginalName(),
+                            'name' => $name,
+                            'ext' => $ext,
+                            'type' => 'estate_image',
+                            'path' => $request->path
+                        ]);
+
+                        $image = EstateImage::create([
+                            'estate_id' => $request->id,
+                            'image' => $fileObj->id
+                        ]);
+                    }
+                }catch (\Exception $e){
+                    dd($e);
+                }
+            }
 
             return back()->with('success', __('Fotografija uspješno spremljena!'));
         }catch (\Exception $e){
@@ -159,10 +190,12 @@ class EstatesController extends Controller{
             /* Delete from files and remove image */
             $file = File::where('id', $estateImage->image)->first();
 
-            unlink($file->path . '/' . $file->name) ;
             $file->delete();
-
             $estateImage->delete();
+
+            try{
+                unlink($file->path . '/' . $file->name) ;
+            }catch (\Exception $e){}
 
             return back()->with('success', __('Uspješno izbrisana fotografija!'));
         }catch (\Exception $e){

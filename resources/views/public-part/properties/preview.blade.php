@@ -295,40 +295,38 @@
                 </div>
 
                 <!-- Schedule a tour -->
-{{--                <div class="schedule__tour">--}}
-{{--                    <div class="schedule_tour_header">--}}
-{{--                        <h4>{{ __('Zakažite posjetu') }}</h4>--}}
-{{--                    </div>--}}
-{{--                    <div class="dates__wrapper">--}}
-{{--                        <div class="swiper multi-swiper">--}}
-{{--                            <div class="swiper-wrapper">--}}
-{{--                                @foreach($days as $day)--}}
-{{--                                    <div class="swiper-slide">--}}
-{{--                                        <div class="inside-swiper">--}}
-{{--                                            <p> {{ substr($day->format('l'), 0, 3) }} </p>--}}
-{{--                                            <h3>{{ $day->format('d') }}</h3>--}}
-{{--                                            <p> {{ $day->format('M') }} </p>--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
-{{--                                @endforeach--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
+                <div class="schedule__tour">
+                    <div class="schedule_tour_header">
+                        <h4>{{ __('Zakažite posjetu') }}</h4>
+                    </div>
+                    <div class="dates__wrapper">
+                        {{ html()->hidden('estate_id')->class('form-control')->value($estate->id) }}
 
-{{--                    <div class="inputs__wrapper">--}}
-{{--                        <select name="s_time" id="s_time">--}}
-{{--                            <option value="08:00">08:00</option>--}}
-{{--                            <option value="08:00">08:30</option>--}}
-{{--                            <option value="08:00">09:00</option>--}}
-{{--                            <option value="08:00">09:30</option>--}}
-{{--                        </select>--}}
-{{--                        <input type="text" id="s_name" name="s_name" placeholder="{{ __('Vaše ime') }}">--}}
-{{--                        <input type="text" id="s_phone" name="s_phone" placeholder="{{ __('Vaš broj telefona') }}">--}}
-{{--                        <input type="text" id="s_email" name="s_email" placeholder="{{ __('Vaš email') }}">--}}
-{{--                        <textarea name="s_message" id="s_message" rows="6"></textarea>--}}
-{{--                        <button>{{ __('Pošaljite zahtjev') }}</button>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
+                        <div class="swiper multi-swiper">
+                            <div class="swiper-wrapper">
+                                @php $i = 0; @endphp
+                                @foreach($days as $day)
+                                    <div class="swiper-slide">
+                                        <div class="inside-swiper visit-date @if(!$i++) active @endif" date="{{ $day->format('Y-m-d') }}">
+                                            <p> {{ EstateHelper::weekDay($day->dayOfWeek) }} </p>
+                                            <h3>{{ $day->format('d') }}</h3>
+                                            <p> {{ EstateHelper::month($day->month) }} </p>
+                                        </div>
+                                    </div>
+                                @endforeach
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="inputs__wrapper">
+                        {{ html()->select('s_time', $timeArr)->class('')->required()->value('08:00') }}
+                        <input type="text" id="s_name" name="s_name" placeholder="{{ __('Vaše ime') }}">
+                        <input type="text" id="s_phone" name="s_phone" placeholder="{{ __('Vaš broj telefona') }}" value="+387 ">
+                        <input type="text" id="s_email" name="s_email" placeholder="{{ __('Vaš email') }}">
+                        <textarea name="s_message" id="s_message" rows="6"></textarea>
+                        <button class="schedule-visit">{{ __('Pošaljite zahtjev') }}</button>
+                    </div>
+                </div>
 
                 @if($estate->video)
                     <!-- Video -->
@@ -423,7 +421,7 @@
                                     <input type="checkbox" id="cf_agree" name="cf_agree">
                                     <label for="cf_agree">{{ __('Slažem se sa ') }} <a href="#">{{ __('uslovima korištenja.') }}</a></label>
                                 </p>
-                                <button>{{ __('Zatražite informacije') }}</button>
+                                <button class="estate-contact-us-btn">{{ __('Zatražite informacije') }}</button>
                             </div>
                         </div>
                     </div>

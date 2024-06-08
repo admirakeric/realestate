@@ -9,9 +9,12 @@
 
     // ** Application name ** //
     .app-name{
-        position: absolute; left: 0px; top:0px; width: 320px; height: 80px;
+        position: absolute; left: 0px; top:0px; width: 320px; height: 80px; display: flex; align-items: center;
         h1{
             font-size: 30px; margin-left:20px; color:$primaryColor; padding-top:4px;
+        }
+        img{
+            height: 60px; margin-left: 20px;
         }
         i{
             position: absolute; right: 20px; font-size: 20px; top: 30px; display: none;

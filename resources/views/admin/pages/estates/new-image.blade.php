@@ -44,7 +44,7 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 {{ html()->label(__('Odaberite fotografiju'))->for('photo_uri')->class('bold') }}
-                                <input name="file_uri" class="form-control form-control-sm mt-3" id="file_uri" type="file">
+                                <input name="file_uri[]" class="form-control form-control-sm mt-3" id="file_uri" type="file" multiple>
                             </div>
                         </div>
                     </div>

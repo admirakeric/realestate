@@ -3,6 +3,7 @@
         <title> Dobrodošli </title>
         <link rel="shortcut icon" type="image/x-icon" href="{{ asset('files/images/default/logo.png') }}"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,6 +30,9 @@
     </head>
 
     <body>
+        <div class="loading d-none">
+            <img src="{{ asset('files/images/default/loading.gif') }}" alt="">
+        </div>
         <!-- Include header -->
         @include('public-part.layout.includes.header')
 
