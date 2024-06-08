@@ -47,8 +47,8 @@
 
                 </div>
             </div>
-            <div class="large_box large_box_3 link_element" uri="{{ route('public-part.properties') }}?category=11">
-                <div class="small_box small_box_3">
+            <div class="large_box large_box_3">
+                <div class="small_box small_box_3 link_element" uri="{{ route('public-part.properties') }}?category=11">
                     <div class="text_wrapper">
                         <div class="inner_text_wrapper">
                             <h3>
