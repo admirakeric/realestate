@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\Estates\EstatesController;
 use App\Http\Controllers\Admin\SinglePages\SinglePagesController;
 use App\Http\Controllers\Admin\Users\UsersController;
+use App\Http\Controllers\PublicPart\BlogController;
 use App\Http\Controllers\PublicPart\FaqController;
 use App\Http\Controllers\PublicPart\HomeController;
 use App\Http\Controllers\PublicPart\PropertiesController;
@@ -35,6 +36,15 @@ Route::prefix('')->middleware('public-middleware')->group(function () {
         Route::get ('/preview/{slug}',                  [PropertiesController::class, 'preview'])->name('public-part.properties.preview');
 
         Route::post('/schedule-visit',                  [PropertiesController::class, 'scheduleVisit'])->name('public-part.schedule-visit');
+    });
+
+    /**
+     * Blog
+     */
+    Route::prefix('/blog')->group(function (){
+       Route::get('/',                                   [BlogController::class, 'index'])->name('public-part.index');
+       Route::get('/preview/{slug}',                     [BlogController::class, 'preview'])->name('public-part.blog.preview');
+
     });
 
     /**

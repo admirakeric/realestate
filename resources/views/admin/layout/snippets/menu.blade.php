@@ -356,8 +356,35 @@
                 </div>
             </div>
         </a>
-    </div>
+        <a href="#" class="menu-a-link">
+            <div class="s-lm-wrapper">
+                <div class="s-lm-s-elements">
+                    <div class="s-lms-e-img">
+                        <i class="fas fa-blog"></i>
+                    </div>
+                    <p>{{__('Blog')}}</p>
+                    <div class="extra-elements">
+                        <div class="rotate-element"><i class="fas fa-angle-right"></i></div>
+                    </div>
+                </div>
+                <div class="inside-links active-links">
+                    <a href="{{ route('system.single-pages.index') }}">
+                        <div class="inside-lm-link">
+                            <div class="ilm-l"></div><div class="ilm-c"></div>
+                            <p>{{__('Pregled svih postova')}}</p>
+                        </div>
+                    </a>
 
+                    <a href="{{ route('system.single-pages.create') }}">
+                        <div class="inside-lm-link">
+                            <div class="ilm-l"></div><div class="ilm-c"></div>
+                            <p> {{__('Unos novog sadržaja')}} </p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </a>
+    </div>
 {{--    @include('system.template.menu.menu-includes.bottom-icons')--}}
 </div>
 
