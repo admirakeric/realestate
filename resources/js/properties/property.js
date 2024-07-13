@@ -34,6 +34,12 @@ $(document).ready(function (){
         $(".slider__switch_map").removeClass('active');
         $(this).addClass('active');
     });
+    $(".btn__switch__map").click(function (){
+        $(".map__wrapper").addClass('active');
+        $(".slider__switch_gallery").removeClass('active');
+        $(".slider__switch_map").addClass('active');
+    })
+
 
     /**
      *  Clickable wrapper
@@ -97,4 +103,38 @@ $(document).ready(function (){
             }
         });
     });
+
+    /*
+     *  Add remove from wishlist
+     */
+    $(".add-to-wishlist").click(function (){
+        let estate_id = $(this).attr('estate-id');
+        let $this = $(this);
+
+        $.ajax({
+            url: '/properties/add-remove-from-wishlist',
+            method: 'POST',
+            dataType: "json",
+            data: {
+                estate_id: estate_id
+            },
+            success: function success(response) {
+                let code = response['code'];
+
+                if(code === '0000'){
+                    let data = response['data'];
+
+                    if(data['action'] === 'add'){
+                        /* Added to wishlist */
+                        $this.find('.wishlist-heart').removeClass('fa-regular').removeClass('fa-heart').addClass('fas').addClass('fa-heart');
+                    }else{
+                        /* Removed from wishlist */
+                        $this.find('.wishlist-heart').removeClass('fas').removeClass('fa-heart').addClass('fa-regular').addClass('fa-heart');
+                    }
+                }else{
+                    Notify.Me([response['message'], "warn"]);
+                }
+            }
+        });
+    })
 });

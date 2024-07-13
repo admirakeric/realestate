@@ -37,6 +37,8 @@ Route::prefix('')->middleware('public-middleware')->group(function () {
         Route::get ('/preview/{slug}',                  [PropertiesController::class, 'preview'])->name('public-part.properties.preview');
 
         Route::post('/schedule-visit',                  [PropertiesController::class, 'scheduleVisit'])->name('public-part.schedule-visit');
+
+        Route::post('/add-remove-from-wishlist',        [PropertiesController::class, 'addRemoveFromWishList'])->name('public-part.add-remove-from-wishlist');
     });
 
     /**

@@ -50,9 +50,13 @@
                                             <div class="icon_w_explanation">{{ __('Kratki pregled') }}</div>
                                             <i class="fas fa-expand"></i>
                                         </div>
-                                        <div class="icon_w icon_w_second">
+                                        <div class="icon_w icon_w_second add-to-wishlist" estate-id="{{ $estate->id }}">
                                             <div class="icon_w_explanation">{{ __('Lista želja') }}</div>
-                                            <i class="fas fa-heart"></i>
+                                            @if($estate->inWishList())
+                                                <i class="fas fa-heart wishlist-heart"></i>
+                                            @else
+                                                <i class="fa-regular fa-heart wishlist-heart"></i>
+                                            @endif
                                         </div>
                                     </div>
                                 </div>

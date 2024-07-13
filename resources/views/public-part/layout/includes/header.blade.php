@@ -97,6 +97,9 @@
                                         <a href="{{ route('public-part.properties') }}?category={{ $key }}"> {{ $category }}</a>
                                     </div>
                                 @endforeach
+                                <div class="li_m_s_w">
+                                    <a href="{{ route('public-part.properties') }}?category=wishlist"> {{ __('Lista želja') }}</a>
+                                </div>
                             </div>
                         </li>
                         <li class="li_menu">

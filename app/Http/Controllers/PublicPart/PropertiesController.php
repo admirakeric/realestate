@@ -7,8 +7,10 @@ use App\Models\Core\Event;
 use App\Models\Core\EventVisit;
 use App\Models\Core\Keyword;
 use App\Models\Estates\Estate;
+use App\Models\Estates\WishList;
 use App\Models\User;
 use App\Traits\Common\CommonTrait;
+use App\Traits\Http\HttpTrait;
 use App\Traits\Http\ResponseTrait;
 use Carbon\Carbon;
 use Carbon\CarbonPeriod;
@@ -18,7 +20,7 @@ use Illuminate\Pagination\Paginator;
 use Illuminate\View\View;
 
 class PropertiesController extends Controller{
-    use CommonTrait, ResponseTrait;
+    use CommonTrait, ResponseTrait, HttpTrait;
 
     protected string $_path = 'public-part.properties.';
 
@@ -36,7 +38,15 @@ class PropertiesController extends Controller{
         $searchedEstate = request()->get('searchedEstate');
 
         if(isset($searchedEstate->title) and $searchedEstate->title != ''){ $estates = $estates->where('title', 'LIKE', '%' . $searchedEstate->title . '%'); }
-        if(isset($searchedEstate->category) and $searchedEstate->category != ''){ $estates = $estates->where('category', $searchedEstate->category); }
+        if(isset($searchedEstate->category) and $searchedEstate->category != ''){
+            if($searchedEstate->category == 'wishlist'){
+                $myWishList = WishList::where('ip_addr', '=', $this->getIpAddr())->get(['estate_id'])->toArray();
+
+                $estates = $estates->whereIn('id', $myWishList);
+            }else{
+                $estates = $estates->where('category', $searchedEstate->category);
+            }
+        }
         if(isset($searchedEstate->purpose) and $searchedEstate->purpose != ''){ $estates = $estates->where('purpose', $searchedEstate->purpose); }
         if(isset($searchedEstate->city) and $searchedEstate->city != ''){ $estates = $estates->where('city', $searchedEstate->city); }
         if(isset($searchedEstate->sponsored) and $searchedEstate->sponsored != ''){ $estates = $estates->where('sponsored', $searchedEstate->sponsored); }
@@ -97,5 +107,30 @@ class PropertiesController extends Controller{
         }catch (\Exception $e){
             return $this->jsonError('1000', __('Desila se greška. Molimo pokušajte ponovo.'));
         }
+    }
+
+    /* -------------------------------------------------------------------------------------------------------------- */
+    public function addRemoveFromWishList(Request $request){
+        try{
+            $ip = $this->getIpAddr();
+            $wishList = WishList::where('estate_id', $request->estate_id)->where('ip_addr', $ip)->first();
+
+            if($wishList){
+                $wishList->delete();
+
+                return $this->jsonResponse('0000', __('Uspješno obrisano'), [
+                    'action' => 'delete'
+                ]);
+            }else{
+                WishList::create([
+                    'estate_id' => $request->estate_id,
+                    'ip_addr' => $ip
+                ]);
+
+                return $this->jsonResponse('0000', __('Uspješno dodano'), [
+                    'action' => 'add'
+                ]);
+            }
+        }catch (\Exception $e){ }
     }
 }

@@ -5,6 +5,7 @@ namespace App\Models\Estates;
 use App\Models\Core\Country;
 use App\Models\Core\File;
 use App\Models\Core\Keyword;
+use App\Traits\Http\HttpTrait;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -16,7 +17,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @method static where(string $string, $slug)
  */
 class Estate extends Model{
-    use HasFactory, SoftDeletes;
+    use HasFactory, SoftDeletes, HttpTrait;
 
     public array $months = ['Jan', 'Feb', 'Mar', 'Apr', 'Maj', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dec'];
 
@@ -64,5 +65,8 @@ class Estate extends Model{
     }
     public function featuresRel(): HasMany{
         return $this->hasMany(Feature::class, 'estate_id', 'id');
+    }
+    public function inWishList(){
+        return WishList::where('estate_id', '=', $this->id)->where('ip_addr', $this->getIpAddr())->count();
     }
 }

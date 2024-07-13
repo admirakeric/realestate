@@ -40,22 +40,39 @@
                         <a class="footer__list1-link" href="{{ route('public.part.contact-us') }}">{{ __('Kontaktirajte nas') }}</a>
                     </li>
                     <li class="footer__list1-item">
-                        <a class="footer__list1-link" href="#"> {{ __('Blog sekcija') }} </a>
+                        <a class="footer__list1-link" href="{{ route('public-part.blog.index') }}"> {{ __('Blog sekcija') }} </a>
                     </li>
                     <li class="footer__list1-item">
-                        <a class="footer__list1-link" href="#"> {{ __('Ostalo') }} </a>
+                        <a class="footer__list1-link" href="{{ route('public-part.pages.business-terms') }}"> {{ __('Uslovi poslovanja') }} </a>
                     </li>
                 </ul>
                 <ul class="footer__list2">
-                    <li class="footer__list1-item">
-                        <h4 class="footer__list1-header">{{ __('Nekretnine') }}</h4>
+                    <li class="footer__list1-item footer__list3-item">
+                        <h4 class="footer__list1-header">{{ __('Licencirana agencija') }}</h4>
                     </li>
-                    @foreach($categories as $key => $category)
-                        <li class="footer__list2-item">
-                            <a class="footer__list2-link" href="{{ route('public-part.properties') }}?category={{ $key }}">{{ $category }}</a>
-                        </li>
-                    @endforeach
+                    <li class="footer__list2-item footer__list3-item">
+                        <a class="footer__list2-link"><b>{{ __('Privredna / Gospodarska Komora Federacije BiH') }}</b></a>
+                    </li>
+                    <li class="footer__list2-item footer__list3-item">
+                        <a class="footer__list2-link">{{ __('Broj licence: 01-01.1-76/22') }}</a>
+                    </li>
+                    <li class="footer__list2-item footer__list3-item">
+                        <a class="footer__list2-link"><b>{{ __('Federalno Ministarstvo trgovine Federacije BiH') }}</b></a>
+                    </li>
+                    <li class="footer__list2-item footer__list3-item">
+                        <a class="footer__list2-link">{{ __('Registarski broj posrednika:') }}  {{ __(' 114/2023') }}</a>
+                    </li>
                 </ul>
+                {{--<ul class="footer__list2">--}}
+                {{--    <li class="footer__list1-item">--}}
+                {{--        <h4 class="footer__list1-header">{{ __('Nekretnine') }}</h4>--}}
+                {{--    </li>--}}
+                {{--    @foreach($categories as $key => $category)--}}
+                {{--        <li class="footer__list2-item">--}}
+                {{--            <a class="footer__list2-link" href="{{ route('public-part.properties') }}?category={{ $key }}">{{ $category }}</a>--}}
+                {{--        </li>--}}
+                {{--    @endforeach--}}
+                {{--</ul>--}}
             </div>
         </div>
         <div class="footer__con-bottom">

@@ -287,8 +287,9 @@
             }
             .detailed_description{
                 .detailed_description_body{
+                    text-align: justify-all;
                     p{
-                        font-family: "Inter", sans-serif; font-weight: 300;
+                        font-family: "Inter", sans-serif; font-weight: 300; text-align: justify;
                     }
                 }
             }
@@ -319,7 +320,7 @@
                             }
                         }
                         p{
-                            color: #333333; 
+                            color: #333333;
                         }
                     }
                 }

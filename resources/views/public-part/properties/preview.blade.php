@@ -1,5 +1,13 @@
 @extends('public-part.layout.layout')
 @section('other_js') @vite([ 'resources/js/map.js']) @endsection
+
+<!-- Title of page -->
+@section('title'){{ $estate->title }}@endsection
+@section('meta_uri'){{ route('public-part.properties.preview', ['slug' => $estate->slug ]) }}@endsection
+@section('meta_title'){{ $estate->title }}@endsection
+@section('meta_desc'){{ $estate->address }}, {{ $estate->cityRel->description ?? '' }} {{ $estate->cityRel->value ?? '' }}, {{ $estate->countryRel->name_ba ?? '' }}@endsection
+@section('meta_img'){{ isset($estate->mainImageRel) ? asset( 'files/images/estates/' . $estate->mainImageRel->name ?? '') : '' }}@endsection
+
 @section('content')
     <!-- Include filters -->
     @include('public-part.layout.includes.filters')
@@ -55,10 +63,10 @@
         </div>
     </div>
 
-    <div class="single__estate">
+    <div class="single__estate" id="single__estate__">
         <div class="estate_inner_wrapper">
             <div class="estate__property">
-                <div class="slider_wrapper">
+                <div class="slider_wrapper" d>
                     <div class="swiper gallery__swiper">
                         <div class="swiper-wrapper">
                             @foreach($estate->imagesRel as $imageRel)
@@ -214,14 +222,14 @@
                         <h4>{{ __('Detaljan opis nekretnine') }}</h4>
                     </div>
 
-                    <div class="ee_body detailed_description_body"> {!! nl2br($estate->description) !!} </div>
+                    <div class="ee_body detailed_description_body"> <p>{!! nl2br($estate->description) !!}</p> </div>
                 </div>
 
                 <div class="estate_element dual_elements address">
                     <div class="ee_header">
                         <h4>{{ __('Adresa') }}</h4>
-                        <a href="#">
-                            <button class="address-btn">
+                        <a href="#single__estate__">
+                            <button class="address-btn btn__switch__map">
                                 <i class="fas fa-map"></i>
                                 {{ __('Google mape') }}
                             </button>
