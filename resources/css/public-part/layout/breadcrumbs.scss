@@ -11,6 +11,10 @@
                 .fa-home, .fa-city{
                     margin-top: 1px;
                 }
+                transition: 0.2s all;
+            }
+            a:hover{
+                color: #333333;
             }
         }
         .bi_icons{

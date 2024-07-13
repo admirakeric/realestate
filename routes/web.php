@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\Estates\EstatesController;
 use App\Http\Controllers\Admin\SinglePages\SinglePagesController;
 use App\Http\Controllers\Admin\Users\UsersController;
+use App\Http\Controllers\Admin\Blog\BlogController as AdminBlogController;
 use App\Http\Controllers\PublicPart\BlogController;
 use App\Http\Controllers\PublicPart\FaqController;
 use App\Http\Controllers\PublicPart\HomeController;
@@ -42,7 +43,8 @@ Route::prefix('')->middleware('public-middleware')->group(function () {
      * Blog
      */
     Route::prefix('/blog')->group(function (){
-       Route::get('/',                                   [BlogController::class, 'index'])->name('public-part.index');
+       Route::get('/',                                   [BlogController::class, 'index'])->name('public-part.blog.index');
+       Route::get('/search-by-category/{category}',      [BlogController::class, 'index'])->name('public-part.blog.search-by-category');
        Route::get('/preview/{slug}',                     [BlogController::class, 'preview'])->name('public-part.blog.preview');
 
     });
@@ -180,5 +182,20 @@ Route::prefix('system')->middleware('auth-middleware')->group(function () {
        Route::get ('/delete/{id}',                          [SinglePagesController::class, 'delete'])->name('system.single-pages.delete');
 
         Route::post('/update-image',                        [SinglePagesController::class, 'updateImage'])->name('system.single-pages.update-image');
+    });
+
+    /*
+     *  Blog section
+     */
+    Route::group(['prefix' => '/blog'], function (){
+        Route::get('/',                                      [AdminBlogController::class, 'index'])->name('system.blog.index');
+        Route::get('/create',                                [AdminBlogController::class, 'create'])->name('system.blog.create');
+        Route::post('/save',                                 [AdminBlogController::class, 'save'])->name('system.blog.save');
+        Route::get ('/preview/{id}',                         [AdminBlogController::class, 'preview'])->name('system.blog.preview');
+        Route::get ('/edit/{id}',                            [AdminBlogController::class, 'edit'])->name('system.blog.edit');
+        Route::post('/update',                               [AdminBlogController::class, 'update'])->name('system.blog.update');
+        Route::get ('/delete/{id}',                          [AdminBlogController::class, 'delete'])->name('system.blog.delete');
+
+        Route::post('/update-image',                        [AdminBlogController::class, 'updateImage'])->name('system.blog.update-image');
     });
 });

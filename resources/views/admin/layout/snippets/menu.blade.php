@@ -368,17 +368,17 @@
                     </div>
                 </div>
                 <div class="inside-links active-links">
-                    <a href="{{ route('system.single-pages.index') }}">
+                    <a href="{{ route('system.blog.index') }}">
                         <div class="inside-lm-link">
                             <div class="ilm-l"></div><div class="ilm-c"></div>
                             <p>{{__('Pregled svih postova')}}</p>
                         </div>
                     </a>
 
-                    <a href="{{ route('system.single-pages.create') }}">
+                    <a href="{{ route('system.blog.create') }}">
                         <div class="inside-lm-link">
                             <div class="ilm-l"></div><div class="ilm-c"></div>
-                            <p> {{__('Unos novog sadržaja')}} </p>
+                            <p> {{__('Novi post')}} </p>
                         </div>
                     </a>
                 </div>

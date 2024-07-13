@@ -37,6 +37,9 @@
                 width: calc(100% - 40px); border: none; outline: none; background: #F7F8F9;
             }
         }
+        .title__w__double{
+            width: calc(80% - 80px);
+        }
 
         /* Dropdowns ; 20% width */
         .dropdown_w, .input_w{
@@ -93,6 +96,9 @@
                 }
             }
             .search_btn:hover{cursor: pointer;}
+        }
+        .advanced__wrapper__short{
+            width: 80px;
         }
 
         .search-containter-sb {

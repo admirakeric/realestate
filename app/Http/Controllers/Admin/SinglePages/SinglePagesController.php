@@ -19,7 +19,7 @@ class SinglePagesController extends Controller{
         $pages = SinglePage::where('id', '>', 0);
         $pages = Filters::filter($pages);
         $filters = [
-            'categoryRel' => __('Kategorija'),
+            'categoryRel.value' => __('Kategorija'),
             'title' => __('Naslov')
         ];
 

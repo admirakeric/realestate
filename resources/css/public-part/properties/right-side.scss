@@ -39,7 +39,7 @@
             .second__layer{
                 width: 100%; padding: 0px 32px; display: flex; flex-wrap: wrap; gap: 16px; margin-top: 16px; margin-bottom: 16px;
                 a{
-                    display: flex; width: calc(100% - 64px); gap: 8px; align-items: center;
+                    display: flex; width: calc(100% - 64px); gap: 8px; align-items: flex-start;
                     color: #01C0CF; text-decoration: none;
                 }
             }

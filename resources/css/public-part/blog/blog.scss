@@ -55,7 +55,7 @@
                         color: #373f47;
                         font-family: lora, sans-serif;
                         font-weight: 400;
-                        font-size: 40px;
+                        font-size: 36px;
                         cursor: pointer;
                         @media only screen and (max-width: 800px){
                             font-size: 25px;
@@ -110,25 +110,88 @@
                                 width: 100%;
                             }
 
-                            .button_blog {
-                                background: #01C0CF;
-                                width: 120px;
-                                height: auto;
-                                padding: 15px;
-                                border-radius: 5px;
-                                border: none;
-                                color: white;
-                                font-weight: bold;
-                                cursor: pointer;
-
+                            a{
+                                text-decoration: none !important;
                                 @media only screen and (max-width: 800px){
-                                    width: 100%; text-align: center; padding: 8px 0px; margin-top: 16px;
+                                    width: 100%;
+                                }
+
+                                .button_blog {
+                                    background: #01C0CF;
+                                    width: 120px;
+                                    height: auto;
+                                    padding: 8px 16px;
+                                    border-radius: 5px;
+                                    border: none;
+                                    color: white;
+                                    font-weight: bold;
+                                    cursor: pointer;
+                                    text-decoration: none;
+
+                                    @media only screen and (max-width: 800px){
+                                        width: 100%; text-align: center; padding: 8px 0px; margin-top: 16px;
+                                    }
                                 }
                             }
                         }
                     }
 
 
+                }
+            }
+        }
+        .pagination__wrapper{
+            position: relative; width: 100%; display: flex; justify-content: flex-start;
+            nav{
+                .pagination{
+                    margin: 0px; padding: 0px;
+                }
+            }
+        }
+        .blog__preview{
+            position:relative; width: calc(100% - 374px); display: flex; flex-wrap: wrap; gap: 32px; flex-direction: column;
+
+            @media only screen and (max-width: 800px){
+                width: 100%; gap: 20px;
+            }
+            .blog__header{
+                position: relative; width: calc(100% - 64px); background: #FFFFFF; padding: 32px; gap: 16px; display: flex; flex-wrap: wrap;
+
+                @media only screen and (max-width: 800px){
+                    width: calc(100% - 40px); padding: 20px;
+                }
+
+                h1{
+                    margin: 0px; color: #373f47; font-family: lora, sans-serif; font-weight: 400; font-size: 36px;
+                    @media only screen and (max-width: 800px){
+                        font-size: 25px;
+                    }
+                }
+                .icons__wrapper{
+                    position: relative; width: 100%; display: flex; gap: 32px;
+                    a{
+                        text-decoration: none !important;
+                    }
+                    .single__icon{
+                        display: flex; gap: 8px; align-items: center;
+                        i,p{margin: 0px; color:#333333;}
+                        p{font-family: lora, sans-serif;  color: #01c0cf;}
+                    }
+                    @media only screen and (max-width: 800px){
+                        .created_by{display: none;}
+                    }
+                }
+            }
+            .blog__img__wrapper{
+                position: relative; width: 100%;
+                img{
+                    width: 100%;
+                }
+            }
+            .blog__content{
+                position: relative; width: calc(100% - 64px); padding: 32px; background: #FFFFFF;
+                @media only screen and (max-width: 800px){
+                    padding: 20px; width: calc(100% - 40px);
                 }
             }
         }

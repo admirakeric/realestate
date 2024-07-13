@@ -2,6 +2,7 @@
 
 namespace App\Models\Core;
 
+use App\Models\Blog\BlogPost;
 use App\Models\Pages\Faq;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -22,6 +23,7 @@ class Keyword extends Model{
         'estate_purpose' => 'Svrha',
         'cities' => 'Gradovi',
         'da_ne' => 'Da / Ne',
+        'blog_category' => 'Blog kategorija'
         // Should not be edited
         // 'page_type' => 'Vrsta stranice'
     ];
@@ -40,5 +42,8 @@ class Keyword extends Model{
      */
     public function faqsRel(): HasMany{
         return $this->hasMany(Faq::class, 'category', 'id');
+    }
+    public function blogPostsRel(): HasMany{
+        return $this->hasMany(BlogPost::class, 'category', 'id')->orderBy('id', 'DESC');
     }
 }

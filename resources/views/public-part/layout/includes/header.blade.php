@@ -100,7 +100,7 @@
                             </div>
                         </li>
                         <li class="li_menu">
-                            <a class="menu" href="{{ route('public-part.index') }}"> {{ __('Blog sekcija') }} </a>
+                            <a class="menu" href="{{ route('public-part.blog.index') }}"> {{ __('Blog sekcija') }} </a>
                         </li>
                         <li class="li_menu">
                             <a class="menu" href="#">
