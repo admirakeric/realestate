@@ -309,22 +309,24 @@
                     </div>
                 </div>
 
-                <div class="estate_element dual_elements address">
-                    <div class="ee_header">
-                        <h4>{{ __('Karakteristike') }}</h4>
-                    </div>
+                @if($estate->featuresRel->count())
+                    <div class="estate_element dual_elements address">
+                        <div class="ee_header">
+                            <h4>{{ __('Karakteristike') }}</h4>
+                        </div>
 
-                    <div class="ee_body dual_elements_body dual_elements_body_g24">
-                        @foreach($estate->featuresRel as $feature)
-                            <div class="feature">
-                                <div class="circle__w">
-                                    <i class="fas fa-check"></i>
+                        <div class="ee_body dual_elements_body dual_elements_body_g24">
+                            @foreach($estate->featuresRel as $feature)
+                                <div class="feature">
+                                    <div class="circle__w">
+                                        <i class="fas fa-check"></i>
+                                    </div>
+                                    <p>{{ $feature->feature ?? '' }}</p>
                                 </div>
-                                <p>{{ $feature->feature ?? '' }}</p>
-                            </div>
-                        @endforeach
+                            @endforeach
+                        </div>
                     </div>
-                </div>
+                @endif
 
                 <!-- Schedule a tour -->
                 <div class="schedule__tour">
