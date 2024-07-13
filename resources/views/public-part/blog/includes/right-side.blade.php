@@ -11,7 +11,7 @@
                     @php $counter = 1; @endphp
                     @foreach($category->blogPostsRel as $blogPost)
                         @php if($counter++ > 3 ) break; @endphp
-                        <a href="{{ route('public-part.blog.preview', ['slug' => $blogPost->slug ]) }}">
+                        <a href="{{ route('public-part.blog.preview', ['slug' => $blogPost->slug ]) }}" >
                             <i class="fas fa-chevron-right"></i>
                             {{ $blogPost->title ?? '' }}
                         </a>
@@ -25,7 +25,7 @@
         <h4>{{ __('Kategorije') }}</h4>
         <div class="first__layer first__layer__only">
             @foreach($blogCategories as $category)
-                <a href="{{ route('public-part.blog.search-by-category', ['category' => $category->id ]) }}">
+                <a href="{{ route('public-part.blog.search-by-category', ['category' => $category->id ]) }}" class="@isset($highlightedCategory) @if($category->id == $highlightedCategory) active @endif @endisset">
                     <i class="fas fa-chevron-right"></i>
                     {{ $category->value ?? '' }}
                 </a>

@@ -27,7 +27,7 @@
             .blog__inner{
                 background: #FFFFFF;
                 position: relative; width: 100%; display: flex; justify-content: space-between; flex-wrap: wrap;
-                gap: 32px;
+                gap: 32px; transition: 0.2s all;
                 // @media only screen and (max-width: 1400px){ left: 40px; width: calc(100% - 80px); }
                 // @media only screen and (max-width: 800px){ left: 20px; width: calc(100% - 40px); flex-wrap: wrap; gap: 20px; }
 
@@ -71,7 +71,7 @@
                 }
                 .text_blog_wrapper:hover{
                     h1{
-                        color: $primary;
+                        //color: $primary;
                     }
                 }
                 .icos_blog_wrapper {
@@ -139,6 +139,7 @@
 
                 }
             }
+            //.blog__inner:hover{ background: rgba(0,0,0,0.01); }
         }
         .pagination__wrapper{
             position: relative; width: 100%; display: flex; justify-content: flex-start;

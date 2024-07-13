@@ -34,6 +34,10 @@
             a{
                 display: flex; width: calc(100% - 0px); gap: 8px; align-items: center;
                 color: #01C0CF; text-decoration: none;
+
+                &.active{
+                    font-weight: bold;
+                }
             }
 
             .second__layer{
@@ -41,6 +45,10 @@
                 a{
                     display: flex; width: calc(100% - 64px); gap: 8px; align-items: flex-start;
                     color: #01C0CF; text-decoration: none;
+
+                    &.active{
+                        font-weight: bold;
+                    }
                 }
             }
         }

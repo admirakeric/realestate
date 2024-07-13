@@ -33,7 +33,7 @@
                             <i class="fas fa-calendar-alt"></i>
                             <p> {{ $post->createdAt() }} </p>
                         </div>
-                        <a href="#">
+                        <a href="{{ route('public-part.blog.search-by-category', ['category' => $post->category ]) }}">
                             <div class="single__icon">
                                 <i class="fas fa-tag"></i>
                                 <p> {{ $post->categoryRel->value ?? '' }} </p>
