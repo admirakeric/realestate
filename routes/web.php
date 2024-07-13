@@ -143,6 +143,11 @@ Route::prefix('system')->middleware('auth-middleware')->group(function () {
             Route::get ('/edit-location/{slug}',                         [EstatesController::class, 'editLocation'])->name('system.estates.google-map.edit-location');
             Route::post('/update-location',                              [EstatesController::class, 'updateLocation'])->name('system.estates.google-map.update-location');
         });
+
+        Route::prefix('features')->group(function () {
+            Route::get ('/edit-features/{slug}',                         [EstatesController::class, 'editFeatures'])->name('system.estates.google-map.edit-features');
+            Route::post('/update-features',                              [EstatesController::class, 'updateFeatures'])->name('system.estates.google-map.update-features');
+        });
     });
 
     /* FAQ routes */

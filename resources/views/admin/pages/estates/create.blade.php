@@ -103,6 +103,15 @@
                             </div>
                         </div>
                     </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <b>{{ html()->label(__('Cijena po metru kvadratnom'))->for('sq_m_price') }}</b>
+                                {{ html()->text('sq_m_price')->class('form-control form-control-sm mt-1')->required()->maxlength(50)->value(isset($estate) ? $estate->sq_m_price : '')->isReadonly(isset($previewVar)) }}
+                                <small id="sq_m_priceHelp" class="form-text text-muted">{{ __('Npr. 1200.00 KM - Cijena nekretnine ili zemljišta') }}</small>
+                            </div>
+                        </div>
+                    </div>
 
                     <hr>
 

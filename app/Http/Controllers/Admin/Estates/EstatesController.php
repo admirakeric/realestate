@@ -9,6 +9,7 @@ use App\Models\Core\File;
 use App\Models\Core\Keyword;
 use App\Models\Estates\Estate;
 use App\Models\Estates\EstateImage;
+use App\Models\Estates\Feature;
 use App\Traits\Common\FileTrait;
 use App\Traits\Http\ResponseTrait;
 use Illuminate\Http\JsonResponse;
@@ -228,7 +229,7 @@ class EstatesController extends Controller{
             'estate' => $estate
         ]);
     }
-    public function updateLocation(Request $request): JsonResponse{
+    public function updateLocation(Request $request): JsonResponse | bool | string{
         try{
             Estate::where('id', $request->id)->update([
                 'latitude' => $request->lat,
@@ -239,5 +240,32 @@ class EstatesController extends Controller{
         }catch (\Exception $e){
             return $this->jsonResponse('1200', __('Desila se greška!'));
         }
+    }
+
+    /*
+     *  Features
+     */
+    public function editFeatures($slug): View{
+        $estate = Estate::where('slug', $slug)->first();
+
+        return view($this->_path . 'features', [
+            'estate' => $estate,
+            'features' => Keyword::where('keyword', 'estate_features')->orderBy('value')->get(),
+        ]);
+    }
+    public function updateFeatures(Request $request): RedirectResponse{
+        try{
+            $estate = Estate::where('id', $request->id)->first();
+            Feature::where('estate_id', $request->id)->delete();
+
+            foreach ($request->features as $feature){
+                Feature::create([
+                    'estate_id' => $request->id,
+                    'feature' => $feature
+                ]);
+            }
+
+            return redirect()->route('system.estates.preview', ['slug' => $estate->slug]);
+        }catch (\Exception $e){ return back(); }
     }
 }

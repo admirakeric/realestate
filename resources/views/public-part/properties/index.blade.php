@@ -43,7 +43,7 @@
                                 <div class="bottom_buttons">
                                     <div class="bottom_buttons_w bottom_buttons_w_left">
                                         <h4> KM {{ $estate->getPrice() }} </h4>
-                                        <p> KM {{ $estate->pricePerSquareMeter() }} / m <sup>2</sup> </p>
+                                        <p> KM {{ $estate->sq_m_price }} / m <sup>2</sup> </p>
                                     </div>
                                     <div class="bottom_buttons_w">
                                         <div class="icon_w icon_w_first">

@@ -49,7 +49,7 @@
             <div class="header_right">
                 <div class="price_wrapper">
                     <h2> KM {{ $estate->getPrice() }} </h2>
-                    <p> KM {{ $estate->pricePerSquareMeter() }} / m <sup>2</sup> </p>
+                    <p> KM {{ $estate->sq_m_price }} KM / m <sup>2</sup> </p>
                 </div>
             </div>
         </div>
@@ -117,7 +117,7 @@
 
                         <div class="price_wrapper">
                             <h2> {{ $estate->getPrice() }} KM </h2>
-                            <p> {{ $estate->pricePerSquareMeter() }}  KM / m <sup>2</sup> </p>
+                            <p> {{ $estate->sq_m_price }}  KM / m <sup>2</sup> </p>
                         </div>
                     </div>
                 </div>
@@ -272,25 +272,49 @@
                             <p>KM {{ $estate->getPrice() }}</p>
                         </div>
                         <div class="dual_element">
-                            <p><b>{{ __('Površina') }}</b></p>
-                            <p> {{ $estate->surface }} m <sup>2</sup></p>
+                            @if($estate->surface == 0)
+                                <p><b>{{ __('Površina zemljišta') }}</b></p>
+                                <p> {{ $estate->land_surface }} m <sup>2</sup></p>
+                            @else
+                                <p><b>{{ __('Površina') }}</b></p>
+                                <p> {{ $estate->surface }} m <sup>2</sup></p>
+                            @endif
                         </div>
-                        <div class="dual_element">
-                            <p><b>{{ __('Garaže') }}</b></p>
-                            <p>{{ $estate->garages }}</p>
-                        </div>
-                        <div class="dual_element">
-                            <p><b>{{ __('Spavaćih soba') }}</b></p>
-                            <p> {{ $estate->bedrooms }} </p>
-                        </div>
-                        <div class="dual_element">
-                            <p><b>{{ __('Kupatila') }}</b></p>
-                            <p> {{ $estate->bathrooms }} </p>
-                        </div>
-                        <div class="dual_element">
-                            <p><b>{{ __('Status') }}</b></p>
-                            <p> {{ $estate->purposeRel->value ?? '' }} </p>
-                        </div>
+                        @if($estate->category != 11)
+                            <div class="dual_element">
+                                <p><b>{{ __('Garaže') }}</b></p>
+                                <p>{{ $estate->garages }}</p>
+                            </div>
+                            <div class="dual_element">
+                                <p><b>{{ __('Spavaćih soba') }}</b></p>
+                                <p> {{ $estate->bedrooms }} </p>
+                            </div>
+                            <div class="dual_element">
+                                <p><b>{{ __('Kupatila') }}</b></p>
+                                <p> {{ $estate->bathrooms }} </p>
+                            </div>
+                            <div class="dual_element">
+                                <p><b>{{ __('Status') }}</b></p>
+                                <p> {{ $estate->purposeRel->value ?? '' }} </p>
+                            </div>
+                        @endif
+                    </div>
+                </div>
+
+                <div class="estate_element dual_elements address">
+                    <div class="ee_header">
+                        <h4>{{ __('Karakteristike') }}</h4>
+                    </div>
+
+                    <div class="ee_body dual_elements_body dual_elements_body_g24">
+                        @foreach($estate->featuresRel as $feature)
+                            <div class="feature">
+                                <div class="circle__w">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                                <p>{{ $feature->feature ?? '' }}</p>
+                            </div>
+                        @endforeach
                     </div>
                 </div>
 

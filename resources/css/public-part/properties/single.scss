@@ -306,9 +306,28 @@
                     .single_element{
                         width: 100%;
                     }
+
+                    .feature{
+                        position: relative; width: calc(33.33% - 16px); display: flex; gap: 16px; align-items: center;
+                        @media only screen and (max-width: 800px){
+                            width: 100%;
+                        }
+                        .circle__w{
+                            width: 16px; height: 16px; display: flex; justify-content: center; align-items: center; border: 1px solid #333333; border-radius: 50%;
+                            i{
+                                font-size: 10px; color: #333333;
+                            }
+                        }
+                        p{
+                            color: #333333; 
+                        }
+                    }
                 }
                 .dual_elements_body_colored{
                     background: rgba(1, 192, 207, 0.1); padding: 32px; border: 1px solid $primary; border-radius: 3px;
+                }
+                .dual_elements_body_g24{
+                    gap: 24px;
                 }
             }
 

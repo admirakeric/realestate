@@ -21,6 +21,7 @@ class Keyword extends Model{
         'faq' => 'FAQ - Kategorije',
         'estate__type' => 'Vrsta nekretnina',
         'estate_purpose' => 'Svrha',
+        'estate_features' => 'Karakteristike nekretnine',
         'cities' => 'Gradovi',
         'da_ne' => 'Da / Ne',
         'blog_category' => 'Blog kategorija'

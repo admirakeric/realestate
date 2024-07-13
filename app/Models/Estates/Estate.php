@@ -59,4 +59,10 @@ class Estate extends Model{
             return $date->day . '. ' . $this->months[$date->month - 1] . ' ' . $date->year . ' u ' . $date->hour . ':' . $date->minute .'h';
         }catch (\Exception $e){ return ""; }
     }
+    public function hasFeature($feature){
+        return Feature::where('estate_id', '=', $this->id)->where('feature', '=', $feature)->count();
+    }
+    public function featuresRel(): HasMany{
+        return $this->hasMany(Feature::class, 'estate_id', 'id');
+    }
 }

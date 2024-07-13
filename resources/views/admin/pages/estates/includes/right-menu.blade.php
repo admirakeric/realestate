@@ -55,6 +55,25 @@
                             </a>
                         </div>
                     </div>
+
+                    <hr class="mt-4">
+
+                    <a href="{{ route('system.estates.google-map.edit-features', ['slug' => $estate->slug ]) }}" title="{{ __('Unesite novu fotografiju') }}">
+                        <div class="col-md-12 d-flex justify-content-between">
+                            <h6 class="pt-0"> {{ __('Karakteristike nekretnine') }} </h6>
+                            <a href="#">
+                                <small><i class="fas fa-book"></i></small>
+                            </a>
+                        </div>
+                    </a>
+                    <div class="col-md-12 mt-2">
+                        <ol>
+                            @foreach($estate->featuresRel as $feature)
+                                <li>{{ $feature->feature ?? '' }}</li>
+                            @endforeach
+                        </ol>
+                    </div>
+                </div>
                 </div>
             </div>
         </div>
