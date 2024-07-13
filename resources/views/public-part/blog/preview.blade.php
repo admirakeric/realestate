@@ -1,5 +1,11 @@
 @extends('public-part.layout.layout')
 
+@section('title'){{ $post->title }}@endsection
+@section('meta_uri'){{ route('public-part.blog.preview', ['slug' => $post->slug]) }}}@endsection
+@section('meta_title'){{ $estate->title }}@endsection
+@section('meta_desc'){{ $estate->short_desc }}@endsection
+@section('meta_img'){{ isset($post->imageRel) ? asset( 'files/images/blog/' . $post->imageRel->name ?? '') : '' }}@endsection
+
 @section('content')
     <!-- Include filters -->
     @include('public-part.layout.includes.blog-filters')
