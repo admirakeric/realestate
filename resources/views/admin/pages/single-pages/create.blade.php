@@ -61,7 +61,7 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <b>{{ html()->label(__('Detaljan opis'))->for('description') }}</b>
-                                {{ html()->textarea('description')->class('form-control form-control-sm')->maxlength(5000)->value("")->style('height:320px')->required()->value(isset($page) ? $page->description : '')->isReadonly(false) }}
+                                {{ html()->textarea('description')->class('form-control form-control-sm summernote')->maxlength(10000)->value("")->style('height:320px')->required()->value(isset($page) ? $page->description : '')->isReadonly(false) }}
                                 <small id="descriptionHelp" class="form-text text-muted">{{ __('Detaljni opis posta') }}</small>
                             </div>
                         </div>

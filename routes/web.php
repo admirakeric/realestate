@@ -86,6 +86,7 @@ Route::prefix('')->middleware('public-middleware')->group(function () {
         Route::get('/terms-and-conditions',                      [HomeController::class, 'termsAndConditions'])->name('public-part.pages.terms-and-conditions');
         Route::get('/cookies',                                   [HomeController::class, 'cookies'])->name('public-part.pages.cookies');
         Route::get('/about-us',                                  [HomeController::class, 'aboutUs'])->name('public-part.pages.about-us');
+        Route::get('/business-terms',                            [HomeController::class, 'businessTerms'])->name('public-part.pages.business-terms');
 
         Route::get('/preview/{id}',                              [HomeController::class, 'preview'])->name('public-part.pages.preview');
     });

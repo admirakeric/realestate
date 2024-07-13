@@ -37,7 +37,7 @@ class SinglePagesController extends Controller{
 
     public function save(Request $request): RedirectResponse{
         try{
-            $page = SinglePage::create($request->except(['_token']));
+            $page = SinglePage::create($request->except(['_token', 'files']));
             return redirect()->route('system.single-pages.edit', ['id' => $page->id ]);
         }catch (\Exception $e){  }
     }
@@ -50,7 +50,7 @@ class SinglePagesController extends Controller{
     }
     public function update(Request $request): RedirectResponse{
         try{
-            SinglePage::where('id', $request->id)->update($request->except(['_token', 'id']));
+            SinglePage::where('id', $request->id)->update($request->except(['_token', 'id', 'files']));
             return back();
         }catch (\Exception $e){  }
     }

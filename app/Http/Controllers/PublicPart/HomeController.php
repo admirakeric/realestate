@@ -21,5 +21,6 @@ class HomeController extends Controller{
     public function termsAndConditions(): View{ return view('public-part.pages.single-page', [ 'page' => SinglePage::where('id', 2)->first() ]); }
     public function cookies(): View{ return view('public-part.pages.single-page', [ 'page' => SinglePage::where('id', 3)->first() ]); }
     public function aboutUs(): View{ return view('public-part.pages.single-page', [ 'page' => SinglePage::where('id', 1)->first() ]); }
+    public function businessTerms(): View{ return view('public-part.pages.single-page', [ 'page' => SinglePage::where('id', 5)->first() ]); }
     public function preview($id): View{ return view('public-part.pages.single-page', [ 'page' => SinglePage::where('id', $id)->first() ]); }
 }

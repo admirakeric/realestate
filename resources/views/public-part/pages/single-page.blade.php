@@ -11,7 +11,7 @@
         @endisset
 
         <div class="text__wrapper">
-            <h1>{{ $page->title }}</h1>
+{{--            <h1>{{ $page->title }}</h1>--}}
             <p> {!! nl2br($page->description) !!} </p>
         </div>
     </div>

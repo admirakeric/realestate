@@ -118,6 +118,9 @@
                                 @endforeach
                             </div>
                         </li>
+                        <li class="li_menu">
+                            <a class="menu" href="{{ route('public-part.pages.business-terms') }}"> {{ __('Uslovi poslovanja') }} </a>
+                        </li>
                     </ul>
                 </nav>
             </div>
