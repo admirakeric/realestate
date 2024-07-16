@@ -13,7 +13,7 @@
                         <h4>{{ $slide->description }}</h4>
 
                         <div class="button">
-                            <a href="">POGLEDAJTE VIŠE</a>
+                            <a href="{{ $slide->link }}">POGLEDAJTE VIŠE</a>
                         </div>
                     </div>
                 </div>
