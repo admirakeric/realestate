@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\Estates\EstatesController;
+use App\Http\Controllers\Admin\Other\SliderController;
 use App\Http\Controllers\Admin\SinglePages\SinglePagesController;
 use App\Http\Controllers\Admin\Users\UsersController;
 use App\Http\Controllers\Admin\Blog\BlogController as AdminBlogController;
@@ -48,7 +49,6 @@ Route::prefix('')->middleware('public-middleware')->group(function () {
        Route::get('/',                                   [BlogController::class, 'index'])->name('public-part.blog.index');
        Route::get('/search-by-category/{category}',      [BlogController::class, 'index'])->name('public-part.blog.search-by-category');
        Route::get('/preview/{slug}',                     [BlogController::class, 'preview'])->name('public-part.blog.preview');
-
     });
 
     /**
@@ -204,5 +204,15 @@ Route::prefix('system')->middleware('auth-middleware')->group(function () {
         Route::get ('/delete/{id}',                          [AdminBlogController::class, 'delete'])->name('system.blog.delete');
 
         Route::post('/update-image',                        [AdminBlogController::class, 'updateImage'])->name('system.blog.update-image');
+    });
+
+    /*
+     *  Slider
+     */
+    Route::group(['prefix' => '/slider'], function (){
+        Route::get('/',                                      [SliderController::class, 'index'])->name('system.slider.index');
+        Route::get('/create',                                [SliderController::class, 'create'])->name('system.slider.create');
+        Route::post('/save',                                 [SliderController::class, 'save'])->name('system.slider.save');
+        Route::get ('/delete/{id}',                          [SliderController::class, 'delete'])->name('system.slider.delete');
     });
 });

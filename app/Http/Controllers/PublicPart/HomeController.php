@@ -4,6 +4,7 @@ namespace App\Http\Controllers\PublicPart;
 
 use App\Http\Controllers\Controller;
 use App\Models\Estates\Estate;
+use App\Models\Other\Slider;
 use App\Models\SinglePages\SinglePage;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
@@ -13,7 +14,8 @@ class HomeController extends Controller{
 
     public function home(): View{
         return view($this->_path . 'home', [
-            'estates' => Estate::where('published', 1)->where('sponsored', 20)->inRandomOrder()->take(6)->get()
+            'estates' => Estate::where('published', 1)->where('sponsored', 20)->inRandomOrder()->take(6)->get(),
+            'slider' => Slider::get()
         ]);
     }
 

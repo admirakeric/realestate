@@ -384,6 +384,19 @@
                 </div>
             </div>
         </a>
+        <a href="{{ route('system.slider.index') }}" class="menu-a-link">
+            <div class="s-lm-wrapper">
+                <div class="s-lm-s-elements">
+                    <div class="s-lms-e-img">
+                        <i class="fas fa-image"></i>
+                    </div>
+                    <p>{{__('Slider')}}</p>
+                    <div class="extra-elements">
+                        <div class="ee-t ee-t-b"><p>{{__('Image')}}</p></div>
+                    </div>
+                </div>
+            </div>
+        </a>
     </div>
 {{--    @include('system.template.menu.menu-includes.bottom-icons')--}}
 </div>

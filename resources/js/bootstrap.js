@@ -135,4 +135,27 @@ const featuredProperties = new Swiper('.featured_properties', {
     loop: true,
 });
 
+const mainSlider = new Swiper('#home-slider', {
+    autoplay: {
+        delay: 2500,
+        disableOnInteraction: false,
+        loop: true
+    },
+    speed: 2000,
+    pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+        renderBullet: function (index, className) {
+            return '<span class="' + className + '"></span>';
+        },
+    },
+    on: {
+        slideChange: function () {
+            $("#current-slide-val").text(swiper.realIndex = swiper.slides.eq([swiper.activeIndex]).attr('data-swiper-slide-index') || swiper.activeIndex + 1);
+        }
+    }
+});
+
+$("#total-slides").text(mainSlider.slides.length); // Set number of slides
+
 import './core/maps.js'

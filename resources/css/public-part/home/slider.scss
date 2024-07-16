@@ -1,0 +1,205 @@
+.hm-slider{
+    position:relative;
+    left:0px;
+    top:0px;
+    width:100%;
+    overflow: hidden;
+    .swiper-container {
+        width: 100%;
+        height: auto;
+        .swiper-wrapper{
+            height: auto;
+            .swiper-slide {
+                position: relative;
+                text-align: center;
+                font-size: 18px;
+                background: #fff;
+                height: auto;
+                width: 100%;
+                margin-bottom: -6px; overflow: hidden;
+                img{
+                    left:0px; top:0px; width:100%;
+                    margin:0px; z-index: 0;
+                }
+                .mobile-slide-img{ display: none; }
+                .desktop-slide-img{ display: initial; }
+
+                .shadow-element{
+                    position: absolute; left: 0px; top: 0px; width: 100%; height: 100%; background: rgba(0,0,0,0.2); z-index: 10;
+                }
+                .slider-text{
+                    z-index: 100;
+                    position:absolute;
+                    left:calc(50% - 700px);
+                    width:800px;
+                    height:300px;
+                    top:calc(50% - 150px);
+                    text-align: left;
+                    vertical-align: middle;
+                    h1{
+                        color:#FFFFFF;
+                        font-size:44px;
+                        font-weight: bold;
+                        margin-bottom:0px;
+                        text-transform: uppercase;
+                    }
+                    h2{
+                        color:#FFFFFF;
+                        margin-top:15px;
+                        font-size:35px;
+                        margin-bottom:0px;
+                    }
+                    h4{
+                        color:#FFFFFF; font-weight: normal;
+                    }
+                    .button{
+                        position:relative;
+                        background: $primary;
+                        width:auto;
+                        display: inline-flex;
+                        padding: 8px 32px;
+                        border-radius:4px;
+                        a{
+                            color:#fff;
+                            font-size:13px;
+                            margin:0px;
+                            text-decoration: none !important;
+                        }
+                    }
+                }
+
+
+                @media screen and (max-width: 1500px){
+                    .slider-text{
+                        left:calc(50% - 600px);
+                        width:1200px;
+                    }
+                }
+                @media screen and (max-width: 1300px){
+                    .slider-text{
+                        left:calc(50% - 500px);
+                        width:1000px;
+                    }
+                }
+                @media screen and (max-width: 1000px){
+                    .slider-text{
+                        left:30px;
+                        width:calc(100% - 60px);
+                    }
+                }
+                @media screen and (max-width: 800px){
+                    .mobile-slide-img{ display: initial; }
+                    .desktop-slide-img{ display: none; }
+                    .slider-text{
+                        left: 20px; top:30px; height: calc(100% - 60px);
+                    }
+                }
+            }
+        }
+
+        .slider-options{
+            position:absolute;
+            bottom:0px;
+            left:calc(50% - 700px);
+            width: calc(50% + 700px);
+            height: 140px;
+            z-index: 100;
+            display: inline-flex;
+            .slider-description{
+                position:relative;
+                left:0px;
+                top:0px;
+                width:700px;
+                height:100%;
+                display: inline-flex;
+                .swiper-pagination {
+                    position:relative;
+                    top: 60px;
+                    height:20px;
+                    left: 0px;
+                    width: auto !important;
+                    margin: 0;
+
+                    .swiper-pagination-bullet {
+                        padding: 2px 6px;
+                        width: auto;
+                        margin-right:15px;
+                        text-align: center;
+                        font-size: 12px;
+                        color:#fff;
+                        opacity: 1;
+                        background: #fff;
+                    }
+                    .swiper-pagination-bullet-active {
+                        color:#fff;
+                        background: $primary;
+                    }
+                }
+                .line{
+                    position:relative;
+                    width:200px;
+                    margin-left:5px;
+                    height:3px;
+                    background: #fff;
+                    top:calc(50% - 2px);
+                }
+                .swiper-numbers{
+                    position:relative;
+                    height:20px;
+                    top:50px;
+                    margin-left:20px;
+                    p{
+                        margin:0px;
+                        color:#fff;
+                        margin-top:7px;
+                    }
+                }
+            }
+        }
+
+        @media screen and (max-width: 1500px){
+            .slider-options{
+                left:calc(50% - 600px);
+                width: calc(50% + 600px);
+            }
+            .more-about-slider{
+                .social{
+                    width:600px;
+                }
+            }
+        }
+        @media screen and (max-width: 1400px){
+            .slider-options{
+                left:calc(50% - 500px);
+                width: calc(50% + 500px);
+
+                .more-about{display: none;}
+            }
+        }
+        @media screen and (max-width: 1200px){
+            .more-about-slider{display: none;}
+        }
+        @media screen and (max-width: 1000px){
+            .slider-options{
+                left:30px;
+                width:calc(100% - 60px);
+                .slider-description{
+                    width:100%;
+                    display: inline-flex;
+                    flex-wrap: nowrap;
+                    .line{
+                        width:120px;
+                    }
+                }
+            }
+        }
+        @media only screen and (max-width: 800px){
+            .slider-options{
+                .slider-description{ padding-top:30px; }
+            }
+        }
+    }
+}
+@media screen and (max-width: 1000px){
+    //.hm-slider{margin-top: 70px;}
+}

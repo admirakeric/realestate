@@ -1,4 +1,5 @@
 <!-- Primary Meta Tags -->
+<title>@yield('meta_title', __('Euro-Plac d.o.o'))</title>
 <meta name="title" content="@yield('meta_title', __('Euro-Plac d.o.o'))">
 <meta name="description" content="@yield('meta_desc', __('Olakšajte i ubrzajte prodaju/kupovinu nekretnine uz Euro-Plac d.o.o - Agenciju za poslovanje nekretninama'))">
 
