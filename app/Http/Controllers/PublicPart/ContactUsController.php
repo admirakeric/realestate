@@ -36,7 +36,6 @@ class ContactUsController extends Controller{
              * */
             Mail::to($this->_base_email)->send(new SendUsMessage('Kontakt forma', $request->name, $request->email, $request->name, $request->email, $request->phone, $request->message, $request->reason));
 
-
             return $this->jsonSuccess(__('Vaša poruka je uspješno poslana!'));
         }catch (\Exception $e){
             return $this->jsonError('1000', __('Vaša poruka je uspješno poslana!'));
