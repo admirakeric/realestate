@@ -25,8 +25,8 @@ class PropertiesController extends Controller{
     use CommonTrait, ResponseTrait, HttpTrait;
 
     protected string $_path = 'public-part.properties.';
-    // protected string $_base_email = 'europlac-nekretnine@hotmail.com';
-    protected string $_base_email = 'kaapiic@gmail.com';
+    protected string $_base_email = 'europlac-nekretnine@hotmail.com';
+    // protected string $_base_email = 'kaapiic@gmail.com';
 
     protected int $_per_page = 8;
 
@@ -58,6 +58,7 @@ class PropertiesController extends Controller{
         if(isset($searchedEstate->surface_to) and $searchedEstate->surface_to != ''){ $estates = $estates->where('surface', '<=', $searchedEstate->surface_to); }
         if(isset($searchedEstate->id) and !empty($searchedEstate->id)){ $estates = $estates->where('id', $searchedEstate->id); }
 
+        $estates = $estates->orderBy('updated_at', 'DESC');
         $estates = $estates->paginate($this->_per_page);
 
         return view($this->_path . 'index', [
@@ -107,12 +108,14 @@ class PropertiesController extends Controller{
             ]);
 
             $estate = Estate::where('id', $request->estate_id)->first();
-            $reason = "Posjeta nekretnine \"" . $estate->title . "\"";
+            $reason = "Posjeta nekretnine \"" . $estate->title . "\" " . (Carbon::parse($request->date)->format('d.m.Y')) . ' u ' . $request->time .'.';
 
             try{
                 /* Send an email */
-
                 Mail::to($this->_base_email)->send(new SendUsMessage('Posjeta nekretnini', $request->name, $request->email, $request->name, $request->email, $request->phone, $request->message, $reason));
+
+                /* Send copy to sender */
+                Mail::to($request->email)->send(new SendUsMessage('Kopija - Posjeta nekretnini', 'No-Reply', $this->_base_email, $request->name, $request->email, $request->phone, $request->message, $reason));
             }catch (\Exception $e){}
 
             return $this->jsonSuccess(__('Zahtjev uspješno kreiran. Naši agenti će Vas uskoro kontaktirati'));

@@ -45,6 +45,12 @@
                     <li class="footer__list1-item">
                         <a class="footer__list1-link" href="{{ route('public-part.pages.business-terms') }}"> {{ __('Uslovi poslovanja') }} </a>
                     </li>
+                    <li class="footer__list1-item">
+                        <h4 class="footer__list1-header">{{ __('Ostale usluge') }}</h4>
+                    </li>
+                    <li class="footer__list1-item">
+                        <a class="footer__list1-link" href="https://www.facebook.com/ovlasteniserviseuroplac" target="_blank"> {{ __('PJ Prodaja i ugradnja klima') }} </a>
+                    </li>
                 </ul>
                 <ul class="footer__list2">
                     <li class="footer__list1-item footer__list3-item">
