@@ -15,7 +15,7 @@ class ContactUsController extends Controller{
 
     protected string $_path = 'public-part.contact-us.';
     // protected string $_base_email = 'europlac-nekretnine@hotmail.com';
-    protected string $_base_email = 'kaapiic@gmail.com';
+    protected string $_base_email = 'europlac-nekretnine@hotmail.com';
 
     public function index(): View{
         return view($this->_path . 'contact-us', [
