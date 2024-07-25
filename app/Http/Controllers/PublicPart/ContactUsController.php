@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\PublicPart;
 
 use App\Http\Controllers\Controller;
-use App\Mail\ContactUs\SendUsMessage;
+use App\Mail\ContactUS\SendUsMessage;
 use App\Models\User;
 use App\Traits\Http\ResponseTrait;
 use Illuminate\Http\Request;
