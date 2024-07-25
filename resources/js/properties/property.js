@@ -64,12 +64,13 @@ $(document).ready(function (){
             if($(this).hasClass('active')) date = $(this).attr('date');
         });
 
-        console.log(date);
 
         if(name.val() === ''){ Notify.Me(["Molimo da unesete Vaše ime", "warn"]); return; }
         if(phone.val() === ''){ Notify.Me(["Molimo da unesete Vaše broj telefona", "warn"]); return; }
         if(email.val() === ''){ Notify.Me(["Molimo da unesete Vašu email adresu", "warn"]); return; }
         if(message.val() === ''){ Notify.Me(["Molimo da unesete željenu poruku", "warn"]); return; }
+
+        $(".loading").removeClass('d-none');
 
         $.ajax({
             url: '/properties/schedule-visit',

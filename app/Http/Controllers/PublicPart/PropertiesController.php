@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\PublicPart;
 
 use App\Http\Controllers\Controller;
+use App\Mail\ContactUS\SendUsMessage;
 use App\Models\Core\Event;
 use App\Models\Core\EventVisit;
 use App\Models\Core\Keyword;
@@ -17,12 +18,15 @@ use Carbon\CarbonPeriod;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\View\View;
 
 class PropertiesController extends Controller{
     use CommonTrait, ResponseTrait, HttpTrait;
 
     protected string $_path = 'public-part.properties.';
+    // protected string $_base_email = 'europlac-nekretnine@hotmail.com';
+    protected string $_base_email = 'kaapiic@gmail.com';
 
     protected int $_per_page = 8;
 
@@ -102,6 +106,14 @@ class PropertiesController extends Controller{
                 'estate_id' => $request->estate_id,
             ]);
 
+            $estate = Estate::where('id', $request->estate_id)->first();
+            $reason = "Posjeta nekretnine \"" . $estate->title . "\"";
+
+            try{
+                /* Send an email */
+
+                Mail::to($this->_base_email)->send(new SendUsMessage('Posjeta nekretnini', $request->name, $request->email, $request->name, $request->email, $request->phone, $request->message, $reason));
+            }catch (\Exception $e){}
 
             return $this->jsonSuccess(__('Zahtjev uspješno kreiran. Naši agenti će Vas uskoro kontaktirati'));
         }catch (\Exception $e){
