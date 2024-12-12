@@ -19,5 +19,6 @@ yarn-error.log
 /.vscode
 
 /public/files/images/estates
+/public/files/images/estates/qr-codes
 /public/files/images/pages
 /public/files/images/slider
