@@ -18,6 +18,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 use Intervention\Image\Laravel\Facades\Image;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class EstatesController extends Controller{
     use FileTrait, ResponseTrait;
@@ -125,6 +126,26 @@ class EstatesController extends Controller{
 
             return redirect()->route('system.estates.index');
         }catch (\Exception $e){}
+    }
+
+    /**
+     *  QR Code generator
+     */
+    public function generateQRCode($slug){
+        try{
+            $estate = Estate::where('slug', $slug)->first();
+
+            $path = 'files/images/estates/qr-codes/estate-'. ($estate->id) .'.png';
+
+            $qr = QrCode::size(2000)
+                ->format('png')
+                ->generate(route('public-part.properties.preview', ['slug' => $slug]), public_path($path));
+
+            return response()->download(public_path($path), $slug . '.png');
+
+        }catch (\Exception $e){
+
+        }
     }
 
     /**

@@ -73,7 +73,16 @@
                             @endforeach
                         </ol>
                     </div>
-                </div>
+
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <a href="{{ route('system.estates.generate-qr-code', ['slug' => $estate->slug ]) }}">
+                                <div class="btn btn-sm btn-info w-100 text-white">
+                                    <b> {{ __('QrCode') }} </b>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

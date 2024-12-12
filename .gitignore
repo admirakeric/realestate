@@ -17,3 +17,7 @@ yarn-error.log
 /.fleet
 /.idea
 /.vscode
+
+/public/files/images/estates
+/public/files/images/pages
+/public/files/images/slider

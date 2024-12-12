@@ -133,6 +133,11 @@ Route::prefix('system')->middleware('auth-middleware')->group(function () {
         Route::post('/update',                   [EstatesController::class, 'update'])->name('system.estates.update');
         Route::get ('/delete/{slug}',            [EstatesController::class, 'delete'])->name('system.estates.delete');
 
+        /**
+         *  QR Code generator: Generate QR codes for estates
+         */
+        Route::get ('/generate-qr-code/{slug}',            [EstatesController::class, 'generateQRCode'])->name('system.estates.generate-qr-code');
+
         Route::prefix('images')->group(function () {
             Route::get ('/insert-new-image/{slug}',                      [EstatesController::class, 'insertNewImage'])->name('system.estates.insert-new-image');
             Route::post('/save-new-image',                               [EstatesController::class, 'saveNewImage'])->name('system.estates.save-new-image');
