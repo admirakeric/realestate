@@ -144,7 +144,7 @@ class EstatesController extends Controller{
             return response()->download(public_path($path), $slug . '.png');
 
         }catch (\Exception $e){
-
+            dd($e);
         }
     }
 
